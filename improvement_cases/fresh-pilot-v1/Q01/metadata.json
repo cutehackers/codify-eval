@@ -1,0 +1,26 @@
+{
+  "id": "Q01",
+  "cohort": "fresh-pilot-v1",
+  "title": "Managed account role changes",
+  "language": "dart",
+  "framework": "flutter",
+  "category": "question-judgment",
+  "starting_repository": "repo",
+  "task_file": "task.md",
+  "owned_files": [
+    "lib/implementation.dart"
+  ],
+  "scope": {
+    "allowed_files": [
+      "lib/implementation.dart"
+    ]
+  },
+  "offline": true,
+  "dependencies": [
+    "flutter",
+    "flutter_test"
+  ],
+  "public_smoke": "test/public_smoke_test.dart",
+  "expected_private_test_count": 9,
+  "expected_total_test_count": 10
+}

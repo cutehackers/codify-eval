@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-14T04:20:07.128490+00:00",
+  "removed_owned_build_cache_records": 14,
+  "exit_code": 0,
+  "stdout": "ID\t\t\t\t\t\tRECLAIMABLE\tSIZE\t\tLAST ACCESSED\nr66m0r6xbh8s39tg15n3nqzwp               \ttrue \t\t0B        \t4 days ago\n1i7r8qqdybx9eri83frjoinaf*              \ttrue \t0B        \t4 days ago\nklmxnzysrdq8igvflaqakkcbk*              \ttrue \t472B      \t4 days ago\nwd49cbqbag5lr9alrtkqbgjyw*              \ttrue \t193B      \t4 days ago\nmxg50bjixxfqm6z7lng6p8v98               \ttrue \t285MB     \tLess than a second ago\nr7g14m8zklymnngmqmipo1alx               \ttrue \t193B      \tLess than a second ago\nbl51bt7oacrkrmno2co2yhrlr               \ttrue \t785.7MB   \tLess than a second ago\nibvwtzdivnzg7r2i5hcaptrbg               \ttrue \t0B        \tLess than a second ago\nkftn69spud5du1dy7bwn8qsqx               \ttrue \t0B        \tLess than a second ago\nwlw6bmyg4xmxh5c34f169qck1               \ttrue \t0B        \tLess than a second ago\nwp24xrxdfzat1dkvzc2525uwm               \ttrue \t0B        \tLess than a second ago\no1xyjfimkfwb4qjmdbn60m4x5               \ttrue \t0B        \tLess than a second ago\nxyq55obn7agms9iqdm1qikaki               \ttrue \t0B        \tLess than a second ago\nxal9ou3ty2hqci909ucg83f1m               \ttrue \t0B        \tLess than a second ago\nTotal:\t1.071GB\n",
+  "stderr": "",
+  "cache_after": "Reclaimable:\t0B\nTotal:\t\t0B\n",
+  "unrelated_images_unchanged": true,
+  "containers_after": [],
+  "volumes_after": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "M04",
+  "file": "lib/journey_service.dart",
+  "replace_once": {
+    "from": "if(age<=600 && expiredCacheMode=='warn')",
+    "to": "if(age<=600)"
+  },
+  "branches": [
+    "hide"
+  ],
+  "must_fail": [
+    "r5 owner policy obeys inclusive age boundaries and hard ceiling"
+  ],
+  "violation": "Unapproved old journey displayed"
+}

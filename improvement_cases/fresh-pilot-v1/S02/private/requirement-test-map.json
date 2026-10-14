@@ -1,0 +1,78 @@
+{
+  "case_id": "S02",
+  "oracle": "oracle/test/acceptance_test.dart",
+  "requirements": [
+    {
+      "id": "C1",
+      "tests": [
+        "C1 denied malformed imports have no effects"
+      ]
+    },
+    {
+      "id": "C2",
+      "tests": [
+        "C2 batch bounds and empty workspace",
+        "C2 invalid key or late invalid value aborts whole batch",
+        "C2 inclusive maximums accepted"
+      ]
+    },
+    {
+      "id": "C3",
+      "tests": [
+        "C3 normalized duplicates reject including same value"
+      ]
+    },
+    {
+      "id": "C4",
+      "tests": [
+        "C4 valid replacement normalizes and preserves inputs",
+        "C2 invalid key or late invalid value aborts whole batch"
+      ]
+    },
+    {
+      "id": "C5",
+      "tests": [
+        "C5 atomic store failure retains prior configuration and safe error"
+      ]
+    }
+  ],
+  "negatives": [
+    {
+      "id": "N01",
+      "defect": "Duplicate normalized keys silently overwrite.",
+      "must_fail_tests": [
+        "C3 normalized duplicates reject including same value"
+      ],
+      "label": "last-key-wins",
+      "implementation": "negative/N01/lib/implementation.dart"
+    },
+    {
+      "id": "N02",
+      "defect": "Store can mutate submitted configuration.",
+      "must_fail_tests": [
+        "C4 valid replacement normalizes and preserves inputs"
+      ],
+      "label": "mutable-submission",
+      "implementation": "negative/N02/lib/implementation.dart"
+    },
+    {
+      "id": "N03",
+      "defect": "Importer capability bypasses workspace isolation.",
+      "must_fail_tests": [
+        "C1 denied malformed imports have no effects"
+      ],
+      "label": "cross-workspace-import",
+      "implementation": "negative/N03/lib/implementation.dart"
+    },
+    {
+      "id": "N04",
+      "defect": "Multiline values evade strict import validation.",
+      "must_fail_tests": [
+        "C2 invalid key or late invalid value aborts whole batch"
+      ],
+      "label": "allow-newlines",
+      "implementation": "negative/N04/lib/implementation.dart"
+    }
+  ],
+  "qualification_status": "not_run"
+}

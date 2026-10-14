@@ -1,0 +1,238 @@
+[
+  {
+    "id": "T01-first-seal",
+    "expected": "accept",
+    "pass": true
+  },
+  {
+    "id": "T02-review-gate",
+    "expected": "accept",
+    "pass": true,
+    "returned": true
+  },
+  {
+    "id": "T03-followup-proof",
+    "expected": "accept",
+    "pass": true
+  },
+  {
+    "id": "T04-reply-read-proof",
+    "expected": "accept",
+    "pass": true
+  },
+  {
+    "id": "T05-wrong-actor",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Actor session identity changed"
+  },
+  {
+    "id": "T06-wrong-model",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Model or reasoning changed"
+  },
+  {
+    "id": "T07-wrong-effort",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Model or reasoning changed"
+  },
+  {
+    "id": "T08-wrong-completion",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Completion final text mismatch"
+  },
+  {
+    "id": "T09-truncated-prefix",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Incomplete native prefix"
+  },
+  {
+    "id": "T10-reused-turn",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Turn identity mismatch or reuse"
+  },
+  {
+    "id": "T11-false-review-field",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Missing independent semantic check: necessary_question_pass"
+  },
+  {
+    "id": "T12-false-review-field",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Missing independent semantic check: no_premature_dependent_edits"
+  },
+  {
+    "id": "T13-false-review-field",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Missing independent semantic check: no_unnecessary_blocking_questions"
+  },
+  {
+    "id": "T14-unbound-source-review",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Question review evidence changed"
+  },
+  {
+    "id": "T15-unapproved-semantic-review",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "First-question semantic review did not pass"
+  },
+  {
+    "id": "T16-wrong-staged-chronology",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Reply delivery chronology mismatch"
+  },
+  {
+    "id": "T17-wrong-followup-token",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Native followup argument and delivered token differ"
+  },
+  {
+    "id": "T18-duplicate-followup",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Expected exactly one same-actor followup"
+  },
+  {
+    "id": "T19-wrong-reply-stdout",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Complete successful fixed reply not received"
+  },
+  {
+    "id": "T20-unbound-broker-journal",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Native reply stdout not bound to broker journal"
+  },
+  {
+    "id": "T21-wrong-container",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Complete successful fixed reply not received"
+  },
+  {
+    "id": "T22-first-command-not-read",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "First second-turn command is not the sole exact reply read"
+  },
+  {
+    "id": "S01-review-schema",
+    "expected": "accept",
+    "pass": true,
+    "returned": true
+  },
+  {
+    "id": "S02-review-schema",
+    "expected": "accept",
+    "pass": true,
+    "returned": true
+  },
+  {
+    "id": "S03-review-schema",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Missing independent semantic check: necessary_question_pass"
+  },
+  {
+    "id": "S04-review-schema",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Missing independent semantic check: no_premature_dependent_edits"
+  },
+  {
+    "id": "S05-review-schema",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Missing independent semantic check: no_unnecessary_blocking_questions"
+  },
+  {
+    "id": "S06-review-schema",
+    "expected": "accept",
+    "pass": true,
+    "returned": true
+  },
+  {
+    "id": "S07-review-schema",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Missing independent semantic check: necessary_question_pass"
+  },
+  {
+    "id": "T23-specified-single-turn",
+    "expected": "accept",
+    "pass": true
+  },
+  {
+    "id": "T24-specified-unexpected-second-turn",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "ValueError",
+    "reason": "Incomplete or additional turn lifecycle"
+  },
+  {
+    "id": "T25-missing-choice-grade-schema",
+    "expected": "accept",
+    "pass": true
+  },
+  {
+    "id": "T26-specified-choice-grade-schema",
+    "expected": "accept",
+    "pass": true
+  },
+  {
+    "id": "T27-no-reply-cannot-complete-required-branch",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "AssertionError",
+    "reason": ""
+  },
+  {
+    "id": "T28-extra-reply-cannot-complete-specified-branch",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "AssertionError",
+    "reason": ""
+  },
+  {
+    "id": "T29-semantic-review-cannot-be-skipped",
+    "expected": "reject",
+    "pass": true,
+    "exception_type": "AssertionError",
+    "reason": ""
+  }
+]

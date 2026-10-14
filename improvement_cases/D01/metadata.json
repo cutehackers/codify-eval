@@ -1,0 +1,26 @@
+{
+  "id": "D01",
+  "type": "development_regression",
+  "framework": "Flutter flutter_test / pure Dart ChangeNotifier",
+  "command": "flutter pub get --offline && flutter test test/acceptance_test.dart --reporter expanded",
+  "allowed_paths": [
+    "lib/**",
+    "test/**"
+  ],
+  "protected_paths": [
+    "pubspec.yaml",
+    "AGENTS.md",
+    "test/smoke_test.dart"
+  ],
+  "oracle_path": "oracle/test/acceptance_test.dart",
+  "solution_path": "reference",
+  "requirements_disclosed": true,
+  "role": "development_only",
+  "negative_variants": [
+    "no_generation",
+    "retry_noop",
+    "dispose_state_write",
+    "empty_without_notification",
+    "noop_retry_notification"
+  ]
+}

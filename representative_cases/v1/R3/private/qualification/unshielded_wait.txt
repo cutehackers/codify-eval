@@ -1,0 +1,26 @@
+test_cancel_one_preserves_other (test_behavior.Behavior.test_cancel_one_preserves_other) ... FAIL
+
+======================================================================
+FAIL: test_cancel_one_preserves_other (test_behavior.Behavior.test_cancel_one_preserves_other)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 128, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests/test_behavior.py", line 128, in run
+    await asyncio.wait_for(method(self), timeout=2)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests/test_behavior.py", line 47, in test_cancel_one_preserves_other
+    self.assertEqual(self.service.pending_count, 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=1)

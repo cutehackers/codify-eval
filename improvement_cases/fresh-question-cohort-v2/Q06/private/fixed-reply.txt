@@ -1,0 +1,1 @@
+Keep the existing note whenever its ID already exists, even if the backup content differs. Report it in unchangedIds. Continue importing new IDs from the same backup, and do not modify existing note metadata.

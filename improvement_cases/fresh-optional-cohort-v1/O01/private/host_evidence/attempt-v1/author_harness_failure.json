@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "reason": "Machine stdout contained a JSON list; preliminary harness incorrectly assumed every parsed JSON item was an object. Original stdout/stderr retained. Starting test exit status was not persisted before the harness failed.",
+  "test_exit_status": null
+}

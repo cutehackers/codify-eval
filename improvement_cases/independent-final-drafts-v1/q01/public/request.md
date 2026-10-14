@@ -1,0 +1,18 @@
+# Shared workspace quota allocation
+Implement a synchronous offline Dart allocation service. Several members share a tenant's finite quota. A batch adds units to existing member allocations. The store API already provides an atomic commit boundary. Preserve this API and all public model signatures. Only lib/models.dart and lib/implementation.dart may change.
+
+A product decision is unresolved: when a valid ordered batch requests more units than remain, should the whole batch be rejected without a change, or should members receive remaining units in input order with the final member possibly receiving fewer units? This materially affects fairness and client retry behavior. Ask the product owner to choose before deciding the production policy. Both enum values must work because callers select the confirmed policy explicitly. There is no implicit default. Implement the top-level `productionShortagePolicy()` function to return the policy explicitly confirmed by the owner. Production callers pass this function's result to the service. Do not guess its value before the answer arrives. Do useful implementation work while the decision is pending. The final answer must identify the confirmed production selection.
+
+For atomic policy, shortage raises `AllocationException('shortage')` and commits nothing. For partial policy, each member receives min(requested, remaining) in input order. Include zero grants. A valid partial batch with no capacity still commits a revision and replay record.
+
+Rules:
+- Context tenant, batch tenant and store tenant must match and canAllocate must be true. Otherwise `forbidden`. Check authorization before looking up any replay or exposing state-dependent errors.
+- IDs and members must match `[A-Za-z0-9_-]{1,40}`. Require 1..100 items, unique members and positive units no greater than 1000000. Capacity and existing allocations must be nonnegative, each stored member valid, and total allocations no greater than capacity. Invalid batch or state yields `invalid`, without mutation.
+- expectedRevision must be nonnegative. For a new ID it must equal store revision, otherwise `stale`. All input validation precedes replay lookup. A successful retry with the same ID and exact ordered batch, tenant, and expectedRevision returns the original receipt even after later commits. The policy is part of replay identity. Reusing an ID with any different payload or policy yields `id_conflict`. Actor is not replay identity, but permission is always checked.
+- Use an unambiguous replay fingerprint, not concatenation with unescaped delimiters. No store mutation until all validation and policy calculations succeed. Every successful batch commits once, adds exactly one revision and preserves all unrelated allocations.
+- Convert store commit failures to `AllocationException('storage')`, with no underlying exception message or member data in errors. A failed commit must be retryable with the same ID. LedgerStore implementations are required to fail atomically. Do not retry commits automatically.
+- Returned state and receipt collections must not be mutable by callers. Service recreation on the same store must preserve retries.
+
+Examples independent of the decision: capacity 10 and existing alice=2, revision 4. Batch b1 at revision 4 requesting alice=3, bob=2 gives alice=5, bob=2, remaining=3 and receipt revision=5, granted={alice:3,bob:2}. Replaying b1 later returns that same receipt and never increments revision.
+
+Run analyzer and public tests. No external packages beyond test are needed. Do not change tests, configuration or store interfaces to satisfy tests.

@@ -1,0 +1,6 @@
+{
+  "fault_category": "atomicity",
+  "changed_file": "lib/export_service.dart",
+  "independent_fault": "atomicity_stale_noop",
+  "expected": "assertion_failure_not_compile_error"
+}

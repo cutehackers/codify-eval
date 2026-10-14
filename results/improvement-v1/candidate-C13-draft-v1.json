@@ -1,0 +1,35 @@
+{
+  "status": "draft_unqualified_not_installed",
+  "candidate": "C13",
+  "parent": "C12",
+  "created_at": 1791727218.415992,
+  "purpose": "Avoid known prerequisite failures and duplicate full-source output while preserving every applicable quality/security/recovery check",
+  "changes": [
+    "Prepare documented dependency prerequisites once when actual state requires it",
+    "Reuse already inspected unchanged hunks, inspect new edits and retain all affected verification"
+  ],
+  "no_test_count_or_success_only_budget": true,
+  "no_superiority_claim": true,
+  "source_hashes": {
+    "snapshots/C13/.DS_Store": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d",
+    "snapshots/C13/SKILL.md": "2c0b4f576d2ae28a5327bec648316800f4364acdd87be3e525ef9a398e3f9892",
+    "snapshots/C13/references/specification.md": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+    "snapshots/C13/references/orchestration.md": "76780f8502d795929317d7cfd7333a7d67cc3eb117144f1f35b858d23066dd26",
+    "snapshots/C13/references/delivery.md": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398",
+    "snapshots/C13/references/intent-interview.md": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec",
+    "snapshots/C13/agents/openai.yaml": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20"
+  },
+  "evidence_hashes": {
+    "results/control-probe-P02-pilot-v5-P02-A-1/grade.json": "a15ddb972b3a0bbc222c0e915048d378ad84d69a3adf34495390c2ddde725d14",
+    "results/control-probe-P02-pilot-v5-P02-A-2/grade.json": "b23cba5887add7221dafc22e686cdb4438b540b9ce5d953e6848ea5dfe846d75",
+    "results/control-probe-P02-pilot-v5-P02-C12-1/grade.json": "08c459c3f1e805e6475f50532bee101f0a4b4cdc5b610f629dabc521474e278a",
+    "results/control-probe-P02-pilot-v5-P02-C12-2/grade.json": "35d8b319e23d08a90b29821cb49c231b67c48353754812188a6598ce4888dd1f",
+    "runtime/control-probe-P02-pilot-v5-P02-C12-1/commands.jsonl": "79545a2740fcb6309e24777c5cd0785f7c5e7bcaddee0932d52f0cac9b3167db"
+  },
+  "limits": [
+    "P02 is exposed exploratory evidence, not unseen confirmation",
+    "Five graded pilot rows pass all24; no behavioral quality/security headroom shown",
+    "C0secondrep original error preserved; fullcohortnormal comparison not qualified",
+    "C13 performance and behavior remain unmeasured"
+  ]
+}

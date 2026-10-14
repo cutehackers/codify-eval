@@ -1,0 +1,45 @@
+{
+  "version": "candidate-C16-change-record-v1",
+  "status": "candidate_authored_not_reviewed_frozen_launched_installed_or_promoted",
+  "recorded_at": 1791746633.8003352,
+  "base": "C15",
+  "candidate": "C16",
+  "changed_relative_files": [
+    "SKILL.md"
+  ],
+  "model": "gpt-6.1-sol",
+  "effort": "medium",
+  "rationale": [
+    "Avoid formatter-induced changes to unrelated declarations before the first behavioral verification, preserving final API and required re-verification after real edits.",
+    "Distinguish parser serialization from literal shell argument quoting to avoid pre-dispatch command expansion failures."
+  ],
+  "preserved": [
+    "All behavior/security/permission/decision/persistence/async/negative-case/risk-coverage requirements.",
+    "No numeric test cap, omitted applicable check, fixture-specific rule, answer or artificial candidate advantage.",
+    "After actual source changes reinspection and affected verification remain mandatory.",
+    "Immutable C15 and original comparison failures, clocks, costs and reports.",
+    "Existing invocation policy and supporting resources."
+  ],
+  "observed_evidence_limits": [
+    "J01 same software PASS across all conditions and C15 misses token/time efficiency gates.",
+    "A/C15 each have preserved native pre-dispatch quoting failure despite successful container journals. Prior session-wide no-failure wording is corrected by the new independent aggregate review.",
+    "Improvements are hypotheses for fresh evaluation, not proven savings or superiority."
+  ],
+  "source_hashes": {
+    "snapshots/C15/.DS_Store": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d",
+    "snapshots/C15/SKILL.md": "59dd4531618a236f3037c082210adf4b5376994942b56cdc9df8b2f794f2f784",
+    "snapshots/C15/references/specification.md": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+    "snapshots/C15/references/orchestration.md": "76780f8502d795929317d7cfd7333a7d67cc3eb117144f1f35b858d23066dd26",
+    "snapshots/C15/references/delivery.md": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398",
+    "snapshots/C15/references/intent-interview.md": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec",
+    "snapshots/C15/agents/openai.yaml": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20",
+    "snapshots/C16/.DS_Store": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d",
+    "snapshots/C16/SKILL.md": "60b1b93f044f245a8933af6288f6e7db9056950de14205d1768a9400a7d9c4c0",
+    "snapshots/C16/references/specification.md": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+    "snapshots/C16/references/orchestration.md": "76780f8502d795929317d7cfd7333a7d67cc3eb117144f1f35b858d23066dd26",
+    "snapshots/C16/references/delivery.md": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398",
+    "snapshots/C16/references/intent-interview.md": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec",
+    "snapshots/C16/agents/openai.yaml": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20",
+    "results/improvement-v1/fresh-J01-solo-comparison-and-efficiency-review-v1.json": "77a6d9d05a210444f3e85027dd0129ba92f8f937e368344a4f29c6fde150794e"
+  }
+}

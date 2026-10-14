@@ -1,0 +1,26 @@
+............F..
+======================================================================
+FAIL: test_promotion_failure_cleanup_and_retry (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 93, in test_promotion_failure_cleanup_and_retry
+    self.assertEqual(before,{p.relative_to(self.root).as_posix():p.read_bytes() for p in self.root.rglob('*') if p.is_file()})
+AssertionError: {'unr[14 chars]p', 'prior/manifest.json': b'{"files": {"p": "[85 chars]ior'} != {'unr[14 chars]p', '.stage-zku2ed0f/a.txt': b'old', '.stage-z[244 chars]ior'}
++ {'.stage-zku2ed0f/a.txt': b'old',
++  '.stage-zku2ed0f/manifest.json': b'{"files": {"a.txt": "cba06b5736faf67e54b'
++                                   b'07b561eae94395e774c517a7d910a54369e1263c'
++                                   b'cfbd4"}}',
+- {'prior/manifest.json': b'{"files": {"p": "e5bade0e979cb8cf6e53303dae696c6631a'
+? ^
+
++  'prior/manifest.json': b'{"files": {"p": "e5bade0e979cb8cf6e53303dae696c6631a'
+? ^
+
+                          b'5c82ce60386d7a602f85fb249fcc0"}}',
+   'prior/p': b'prior',
+   'unrelated': b'keep'}
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.022s
+
+FAILED (failures=1)

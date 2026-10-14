@@ -1,0 +1,92 @@
+{
+  "case_id": "Q01",
+  "status": "authored_unqualified",
+  "hash_algorithm": "sha256",
+  "files": [
+    {
+      "path": "metadata.json",
+      "sha256": "70d500cdc8c6af59b2b9e8630220f8035a65f4f4f9064a8713f4c0502c85381f",
+      "bytes": 564,
+      "visibility": "public"
+    },
+    {
+      "path": "negative/N01/lib/implementation.dart",
+      "sha256": "6b76ea31c817d5011f362229d8fa1ff286ad2e4061ded0c1027f7fd341b66897",
+      "bytes": 2497,
+      "visibility": "evaluator_only"
+    },
+    {
+      "path": "negative/N02/lib/implementation.dart",
+      "sha256": "a57b7be19dbb10cb7eb4a902821f40e7cb13d8c937442e7fbadbfa89d4e9938c",
+      "bytes": 2501,
+      "visibility": "evaluator_only"
+    },
+    {
+      "path": "negative/N03/lib/implementation.dart",
+      "sha256": "045c1aa360dbc426d330b55f2611a4e7d247d92fd6c3fcb9f09dacb92af1fa5e",
+      "bytes": 2477,
+      "visibility": "evaluator_only"
+    },
+    {
+      "path": "negative/N04/lib/implementation.dart",
+      "sha256": "5b2d7cafb0d878a20385aa2812d31dfbeb834d2c1cb9c4d1a982b63fee767c31",
+      "bytes": 2488,
+      "visibility": "evaluator_only"
+    },
+    {
+      "path": "oracle/test/acceptance_test.dart",
+      "sha256": "8a6b4970e571de28211e1d1971d88494c96d9e73a7c7811a56df75f5a0b9132c",
+      "bytes": 4460,
+      "visibility": "evaluator_only"
+    },
+    {
+      "path": "private/question-evaluator.json",
+      "sha256": "1493d19417a2b64b400e0ab2c3e2bd76ffe5a300bd98a8f77807d78ac8b1da1a",
+      "bytes": 1402,
+      "visibility": "evaluator_only"
+    },
+    {
+      "path": "private/requirement-test-map.json",
+      "sha256": "6597587d4c664c22dae103b9e2860269143a66ab3b05e181972c521a95b6dfee",
+      "bytes": 2374,
+      "visibility": "evaluator_only"
+    },
+    {
+      "path": "reference/lib/implementation.dart",
+      "sha256": "aae8afa2d4e8f0d9e43893a703234e66645902cfe33edd8e28f720f9ef6c5752",
+      "bytes": 2519,
+      "visibility": "evaluator_only"
+    },
+    {
+      "path": "repo/README.md",
+      "sha256": "a6ca1de21f432d3239024f29b73a66b572af0f15cae46096bbfdcd3e65e1850d",
+      "bytes": 480,
+      "visibility": "public"
+    },
+    {
+      "path": "repo/lib/implementation.dart",
+      "sha256": "544408e90b9cab1ddb8f94c86cdee5fd522ec0ac24b8f3308f126750e8f71eff",
+      "bytes": 1138,
+      "visibility": "public"
+    },
+    {
+      "path": "repo/pubspec.yaml",
+      "sha256": "d7bff28b23f4bfc01ab38a349bff158cc0db8f117a7a0544167666e544f531a7",
+      "bytes": 227,
+      "visibility": "public"
+    },
+    {
+      "path": "repo/test/public_smoke_test.dart",
+      "sha256": "78dcb27478d53ce54509b9db182f7aee51a9d89a930b2880c8c78f04145d1685",
+      "bytes": 1299,
+      "visibility": "public"
+    },
+    {
+      "path": "task.md",
+      "sha256": "04c14ce79953e2a99d832d54aeb6719572450616777f63b2658b743ffb2cdcff",
+      "bytes": 2941,
+      "visibility": "public"
+    }
+  ],
+  "excluded_self": "private/source-manifest.json"
+}

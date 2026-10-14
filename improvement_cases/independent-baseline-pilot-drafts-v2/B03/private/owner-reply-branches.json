@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "decision_domain": "offline recipe conflict ownership",
+  "owner_only": true,
+  "branch_assignment": "Qualification owner selects and records a branch before model allocation. No branch or answer mounted into model workspace.",
+  "semantic_question_admission": {
+    "must_address": [
+      "the consequential choice for divergent dirty local recipe and newer household recipe",
+      "who decides whether local edits survive or are replaced"
+    ],
+    "not_required": "Any exact question wording. Do not match a scripted string.",
+    "reject": [
+      "question only about implementation syntax",
+      "request to reveal oracle tests",
+      "assumption presented as a confirmed owner choice"
+    ]
+  },
+  "allowed_replies": [
+    {
+      "id": "retain-draft",
+      "reply_facts": {
+        "conflict_mode": "retain-draft",
+        "preserve_local_content": true,
+        "write_on_divergence": false,
+        "remote_upload_on_divergence": false,
+        "result_code": "conflict_retained"
+      },
+      "owner_response": "공유본과 충돌하면 기기에서 바꾼 내용을 그대로 보관해 주세요. 자동으로 덮어쓰지 말고 conflict_retained로 알려 주세요. 나중에 가족이 내용을 비교할 수 있어야 합니다.",
+      "reference_overlay": "reference/branches/retain-draft/lib/decision.dart",
+      "oracle_define": "OWNER_BRANCH=retain-draft"
+    },
+    {
+      "id": "adopt-cloud",
+      "reply_facts": {
+        "conflict_mode": "adopt-cloud",
+        "preserve_local_content": false,
+        "write_on_divergence": true,
+        "remote_upload_on_divergence": false,
+        "result_code": "conflict_replaced"
+      },
+      "owner_response": "충돌하면 공유본을 공식 기준으로 사용하고 기기 변경은 버리세요. 공유본의 clean copy를 기기에 저장한 뒤 conflict_replaced로 알려 주세요. 서버에 기기 변경을 올리면 안 됩니다.",
+      "reference_overlay": "reference/branches/adopt-cloud/lib/decision.dart",
+      "oracle_define": "OWNER_BRANCH=adopt-cloud"
+    }
+  ],
+  "adapter_not_implemented": true,
+  "scoring_requires": "Transcript evidence of owner question, delivered assigned reply and behavior corresponding to same branch. No model run admitted until adapter handles branches and unknown questions without leaking.",
+  "internal_representation_grading": "Grade delivered branch behavior, not equality to private branch identifiers. The owner branch id is private grader configuration and does not constrain implementation decision strings."
+}

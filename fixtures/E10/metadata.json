@@ -1,0 +1,32 @@
+{
+  "id": "E10",
+  "type": "explicit_decision",
+  "framework": "flutter",
+  "command": [
+    "flutter",
+    "test",
+    "test/acceptance_test.dart"
+  ],
+  "allowed_paths": [
+    "lib/**",
+    "test/**"
+  ],
+  "protected_paths": [
+    "pubspec.yaml"
+  ],
+  "oracle_path": "oracle/test",
+  "solution_path": "reference",
+  "requirements_disclosed": true,
+  "decision_rules": [
+    {
+      "decisionID": "shelf-duplicate-policy",
+      "trigger": "duplicate ISBN behavior unspecified",
+      "options": [
+        "기존 항목 유지",
+        "기존 항목의 제목 교체"
+      ],
+      "choice": "기존 항목의 제목 교체",
+      "required_before_implementation": true
+    }
+  ]
+}

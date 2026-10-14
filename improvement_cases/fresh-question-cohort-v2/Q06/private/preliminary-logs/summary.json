@@ -1,0 +1,227 @@
+{
+  "kind": "host preliminary only",
+  "records": [
+    {
+      "label": "offline-resolve",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "pub",
+        "get",
+        "--offline"
+      ],
+      "exit_code": 0,
+      "seconds": 0.431,
+      "log": "private/preliminary-logs/offline-resolve.log"
+    },
+    {
+      "label": "starting-analyze",
+      "command": [
+        "dart",
+        "analyze",
+        "lib",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 2.22,
+      "log": "private/preliminary-logs/starting-analyze.log"
+    },
+    {
+      "label": "starting-public",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "test",
+        "--no-pub",
+        "--reporter",
+        "expanded",
+        "test/contract_test.dart"
+      ],
+      "exit_code": 1,
+      "seconds": 4.096,
+      "log": "private/preliminary-logs/starting-public.log",
+      "failed_test_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10"
+      ],
+      "passed_count": 0,
+      "failed_count": 10,
+      "executed_count": 10
+    },
+    {
+      "label": "reference-analyze",
+      "command": [
+        "dart",
+        "analyze",
+        "lib",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 3.069,
+      "log": "private/preliminary-logs/reference-analyze.log"
+    },
+    {
+      "label": "reference-full",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "test",
+        "--no-pub",
+        "--reporter",
+        "expanded"
+      ],
+      "exit_code": 0,
+      "seconds": 1.387,
+      "log": "private/preliminary-logs/reference-full.log",
+      "failed_test_ids": [],
+      "passed_count": 13,
+      "failed_count": 0,
+      "executed_count": 13
+    },
+    {
+      "label": "N01-analyze",
+      "command": [
+        "dart",
+        "analyze",
+        "lib",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 2.142,
+      "log": "private/preliminary-logs/N01-analyze.log"
+    },
+    {
+      "label": "N01-full",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "test",
+        "--no-pub",
+        "--reporter",
+        "expanded"
+      ],
+      "exit_code": 1,
+      "seconds": 1.554,
+      "log": "private/preliminary-logs/N01-full.log",
+      "failed_test_ids": [
+        "P02"
+      ],
+      "passed_count": 12,
+      "failed_count": 1,
+      "executed_count": 13
+    },
+    {
+      "label": "N02-analyze",
+      "command": [
+        "dart",
+        "analyze",
+        "lib",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 2.108,
+      "log": "private/preliminary-logs/N02-analyze.log"
+    },
+    {
+      "label": "N02-full",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "test",
+        "--no-pub",
+        "--reporter",
+        "expanded"
+      ],
+      "exit_code": 1,
+      "seconds": 1.349,
+      "log": "private/preliminary-logs/N02-full.log",
+      "failed_test_ids": [
+        "P09"
+      ],
+      "passed_count": 12,
+      "failed_count": 1,
+      "executed_count": 13
+    },
+    {
+      "label": "N03-analyze",
+      "command": [
+        "dart",
+        "analyze",
+        "lib",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 2.166,
+      "log": "private/preliminary-logs/N03-analyze.log"
+    },
+    {
+      "label": "N03-full",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "test",
+        "--no-pub",
+        "--reporter",
+        "expanded"
+      ],
+      "exit_code": 1,
+      "seconds": 1.511,
+      "log": "private/preliminary-logs/N03-full.log",
+      "failed_test_ids": [
+        "P06"
+      ],
+      "passed_count": 12,
+      "failed_count": 1,
+      "executed_count": 13
+    },
+    {
+      "label": "N04-analyze",
+      "command": [
+        "dart",
+        "analyze",
+        "lib",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 2.178,
+      "log": "private/preliminary-logs/N04-analyze.log"
+    },
+    {
+      "label": "N04-full",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "test",
+        "--no-pub",
+        "--reporter",
+        "expanded"
+      ],
+      "exit_code": 1,
+      "seconds": 1.388,
+      "log": "private/preliminary-logs/N04-full.log",
+      "failed_test_ids": [
+        "A01",
+        "A02",
+        "A03"
+      ],
+      "passed_count": 10,
+      "failed_count": 3,
+      "executed_count": 13
+    }
+  ]
+}

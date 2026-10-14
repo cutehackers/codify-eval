@@ -1,0 +1,77 @@
+{
+  "requirements": {
+    "R01": [
+      "R01 validator accepts boundary batch size and amounts",
+      "R01 rejects invalid identifiers and transfer structures before storage"
+    ],
+    "R02": [
+      "R02 fingerprints preserve payload fields without delimiter collisions"
+    ],
+    "R03": [
+      "R03 owner mismatch is rejected without authorization or storage",
+      "R03 denied and malformed request remains forbidden before validation",
+      "R03 awaited authorization prevents early store access",
+      "R03 revocation blocks committed replay",
+      "R03 foreign source and destination are rejected atomically"
+    ],
+    "R04": [
+      "R04 successful multi-account batch conserves money and snapshots receipt",
+      "R04 net balances allow incoming funds and cycles regardless of order",
+      "R04 missing account rejects whole batch",
+      "R04 insufficient funds rejects whole batch after valid prefix",
+      "R04 upper balance bound rejects credit without debit"
+    ],
+    "R05": [
+      "R05 success persists receipt and accounts in one transaction"
+    ],
+    "R06": [
+      "R06 reordered replay returns original receipt after later account changes",
+      "R06 changed payload conflicts without moving money",
+      "R06 invalid payload with committed key stays invalid",
+      "R06 same key is independent across owners"
+    ],
+    "R07": [
+      "R07 concurrent same payload across instances applies once",
+      "R07 conflicting concurrent requests have one winner",
+      "R07 competing keys cannot overspend shared balance"
+    ],
+    "R08": [
+      "R08 delayed failure before commit rolls back and new instance retries",
+      "R08 delayed lost acknowledgement replays after restart without duplicate debit",
+      "R08 changed retry after lost acknowledgement conflicts and queue recovers"
+    ],
+    "R09": [
+      "R09 authorization exceptions are sanitized without storage",
+      "R09 transaction exceptions are sanitized rollback and do not poison future calls",
+      "R09 validator exceptions are sanitized before storage"
+    ]
+  },
+  "negative_intent": {
+    "N01": {
+      "defect": "authorization gate omitted",
+      "discriminating_tests": [
+        "R03 owner mismatch is rejected without authorization or storage",
+        "R03 denied and malformed request remains forbidden before validation",
+        "R03 awaited authorization prevents early store access",
+        "R03 revocation blocks committed replay"
+      ]
+    },
+    "N02": {
+      "defect": "receipt and accounts committed in separate transactions",
+      "discriminating_tests": [
+        "R05 success persists receipt and accounts in one transaction",
+        "R08 delayed lost acknowledgement replays after restart without duplicate debit"
+      ]
+    },
+    "N03": {
+      "defect": "committed key ignored and transfers reapplied",
+      "discriminating_tests": [
+        "R06 reordered replay returns original receipt after later account changes",
+        "R07 concurrent same payload across instances applies once",
+        "R08 delayed lost acknowledgement replays after restart without duplicate debit"
+      ]
+    }
+  },
+  "assertion_design": "Behavioral assertions check success/type before receipt or validated-batch access. Controlled async entry is observed over 20 bounded microtask turns, then asserted, and gates are released with calls drained in finally. No exact fingerprint encoding requirement.",
+  "execution_status": "Not run. Tests and overlays require root qualification in pinned Flutter runtime."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "M05",
+  "file": "lib/journey_service.dart",
+  "replace_once": {
+    "from": "return JourneyView('live',journey:fresh,persisted:false);",
+    "to": "return const JourneyView('unavailable');"
+  },
+  "must_fail": [
+    "r4 storage failure preserves usable live result"
+  ],
+  "violation": "Disk error destroys live route recovery"
+}

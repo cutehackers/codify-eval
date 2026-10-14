@@ -1,0 +1,45 @@
+{
+  "status": "authored_unqualified",
+  "authoring_revision": 3,
+  "kind": "bounded_host_N03_preliminary_not_independent_qualification",
+  "public_tests": 2,
+  "private_tests": 31,
+  "source_hashes": {
+    "task.md": "8922e00e3d97e25aeb5f7abb5cb9c7cef3ef3cefe0e10b09cb229fd729ce57f3",
+    "repo/pubspec.yaml": "3a0b1c95a0f184912411cbb4fe9e921d0c38d9618fea69af2bf74f689d4f4268",
+    "repo/pubspec.lock": "1fca3c6690c0c04eb15788a4c16f46a982fd6256fdafc0a1bd5d80caa7377b4a",
+    "repo/test/public_smoke_test.dart": "364cecf83036b321ba7442a4eaeb470ee071f54752471b41af3d4f698735d693",
+    "private/negative/N03.dart": "1d0cdf4de1c4a523b73603e5054917c57d0a301b385799fde363b74331d5e8ee",
+    "private/acceptance_test.dart": "ca8fc9060b8b9ae7b774b2335c08cc25edfd9f2b5d50b2868244df59e09f8f00"
+  },
+  "runs": [
+    {
+      "name": "pub_get",
+      "exit_code": 0,
+      "log": "pub_get.log",
+      "failing_test_markers": []
+    },
+    {
+      "name": "analyze",
+      "exit_code": 0,
+      "log": "analyze.log",
+      "failing_test_markers": []
+    },
+    {
+      "name": "behavior",
+      "exit_code": 1,
+      "log": "behavior.log",
+      "failing_test_markers": [
+        "J01-T04 concurrent enqueue one durable submission [E]",
+        "J01-T06 competing claims have one owner [E]",
+        "J01-T14 conflict rechecks time before settling [E]",
+        "J01-T15 conflict rechecks replaced ownership [E]",
+        "J01-T16 eight conflicts busy with no service mutation [E]",
+        "J01-T21 enqueue conflict uses fresh submission fingerprint [E]",
+        "J01-T22 claim conflict chooses freshly eligible job [E]",
+        "J01-T26 shared store separate services and tenant wide keys [E]",
+        "J01-T28 concurrent complete versus fail one receipt and conflict [E]"
+      ]
+    }
+  ]
+}

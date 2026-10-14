@@ -1,0 +1,126 @@
+"""Pure public transport controls. No Docker/model allocation."""
+import concurrent.futures
+import json
+from pathlib import Path
+import tempfile
+import threading
+import time
+import unittest
+from unittest.mock import patch
+
+import improvement_optional_broker_v1 as broker
+
+
+class BrokerControls(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(); self.addCleanup(self.tmp.cleanup)
+        self.folder = Path(self.tmp.name); self.caps = {j: c * 48 for j, c in zip(sorted(broker.JOBS), 'abc')}
+        self.state = {'run_id': 'run', 'configuration_sha256': 'configuration', 'phase': 'running',
+                      'deadline': time.time() + 1200, 'editable_paths': ['lib/a.dart', 'lib/b.dart'],
+                      'jobs': {j: {'status': 'running', 'capability_sha256': broker.runtime.hashed(c)}
+                               for j, c in self.caps.items()}}
+        broker.runtime.save(self.folder, self.state)
+        for job, cap in self.caps.items():
+            directory = self.folder / job / 'input'; directory.mkdir(parents=True)
+            (directory / 'request.txt').write_text('Original task ' + job)
+            broker.register(self.folder, job, cap)
+
+    def call(self, op, data=None, job='root'):
+        return broker.dispatch(self.folder, job, self.caps[job], op, {} if data is None else data)
+
+    def read(self, job='root'):
+        value, code = self.call('read', job=job); self.assertEqual(code, 0); return value
+
+    def test_wrong_capability_has_no_action_or_execution(self):
+        with patch.object(broker.runtime, 'command') as command:
+            with self.assertRaises(ValueError): broker.dispatch(self.folder, 'root', 'f' * 48, 'exec', {'command': 'x'})
+            command.assert_not_called()
+        self.assertEqual(broker.ledger(self.folder, 'root'), [])
+
+    def test_exec_before_read_is_preserved_failure_without_execution(self):
+        with patch.object(broker.runtime, 'command') as command:
+            value, code = self.call('exec', {'command': 'x'}); self.assertEqual(code, 1)
+            command.assert_not_called()
+        self.assertEqual(broker.ledger(self.folder, 'root')[0]['status'], 'failed')
+        self.assertEqual(self.call('read')[1], 1)
+
+    def test_exact_read_once_and_ledger_join(self):
+        self.assertEqual(self.read()['result']['text'], 'Original task root')
+        self.assertEqual(self.call('read')[1], 1)
+        self.assertEqual([a['status'] for a in broker.ledger(self.folder, 'root')], ['completed', 'failed'])
+
+    def test_original_task_drift_and_symlink_rejected(self):
+        p = self.folder / 'root/input/request.txt'; p.write_text('Changed')
+        self.assertEqual(self.call('read')[1], 1)
+        p = self.folder / 'worker1/input/request.txt'; p.unlink(); p.symlink_to(self.folder / 'root/input/request.txt')
+        self.assertEqual(self.call('read', job='worker1')[1], 1)
+
+    def test_roles_cannot_provision_workers_or_use_unimplemented_operations(self):
+        self.read('worker1')
+        with patch.object(broker.runtime, 'worker') as worker:
+            self.assertEqual(self.call('worker', {'goal': 'g', 'scope': ['lib/a.dart']}, 'worker1')[1], 1)
+            worker.assert_not_called()
+        self.read()
+        for op in ('seal', 'view', 'decide', 'integrate', 'verify', 'read_reply', 'cleanup'):
+            self.assertEqual(self.call(op)[1], 1)
+
+    def test_malformed_worker_rejected_before_stop_or_reservation(self):
+        self.read()
+        with patch.object(broker.runtime, 'worker') as worker:
+            for data in ({'goal': 'g', 'scope': ['test/x']}, {'goal': 'g', 'scope': [1]},
+                         {'goal': '', 'scope': ['lib/a.dart']}, {'goal': 'g', 'scope': []},
+                         {'goal': 'g', 'scope': ['lib/a.dart'], 'mode': 'review'},
+                         {'goal': 'g', 'scope': ['lib/a.dart'], 'hidden': True}):
+                self.assertEqual(self.call('worker', data)[1], 1)
+            worker.assert_not_called()
+
+    def test_inner_exit_is_not_rewritten_and_whole_raw_result_retained(self):
+        self.read(); result = {'exit_code': 7, 'stdout': 'out', 'stderr': 'failure', 'output_complete': True}
+        with patch.object(broker.runtime, 'command', return_value=result):
+            value, code = self.call('exec', {'command': 'exit 7', 'seconds': 1})
+        self.assertEqual(code, 0); self.assertEqual(value['result']['exit_code'], 7)
+        self.assertEqual(broker.ledger(self.folder, 'root')[-1]['result'], result)
+
+    def test_duplicate_json_keys_and_nonfinite_are_rejected(self):
+        for text in ('{"command":"a","command":"b"}', '{"seconds":1e999}', '{"seconds":NaN}'):
+            with self.assertRaises(ValueError): broker.strict.decoded(text)
+
+    def test_unreceipted_intent_blocks_more_work(self):
+        self.read(); path = self.folder / 'broker/root/actions/000000/receipt.json'; path.unlink()
+        with patch.object(broker.runtime, 'command') as command:
+            with self.assertRaises(ValueError): self.call('exec', {'command': 'x'})
+            command.assert_not_called()
+        self.assertEqual(broker.ledger(self.folder, 'root')[0]['status'], 'pending')
+
+    def test_receipt_intent_hash_drift_rejected(self):
+        self.read(); path = self.folder / 'broker/root/actions/000000/intent.json'
+        value = json.loads(path.read_text()); value['request']['op'] = 'exec'; path.write_text(json.dumps(value))
+        with self.assertRaises(ValueError): broker.ledger(self.folder, 'root')
+
+    def test_same_job_serializes_and_different_jobs_overlap(self):
+        self.read('worker1'); self.read('worker2'); barrier = threading.Barrier(2)
+        def execute(*args): barrier.wait(timeout=2); return {'exit_code': 0}
+        with patch.object(broker.runtime, 'command', side_effect=execute):
+            with concurrent.futures.ThreadPoolExecutor(2) as pool:
+                futures = [pool.submit(self.call, 'exec', {'command': 'x'}, job) for job in ('worker1', 'worker2')]
+                for f in futures: self.assertEqual(f.result(timeout=3)[1], 0)
+        active = [0, 0]; guard = threading.Lock()
+        def serialized(*args):
+            with guard: active[0] += 1; active[1] = max(active)
+            time.sleep(.03)
+            with guard: active[0] -= 1
+            return {'exit_code': 0}
+        with patch.object(broker.runtime, 'command', side_effect=serialized):
+            with concurrent.futures.ThreadPoolExecutor(2) as pool:
+                futures = [pool.submit(self.call, 'exec', {'command': 'x'}, 'worker1') for _ in range(2)]
+                for f in futures: self.assertEqual(f.result(timeout=3)[1], 0)
+        self.assertEqual(active[1], 1)
+
+    def test_closed_or_expired_rejected_before_action(self):
+        for key, value in (('phase', 'closing'), ('deadline', time.time() - 1)):
+            state = dict(self.state, **{key: value}); broker.runtime.save(self.folder, state)
+            with self.assertRaises(ValueError): self.call('read')
+        self.assertEqual(broker.ledger(self.folder, 'root'), [])
+
+
+if __name__ == '__main__': unittest.main()

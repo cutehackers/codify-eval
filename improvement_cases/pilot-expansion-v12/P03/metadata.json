@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "id": "P03",
+  "case_id": "P03",
+  "title": "Streamed release archive import with bounded validation and atomic staging",
+  "status": "authored_unqualified",
+  "qualified": false,
+  "repo_path": "repo",
+  "task_path": "task.md",
+  "oracle_path": "oracle/test",
+  "solution_path": "reference",
+  "allowed_paths": [
+    "lib/archive_importer.dart",
+    "lib/manifest_codec.dart"
+  ],
+  "protected_paths": [
+    "README.md",
+    "lib/contracts.dart",
+    "pubspec.yaml",
+    "pubspec.lock",
+    "test/public_test.dart",
+    "test/test_support.dart"
+  ],
+  "acceptance_groups": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "A15",
+    "A16",
+    "A17",
+    "A18",
+    "A19",
+    "A20"
+  ],
+  "critical_groups": [
+    "A01",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A08",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "A15",
+    "A16",
+    "A17"
+  ],
+  "gates": [
+    "G01"
+  ],
+  "acceptance_case_count": 20,
+  "public_test_count": 2,
+  "expected_total_test_count": 22,
+  "exact_assertion_identities": [
+    "A01 path containment grammar",
+    "A02 manifest shape integer and digest validation",
+    "A03 manifest duplicate prefix and aggregate limits",
+    "A04 manifest byte cap and trusted integrity boundary",
+    "A05 reject unexpected symlink before body subscription",
+    "A06 duplicate archive entry rejection",
+    "A07 missing and empty archive rollback",
+    "A08 over declared bound rejected before write",
+    "A09 byte validation precedes bound write",
+    "A10 short and corrupted content integrity",
+    "A11 cancellation initial and after begin",
+    "A12 cancellation after write prevents publication",
+    "A13 atomic publish only after source complete",
+    "A14 storage failure rollback and reusable importer",
+    "A15 source entry and chunk failures rollback",
+    "A16 busy holds across rollback and then releases",
+    "A17 successful publish wins cancellation during commit",
+    "A18 exact upper bounds reordered files and empty chunks",
+    "A19 defensive immutable writes and streamed timing",
+    "A20 failure await precedes concurrent cancellation"
+  ],
+  "coverage_path": "coverage.json",
+  "negative_map_path": "negative-map.json",
+  "reference_authored": true,
+  "negative_variants_authored": true,
+  "negative_variant_count": 8,
+  "fixture_version": "pilot-expansion-v12",
+  "authoring_revision": 1,
+  "hash_freeze_complete": false,
+  "superiority_claim": false,
+  "primary_confirmation_eligible_after_pilot": false,
+  "dependency": {
+    "crypto": "3.0.7",
+    "lock_provenance": "Exact unchanged pubspec.yaml and pubspec.lock copied from pilot-expansion-v11/P02/repo only; runtime compatibility not rerun"
+  },
+  "runtime_image": "codify-flutter-eval:v1",
+  "wall_limit_seconds": 1200,
+  "qualification_required": [
+    "pinned image offline lock resolution",
+    "starter compiles and fails meaningful assertions",
+    "independent reference all22 exact tests and static gate pass",
+    "eight variants full observed failure maps and critical discrimination",
+    "independent coverage review",
+    "freeze exact fixture grader dependencies protected API and runtime hashes"
+  ],
+  "authoring_receipt": "results/improvement-v1/P03-authoring-v1.json",
+  "public_assertion_identities": [
+    "PUBLIC01 publishes complete files atomically",
+    "PUBLIC02 invalid tag leaves existing publication intact"
+  ],
+  "reference_map": {
+    "lib/manifest_codec.dart": "reference/lib/manifest_codec.dart",
+    "lib/archive_importer.dart": "reference/lib/archive_importer.dart"
+  },
+  "oracle_map": {
+    "oracle/test/private_test.dart": "test/private_test.dart"
+  },
+  "negative_variant_map": {
+    "N01_path_containment": "negative/N01_path_containment",
+    "N02_manifest_authentication": "negative/N02_manifest_authentication",
+    "N03_archive_duplicates": "negative/N03_archive_duplicates",
+    "N04_stream_bound": "negative/N04_stream_bound",
+    "N05_file_integrity": "negative/N05_file_integrity",
+    "N06_missing_files": "negative/N06_missing_files",
+    "N07_write_cancellation": "negative/N07_write_cancellation",
+    "N08_rollback": "negative/N08_rollback"
+  }
+}

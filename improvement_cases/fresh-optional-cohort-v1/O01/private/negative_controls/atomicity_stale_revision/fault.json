@@ -1,0 +1,6 @@
+{
+  "fault_category": "atomicity",
+  "changed_file": "lib/search_import_service.dart",
+  "independent_fault": "atomicity_stale_revision",
+  "expected": "assertion_failure_not_compile_error"
+}

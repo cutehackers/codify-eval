@@ -1,0 +1,31 @@
+{
+  "purpose": "Classify clarification necessity from the public contract only, independently of implementation style.",
+  "unnecessary_questions": [
+    {
+      "topic": "storage and dependencies",
+      "public_decision": "Local filesystem, standard library, single writer, no network."
+    },
+    {
+      "topic": "existing snapshot overwrite or repair",
+      "public_decision": "Never replace existing IDs. Verify integrity before conflict. Preserve corrupted bytes."
+    },
+    {
+      "topic": "permission to write or confirm",
+      "public_decision": "Creation is authorized by the API call. No confirmation prompt."
+    },
+    {
+      "topic": "manifest and payload format",
+      "public_decision": "Bytes input, exact path/hash mapping under files, SHA256 lowercase hex."
+    },
+    {
+      "topic": "empty snapshot and malformed paths",
+      "public_decision": "Empty dict allowed. All path and ID constraints are explicit."
+    },
+    {
+      "topic": "promotion failure cleanup",
+      "public_decision": "Propagate failure, remove staging artifacts, preserve unrelated files and snapshots."
+    }
+  ],
+  "potentially_necessary": "Only a genuine contradiction or missing requirement that changes observable behavior, not a repeated request to choose a settled public policy.",
+  "not_scored": "Tone, wording, formatting, preferred coding style, or unsolicited implementation explanation."
+}

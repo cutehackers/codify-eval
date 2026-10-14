@@ -1,0 +1,83 @@
+{
+  "case_id": "Q01",
+  "oracle": "oracle/test/acceptance_test.dart",
+  "requirements": [
+    {
+      "id": "A1",
+      "tests": [
+        "A1 denial precedes validation and has no store effects"
+      ]
+    },
+    {
+      "id": "A2",
+      "tests": [
+        "A2 invalid request no lookup",
+        "A2 exact scoped load and missing account",
+        "A2 mis-scoped records cannot be written"
+      ]
+    },
+    {
+      "id": "A3",
+      "tests": [
+        "A3 stale no-op still conflicts",
+        "A3 no-op preserves session and revision without writes"
+      ]
+    },
+    {
+      "id": "A4",
+      "tests": [
+        "A4 resolved downgrade invalidates sessions atomically once",
+        "A4 promotion preserves sessions"
+      ]
+    },
+    {
+      "id": "A5",
+      "tests": [
+        "A5 compare failure and exceptions are safe and preserve state"
+      ]
+    },
+    {
+      "id": "Q-choice",
+      "evaluation": "Question policy and transcript, separate from oracle. Asking before dependent edits and consuming fixed reply are evaluated from actor transcript, not inferred from final code."
+    }
+  ],
+  "negatives": [
+    {
+      "id": "N01",
+      "label": "silent-preserve-sessions",
+      "defect": "Assumed session preservation contradicts separately supplied decision.",
+      "implementation": "negative/N01/lib/implementation.dart",
+      "must_fail_tests": [
+        "A4 resolved downgrade invalidates sessions atomically once"
+      ]
+    },
+    {
+      "id": "N02",
+      "label": "revoke-on-every-change",
+      "defect": "Promotion unnecessarily invalidates sessions.",
+      "implementation": "negative/N02/lib/implementation.dart",
+      "must_fail_tests": [
+        "A4 promotion preserves sessions"
+      ]
+    },
+    {
+      "id": "N03",
+      "label": "cross-organization-manager",
+      "defect": "Manager capability bypasses organization isolation.",
+      "implementation": "negative/N03/lib/implementation.dart",
+      "must_fail_tests": [
+        "A1 denial precedes validation and has no store effects"
+      ]
+    },
+    {
+      "id": "N04",
+      "label": "ignore-stale-access",
+      "defect": "Stale no-op is accepted and stale writes are allowed.",
+      "implementation": "negative/N04/lib/implementation.dart",
+      "must_fail_tests": [
+        "A3 stale no-op still conflicts"
+      ]
+    }
+  ],
+  "qualification_status": "not_run"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "q01",
+  "status": "draft_unqualified",
+  "role": "future_untouched_confirmation_draft",
+  "language": "dart",
+  "offline": true,
+  "package": "quota_fixture",
+  "editable_files": [
+    "lib/models.dart",
+    "lib/implementation.dart"
+  ],
+  "protected_files": [
+    "pubspec.yaml",
+    "analysis_options.yaml",
+    "README.md",
+    "test/**"
+  ],
+  "public_test_count": 4,
+  "private_test_count": 9,
+  "total_test_count": 13,
+  "reference_overlay": [
+    "private/reference/implementation.dart -> repo/lib/implementation.dart"
+  ],
+  "private_test_overlay": "private/acceptance_test.dart -> repo/test/private_acceptance_test.dart",
+  "fixed_reply": "private/fixed-reply.txt",
+  "question_required": true,
+  "qualification_executed": false,
+  "case_hash_frozen": false,
+  "candidate_independent": true,
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "limitations": [
+    "No baseline or candidate run performed",
+    "No reference or mutation execution performed",
+    "Not heldout evidence until independent qualification and freeze"
+  ]
+}

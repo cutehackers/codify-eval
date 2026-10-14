@@ -1,0 +1,24 @@
+{
+  "all_pass": true,
+  "controls": {
+    "abrupt_fake_stderr": "pass",
+    "duplicate_grade": "pass",
+    "failed_behavior": "pass",
+    "frozen_tamper": "pass",
+    "outside_scope": "pass",
+    "pass": "pass",
+    "preparation_scope_tamper": "pass",
+    "skipped_suite": "pass",
+    "wrong_test_count": "pass"
+  },
+  "count": 9,
+  "helper_sha256": "b54a77785e2a267737fdb325cf916192ef1808bce09c47ab32518241b672fb0b",
+  "interpreter": {
+    "path": "/Users/junhyounglee/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "sha256": "4158f03e1bae2b759f25a1ba1fbdab8bfb7161eba4caf22e28f0915986625bbc",
+    "version": "Python 3.12.14"
+  },
+  "schema_version": 3,
+  "scope": "Synthetic actualprocess controls; no model evaluation",
+  "unittest_runner_sha256": "ca3b936b8a8f7ec08547dae3be176b95960cc2c1a38c7fa2705c58611d1da4f4"
+}

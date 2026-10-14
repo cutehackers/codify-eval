@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "case_id": "P02",
+  "status": "authored_unqualified",
+  "acceptance_suite": "oracle/test/acceptance_test.dart",
+  "groups": [
+    {
+      "id": "A01",
+      "requirements": [
+        "R1"
+      ],
+      "observations": "authorization and tenant isolation",
+      "important_removal": "authorization_bypass_or_tenant_partition_removal",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A02",
+      "requirements": [
+        "R2"
+      ],
+      "observations": "complete input validation",
+      "important_removal": "normalized_invalid_date_or_partial_structural_validation",
+      "critical": false,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A03",
+      "requirements": [
+        "R3"
+      ],
+      "observations": "content-bound replay identity",
+      "important_removal": "omit_sku_delta_or_timestamp_fingerprint",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A04",
+      "requirements": [
+        "R3"
+      ],
+      "observations": "ordered stock, capacity and replay-at-capacity",
+      "important_removal": "aggregate_deltas_or_evict_ledger",
+      "critical": false,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A05",
+      "requirements": [
+        "R4"
+      ],
+      "observations": "atomic staging and one commit",
+      "important_removal": "commit_each_event_or_publish_before_cas",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A06",
+      "requirements": [
+        "R4"
+      ],
+      "observations": "scheduled CAS winner and loser",
+      "important_removal": "blind_overwrite_hidden_retry_or_publish_failed_cas",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A07",
+      "requirements": [
+        "R1",
+        "R4",
+        "R6"
+      ],
+      "observations": "safe store failure, unchanged refresh and busy lifecycle",
+      "important_removal": "sticky_busy_or_clear_state_on_refresh_failure",
+      "critical": false,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A08",
+      "requirements": [
+        "R5"
+      ],
+      "observations": "authenticated canonical codec with tenant/revision binding",
+      "important_removal": "skip_mac_tenant_revision_or_schema_check",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A09",
+      "requirements": [
+        "R6"
+      ],
+      "observations": "independent same-revision recovery and disagreement rejection",
+      "important_removal": "trust_primary_accept_stale_or_choose_disagreement",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A10",
+      "requirements": [
+        "R1",
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "observations": "immutable snapshots and persisted replay ledger",
+      "important_removal": "alias_maps_or_drop_replay_metadata",
+      "critical": false,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    }
+  ],
+  "gate": {
+    "id": "G01",
+    "owner": "root qualifier",
+    "checks": [
+      "exact editable path scope",
+      "protected inventory hash preservation",
+      "pinned offline image",
+      "dart analyze",
+      "public tests and hidden behavior tests"
+    ]
+  },
+  "coverage_review_required": true,
+  "critical_removal_variants_required": true,
+  "coverage_not_qualification": true
+}

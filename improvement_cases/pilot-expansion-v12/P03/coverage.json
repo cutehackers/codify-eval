@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "assertion_identities": [
+    "A01 path containment grammar",
+    "A02 manifest shape integer and digest validation",
+    "A03 manifest duplicate prefix and aggregate limits",
+    "A04 manifest byte cap and trusted integrity boundary",
+    "A05 reject unexpected symlink before body subscription",
+    "A06 duplicate archive entry rejection",
+    "A07 missing and empty archive rollback",
+    "A08 over declared bound rejected before write",
+    "A09 byte validation precedes bound write",
+    "A10 short and corrupted content integrity",
+    "A11 cancellation initial and after begin",
+    "A12 cancellation after write prevents publication",
+    "A13 atomic publish only after source complete",
+    "A14 storage failure rollback and reusable importer",
+    "A15 source entry and chunk failures rollback",
+    "A16 busy holds across rollback and then releases",
+    "A17 successful publish wins cancellation during commit",
+    "A18 exact upper bounds reordered files and empty chunks",
+    "A19 defensive immutable writes and streamed timing",
+    "A20 failure await precedes concurrent cancellation"
+  ],
+  "private_test_count": 20,
+  "public_assertion_identities": [
+    "PUBLIC01 publishes complete files atomically",
+    "PUBLIC02 invalid tag leaves existing publication intact"
+  ],
+  "public_test_count": 2,
+  "expected_total_test_count": 22,
+  "critical_cases": [
+    "A01",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A08",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "A15",
+    "A16",
+    "A17"
+  ],
+  "maps": [
+    {
+      "id": "N01_path_containment",
+      "path": "negative/N01_path_containment",
+      "removed_requirement": "path_containment",
+      "intended_detection_assertions": [
+        "A01"
+      ],
+      "observed_failures": null
+    },
+    {
+      "id": "N02_manifest_authentication",
+      "path": "negative/N02_manifest_authentication",
+      "removed_requirement": "manifest_authentication",
+      "intended_detection_assertions": [
+        "A04",
+        "PUBLIC02"
+      ],
+      "observed_failures": null
+    },
+    {
+      "id": "N03_archive_duplicates",
+      "path": "negative/N03_archive_duplicates",
+      "removed_requirement": "archive_duplicates",
+      "intended_detection_assertions": [
+        "A06"
+      ],
+      "observed_failures": null
+    },
+    {
+      "id": "N04_stream_bound",
+      "path": "negative/N04_stream_bound",
+      "removed_requirement": "stream_bound",
+      "intended_detection_assertions": [
+        "A08"
+      ],
+      "observed_failures": null
+    },
+    {
+      "id": "N05_file_integrity",
+      "path": "negative/N05_file_integrity",
+      "removed_requirement": "file_integrity",
+      "intended_detection_assertions": [
+        "A10"
+      ],
+      "observed_failures": null
+    },
+    {
+      "id": "N06_missing_files",
+      "path": "negative/N06_missing_files",
+      "removed_requirement": "missing_files",
+      "intended_detection_assertions": [
+        "A07"
+      ],
+      "observed_failures": null
+    },
+    {
+      "id": "N07_write_cancellation",
+      "path": "negative/N07_write_cancellation",
+      "removed_requirement": "cancellation checkpoints",
+      "intended_detection_assertions": [
+        "A11",
+        "A12"
+      ],
+      "observed_failures": null
+    },
+    {
+      "id": "N08_rollback",
+      "path": "negative/N08_rollback",
+      "removed_requirement": "rollback",
+      "intended_detection_assertions": [
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "A14",
+        "A15",
+        "A20"
+      ],
+      "observed_failures": null
+    }
+  ],
+  "mapping_status": "intended only; full failure maps require separate runtime qualification"
+}

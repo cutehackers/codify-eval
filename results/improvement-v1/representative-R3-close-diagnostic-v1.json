@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "scope": "Supplementary post-review counterexample, outside frozen72checks",
+  "selection": "Independent review noticed different closed checks in original outputs",
+  "public_contract": "close waits for cooperative cleanup; waiting gets observe CancelledError",
+  "new_model_runs": 0,
+  "source_unchanged": true,
+  "script_sha256": "696245ebc481d3630912b3ed908b24113581d439b5db5aebe2d0be6b730bd65f",
+  "rows": [
+    {
+      "condition": "A",
+      "source_sha256": "b933d465409efcf824362f276148ac7bd819f5aca7535c7c6124334eb4b3d6be",
+      "mode": "return_after_cleanup",
+      "observed": {
+        "kind": "raised",
+        "exception": "CancelledError"
+      },
+      "cleanup_finished": true,
+      "pending_count": 0,
+      "contract_pass": true
+    },
+    {
+      "condition": "A",
+      "source_sha256": "b933d465409efcf824362f276148ac7bd819f5aca7535c7c6124334eb4b3d6be",
+      "mode": "raise_after_cleanup",
+      "observed": {
+        "kind": "raised",
+        "exception": "CancelledError"
+      },
+      "cleanup_finished": true,
+      "pending_count": 0,
+      "contract_pass": true
+    },
+    {
+      "condition": "C0",
+      "source_sha256": "3e0c98b651b63e0c232293e957500bf6b05edb31741d79a0c41fef6ce17ec14b",
+      "mode": "return_after_cleanup",
+      "observed": {
+        "kind": "returned",
+        "value": "late value"
+      },
+      "cleanup_finished": true,
+      "pending_count": 0,
+      "contract_pass": false
+    },
+    {
+      "condition": "C0",
+      "source_sha256": "3e0c98b651b63e0c232293e957500bf6b05edb31741d79a0c41fef6ce17ec14b",
+      "mode": "raise_after_cleanup",
+      "observed": {
+        "kind": "raised",
+        "exception": "ValueError"
+      },
+      "cleanup_finished": true,
+      "pending_count": 0,
+      "contract_pass": false
+    },
+    {
+      "condition": "C24",
+      "source_sha256": "097581aa30e11b1e868a6171c842d0d110600826dd4c30eb9b4a91814fe44bfe",
+      "mode": "return_after_cleanup",
+      "observed": {
+        "kind": "raised",
+        "exception": "CancelledError"
+      },
+      "cleanup_finished": true,
+      "pending_count": 0,
+      "contract_pass": true
+    },
+    {
+      "condition": "C24",
+      "source_sha256": "097581aa30e11b1e868a6171c842d0d110600826dd4c30eb9b4a91814fe44bfe",
+      "mode": "raise_after_cleanup",
+      "observed": {
+        "kind": "raised",
+        "exception": "CancelledError"
+      },
+      "cleanup_finished": true,
+      "pending_count": 0,
+      "contract_pass": true
+    }
+  ],
+  "limits": [
+    "Post-hoc diagnostic, not an independent new cohort",
+    "Cannot establish population or skill-caused superiority"
+  ]
+}

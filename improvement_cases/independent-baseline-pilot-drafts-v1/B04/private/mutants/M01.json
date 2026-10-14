@@ -1,0 +1,13 @@
+{
+  "id": "M01",
+  "file": "lib/journey_codec.dart",
+  "replace_once": {
+    "from": "(!r.wheelchair || l.accessible)",
+    "to": "true"
+  },
+  "must_fail": [
+    "r3 unauthorized or unsafe live routes never fallback",
+    "r5 legacy codec types cache isolation and failures"
+  ],
+  "violation": "Inaccessible route shown to wheelchair rider"
+}

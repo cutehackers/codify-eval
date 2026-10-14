@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "case_id": "P02",
+  "status": "authored_unqualified",
+  "construction": "Independent reference-derived, compile-valid-intended, single-defect overlays. Each overlay contains both editable library files; protected public files are supplied by repo.",
+  "acceptance_suite": "oracle/test/acceptance_test.dart",
+  "controls": [
+    {
+      "id": "N01_authorization_empty_allowlist",
+      "overlay": "negative/N01_authorization_empty_allowlist",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "An empty allowedTenants set incorrectly grants access to a syntactically valid bound tenant.",
+      "requirements": [
+        "R1"
+      ],
+      "public_requirement_clause": "Each operation first checks exact membership of the bound tenant in allowedTenants. A missing membership returns unauthorized without collaborator work.",
+      "discriminating_cases": [
+        "C01"
+      ],
+      "discriminating_test_names": [
+        "authorized positive and denied precedence with no collaborator calls"
+      ],
+      "expected_failure_identity": "authorization_bypass_empty_allowlist",
+      "files_sha256": {
+        "lib/event_processor.dart": "5738a814aea9e948b054af94ef195cbf47a6de8a72c9a95208f660e2ebddcaf4",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false
+    },
+    {
+      "id": "N02_premature_local_publication",
+      "overlay": "negative/N02_premature_local_publication",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "Publishes staged stock, revision, and replay ledger before the pending CAS settles, including failed CAS outcomes.",
+      "requirements": [
+        "R1",
+        "R4"
+      ],
+      "public_requirement_clause": "On CAS success only, replace the local state with staged state. CAS false or StoreUnavailable must preserve local state. Busy returns the unchanged pre-operation view.",
+      "discriminating_cases": [
+        "C20"
+      ],
+      "discriminating_test_names": [
+        "C20 current and busy view preserve captured state while CAS pending"
+      ],
+      "expected_failure_identity": "premature_local_publication_while_CAS_pending",
+      "files_sha256": {
+        "lib/event_processor.dart": "5086ca265af5b79dc8267483d71e0e6bd60d3ba56d46bb2fdefc155358eed0b5",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false
+    },
+    {
+      "id": "N03_replay_timestamp_omission",
+      "overlay": "negative/N03_replay_timestamp_omission",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "Fingerprints omit occurredAt, so timestamp-only changes become exact replays.",
+      "requirements": [
+        "R3"
+      ],
+      "public_requirement_clause": "The event fingerprint is sha256Hex(utf8.encode(jsonEncode([id, sku, delta, occurredAt]))). Do not drop a field.",
+      "discriminating_cases": [
+        "C04"
+      ],
+      "discriminating_test_names": [
+        "canonical fingerprint and every content field, duplicates, case sensitivity"
+      ],
+      "expected_failure_identity": "omit_timestamp_fingerprint",
+      "files_sha256": {
+        "lib/event_processor.dart": "62e89e4837de232f792a35b0703c6f12bbe5f7c8019d122ec6c704453fa3ea0c",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false
+    },
+    {
+      "id": "N04_payload_before_verification",
+      "overlay": "negative/N04_payload_before_verification",
+      "reference": "reference",
+      "mutation_file": "lib/checkpoint_codec.dart",
+      "defect": "Strict UTF8/JSON parse failures reject canonical malformed payloads before calling the trusted verification boundary.",
+      "requirements": [
+        "R5"
+      ],
+      "public_requirement_clause": "Call verifyCheckpoint on decoded payload bytes before interpreting their JSON content. A false result fails immediately.",
+      "discriminating_cases": [
+        "C21"
+      ],
+      "discriminating_test_names": [
+        "C21 verify boundary is called once before malformed payload rejection"
+      ],
+      "expected_failure_identity": "payload_first_malformed_rejection_without_verification",
+      "files_sha256": {
+        "lib/event_processor.dart": "2e60526b377c2ac7dfbec8d6d6c33cbb62df996c3c8aa4f7fb376b034088ef7c",
+        "lib/checkpoint_codec.dart": "7076a482f3415d9d904c22bcc9913d4abb1abc8bb8aa5a9ca3b9930117722eb8"
+      },
+      "qualified": false
+    },
+    {
+      "id": "N05_character_length_limit",
+      "overlay": "negative/N05_character_length_limit",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "Checks Dart string length rather than UTF8 bytes, allowing a multibyte oversized batch with valid effective duplicate-key content.",
+      "requirements": [
+        "R2"
+      ],
+      "public_requirement_clause": "UTF-8 encoding of the full string must be at most 65,536 bytes. Excess bytes produce invalidBatch without store work.",
+      "discriminating_cases": [
+        "C22"
+      ],
+      "discriminating_test_names": [
+        "C22 valid effective JSON exceeds UTF8 bytes but not character limit"
+      ],
+      "expected_failure_identity": "character_length_instead_of_UTF8_byte_limit",
+      "files_sha256": {
+        "lib/event_processor.dart": "5544cb531c5ad06c8012fc70880bd5e88c047268dab4eb3c7d57f90bfb4602ba",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false
+    },
+    {
+      "id": "N06_ignored_mac_verdict",
+      "overlay": "negative/N06_ignored_mac_verdict",
+      "reference": "reference",
+      "mutation_file": "lib/checkpoint_codec.dart",
+      "defect": "Calls the trusted verifier but ignores false, accepting well-formed canonical checkpoint payloads with invalid MACs.",
+      "requirements": [
+        "R5"
+      ],
+      "public_requirement_clause": "Call verifyCheckpoint on decoded payload bytes. A false result fails immediately. Integrity failure becomes corruptCheckpoint at the processor boundary.",
+      "discriminating_cases": [
+        "C14"
+      ],
+      "discriminating_test_names": [
+        "bad MAC, byte tamper, noncanonical outer and base64 reject"
+      ],
+      "expected_failure_identity": "checkpoint_mac_false_verdict_ignored",
+      "files_sha256": {
+        "lib/event_processor.dart": "2e60526b377c2ac7dfbec8d6d6c33cbb62df996c3c8aa4f7fb376b034088ef7c",
+        "lib/checkpoint_codec.dart": "bc7011d5acc2da5fae8f7c4b6aef78d89786844aae7cfa7afec03c45b499be8f"
+      },
+      "qualified": false
+    }
+  ],
+  "fixed_image_qualification": {
+    "executed": false,
+    "reason": "Root owns fixed-image execution; authoring worker does not run Docker or behavioral suites."
+  }
+}

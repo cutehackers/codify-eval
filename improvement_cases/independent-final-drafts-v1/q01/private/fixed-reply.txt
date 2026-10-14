@@ -1,0 +1,1 @@
+Choose whole-batch rejection on shortage as the production policy. A batch must never allocate only a subset when it exceeds remaining quota.

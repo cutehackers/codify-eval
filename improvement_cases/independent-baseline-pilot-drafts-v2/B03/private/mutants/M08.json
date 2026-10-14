@@ -1,0 +1,17 @@
+{
+  "id": "M08",
+  "file": "lib/sync_service.dart",
+  "replace_once": {
+    "from": "if(conflictMode==null) return const RecipeSync('decision_required');",
+    "to": "if(conflictMode==null) { await disk.read(household,id); return const RecipeSync('decision_required'); }"
+  },
+  "must_fail": [
+    "unresolved decision blocks every persistence and remote operation"
+  ],
+  "violation": "Unresolved owner decision performs disk I/O",
+  "qualification_mode": "unresolved_decision",
+  "dart_defines": [
+    "UNRESOLVED_DECISION=true"
+  ],
+  "owner_branch_overlay": false
+}

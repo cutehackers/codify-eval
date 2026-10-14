@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "P02",
+  "case_id": "P02",
+  "title": "Tenant inventory event ingestion and authenticated checkpoints",
+  "status": "authored_unqualified",
+  "qualified": false,
+  "repo_path": "repo",
+  "task_path": "task.md",
+  "oracle_path": "oracle/test",
+  "solution_path": "reference",
+  "allowed_paths": [
+    "lib/event_processor.dart",
+    "lib/checkpoint_codec.dart"
+  ],
+  "protected_paths": [
+    "README.md",
+    "lib/contracts.dart",
+    "lib/trusted_integrity.dart",
+    "pubspec.lock",
+    "pubspec.yaml",
+    "test/public_test.dart",
+    "test/test_support.dart"
+  ],
+  "acceptance_groups": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10"
+  ],
+  "critical_groups": [
+    "A01",
+    "A03",
+    "A05",
+    "A06",
+    "A08",
+    "A09"
+  ],
+  "gates": [
+    "G01"
+  ],
+  "dependency": {
+    "crypto": "3.0.7",
+    "lock_provenance": "Real local flutter pub get --offline; pinned image compatibility still unverified"
+  },
+  "runtime_image": "codify-flutter-eval:v1",
+  "runtime_image_digest": "sha256:9751b1bbd374a218e0fe7dcd362e478f2b8bb5453dbed90658da8dd0b2be3638",
+  "wall_limit_seconds": 1200,
+  "qualification_required": [
+    "pinned image offline lock resolution",
+    "starting stubs compile and fail meaningful groups",
+    "independent public-contract-only reference passes all groups",
+    "each critical removal variant fails its mapped group",
+    "independent coverage review",
+    "freeze fixture grader protected API task dependencies and runtime hashes",
+    "predeclare pilot allocation and ordering"
+  ],
+  "primary_confirmation_eligible_after_pilot": false,
+  "superiority_claim": false,
+  "reference_authored": false,
+  "negative_variants_authored": false,
+  "hash_freeze_complete": false
+}

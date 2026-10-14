@@ -1,0 +1,13 @@
+F..............
+======================================================================
+FAIL: test_conflict_preserves (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 29, in test_conflict_preserves
+    with self.assertRaises(ConflictError):self.make({'a.txt':b'new'})
+AssertionError: ConflictError not raised
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.020s
+
+FAILED (failures=1)

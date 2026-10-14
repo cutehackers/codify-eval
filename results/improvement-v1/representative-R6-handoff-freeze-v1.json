@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-14T02:55:53.446222+00:00",
+  "scenario_id": "R6-required-worker-v1",
+  "scope": "One C24 functional handoff observation; original18results and optional-worker rubric unchanged",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "product_root_runs": 1,
+  "required_implementation_workers": 1,
+  "worker_editable_paths": [
+    "manifest_parser.py"
+  ],
+  "owner_editable_paths": [
+    "batch_processor.py",
+    "manifest.py"
+  ],
+  "deadline_seconds": 1200,
+  "original_manifest_sha256": "69f361d701455891fbc1fc45e951ce7de628acdbb84afd910cfee1f32c0c9fd0",
+  "wrapper_sha256": "efcee56bd2f244015d3d7a404c67bc24cc73186e288e67eb50d322ca4cf710bd",
+  "prompt_path": "inputs/representative-R6-handoff-task-v1.txt",
+  "prompt_sha256": "fbcaddebc71a7628c6636d1d9422e57fe96f7aa4d44d9935b36cb7052ca49cff",
+  "software_checks": "Original frozen R6 private suite, 14 tests",
+  "integration_requirements": [
+    "Actual one-worker implementation",
+    "Read actual contribution and record acceptance/rejection",
+    "Owner final integrated smoke/diff inspection",
+    "Scope/protected-input preservation",
+    "Original native root/worker evidence and reference usage"
+  ],
+  "comparison_claim": false,
+  "limits": [
+    "Explicitly requested handoff, not voluntary delegation judgement",
+    "No cost or speed superiority claim",
+    "No multiworker coordination proof"
+  ],
+  "independent_protocol_review": "/root/r6_orchestration_gap_review native final recommendation; read-only"
+}

@@ -1,0 +1,6 @@
+{
+  "case_id": "Q02",
+  "necessary_questions": [],
+  "policy": "All consequential authorization and redaction choices are explicit in task.md. No blocking product question is required. Evaluate unnecessary questions from transcript. Do not punish nonblocking status updates or actual infrastructure failure reports.",
+  "artifact_status": "authored_unqualified"
+}

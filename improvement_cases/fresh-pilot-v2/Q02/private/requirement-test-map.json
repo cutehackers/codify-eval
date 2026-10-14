@@ -1,0 +1,80 @@
+{
+  "case_id": "Q02",
+  "oracle": "oracle/test/acceptance_test.dart",
+  "requirements": [
+    {
+      "id": "E1",
+      "tests": [
+        "E1 unauthorized export never reads"
+      ]
+    },
+    {
+      "id": "E2",
+      "tests": [
+        "E2 mixed tenant data filtered and source order preserved"
+      ]
+    },
+    {
+      "id": "E3",
+      "tests": [
+        "E3 support explicit allowlist and full email redaction",
+        "E3 auditor retains approved fields only",
+        "E3 missing keys are not invented"
+      ]
+    },
+    {
+      "id": "E4",
+      "tests": [
+        "E4 immutable independent snapshots for both roles",
+        "E2 mixed tenant data filtered and source order preserved"
+      ]
+    },
+    {
+      "id": "E5",
+      "tests": [
+        "E5 no matching events is successful empty export",
+        "E5 safe store error with no returned rows"
+      ]
+    }
+  ],
+  "negatives": [
+    {
+      "id": "N01",
+      "label": "mixed-tenant-export",
+      "defect": "Store over-return leaks another tenant audit rows.",
+      "implementation": "negative/N01/lib/implementation.dart",
+      "must_fail_tests": [
+        "E2 mixed tenant data filtered and source order preserved",
+        "E5 no matching events is successful empty export"
+      ]
+    },
+    {
+      "id": "N02",
+      "label": "support-email-disclosure",
+      "defect": "Support export discloses email.",
+      "implementation": "negative/N02/lib/implementation.dart",
+      "must_fail_tests": [
+        "E3 support explicit allowlist and full email redaction"
+      ]
+    },
+    {
+      "id": "N03",
+      "label": "support-reason-disclosure",
+      "defect": "Support export discloses private reason detail.",
+      "implementation": "negative/N03/lib/implementation.dart",
+      "must_fail_tests": [
+        "E3 support explicit allowlist and full email redaction"
+      ]
+    },
+    {
+      "id": "N04",
+      "label": "mutable-export-list",
+      "defect": "Returned export row list can be altered.",
+      "implementation": "negative/N04/lib/implementation.dart",
+      "must_fail_tests": [
+        "E4 immutable independent snapshots for both roles"
+      ]
+    }
+  ],
+  "qualification_status": "not_run"
+}

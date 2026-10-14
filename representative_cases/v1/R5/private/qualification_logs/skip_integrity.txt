@@ -1,0 +1,125 @@
+.F..E....F..EF
+======================================================================
+ERROR: test_integrity_before_conflict (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 64, in test_integrity_before_conflict
+    with self.assertRaises(IntegrityError):self.make({'different':b'data'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/skip_integrity/snapshot.py", line 60, in publish_snapshot
+    raise ConflictError('snapshot ID already contains different files')
+snapshot.ConflictError: snapshot ID already contains different files
+
+======================================================================
+ERROR: test_malformed_manifest (test_behavior.Behavior) (content='not json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 60, in test_malformed_manifest
+    with self.assertRaises(IntegrityError):self.make()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/skip_integrity/snapshot.py", line 58, in publish_snapshot
+    existing=json.loads((destination/'manifest.json').read_text())['files']
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+======================================================================
+ERROR: test_malformed_manifest (test_behavior.Behavior) (content='[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 60, in test_malformed_manifest
+    with self.assertRaises(IntegrityError):self.make()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/skip_integrity/snapshot.py", line 58, in publish_snapshot
+    existing=json.loads((destination/'manifest.json').read_text())['files']
+TypeError: list indices must be integers or slices, not str
+
+======================================================================
+ERROR: test_malformed_manifest (test_behavior.Behavior) (content='{"files": []}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 60, in test_malformed_manifest
+    with self.assertRaises(IntegrityError):self.make()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/skip_integrity/snapshot.py", line 60, in publish_snapshot
+    raise ConflictError('snapshot ID already contains different files')
+snapshot.ConflictError: snapshot ID already contains different files
+
+======================================================================
+ERROR: test_malformed_manifest (test_behavior.Behavior) (content='{"files": {}, "extra": 1}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 60, in test_malformed_manifest
+    with self.assertRaises(IntegrityError):self.make()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/skip_integrity/snapshot.py", line 60, in publish_snapshot
+    raise ConflictError('snapshot ID already contains different files')
+snapshot.ConflictError: snapshot ID already contains different files
+
+======================================================================
+ERROR: test_malformed_manifest (test_behavior.Behavior) (content='{"files": {"a.txt": "bad"}}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 60, in test_malformed_manifest
+    with self.assertRaises(IntegrityError):self.make()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/skip_integrity/snapshot.py", line 60, in publish_snapshot
+    raise ConflictError('snapshot ID already contains different files')
+snapshot.ConflictError: snapshot ID already contains different files
+
+======================================================================
+ERROR: test_root_and_destination_symlinks (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 78, in test_root_and_destination_symlinks
+    with self.assertRaises(IntegrityError):self.make()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/skip_integrity/snapshot.py", line 58, in publish_snapshot
+    existing=json.loads((destination/'manifest.json').read_text())['files']
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1256, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1242, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1110, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/tmprmy7tsi_/snapshots/daily/manifest.json'
+
+======================================================================
+FAIL: test_corrupt_bytes_not_repaired (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 48, in test_corrupt_bytes_not_repaired
+    with self.assertRaises(IntegrityError):self.make()
+AssertionError: IntegrityError not raised
+
+======================================================================
+FAIL: test_missing_and_extra_files (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 52, in test_missing_and_extra_files
+    with self.assertRaises(IntegrityError):self.make()
+AssertionError: IntegrityError not raised
+
+======================================================================
+FAIL: test_symlinks_rejected (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 72, in test_symlinks_rejected
+    with self.assertRaises(IntegrityError):self.make()
+AssertionError: IntegrityError not raised
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.021s
+
+FAILED (failures=3, errors=7)

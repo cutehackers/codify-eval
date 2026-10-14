@@ -1,0 +1,12 @@
+{
+  "id": "M01",
+  "file": "lib/gate_service.dart",
+  "replace_once": {
+    "from": "fresh.role!='gate'",
+    "to": "false"
+  },
+  "must_fail": [
+    "r2 current staff controls authorization before pass lookup"
+  ],
+  "violation": "Viewer admitted"
+}

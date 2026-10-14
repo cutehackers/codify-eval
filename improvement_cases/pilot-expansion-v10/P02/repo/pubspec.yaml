@@ -1,0 +1,12 @@
+name: tenant_inventory_p02
+publish_to: none
+version: 1.0.0
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  crypto: 3.0.7
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

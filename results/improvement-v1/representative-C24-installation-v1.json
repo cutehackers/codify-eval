@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-14T02:51:48.198321+00:00",
+  "installed_path": "/Users/junhyounglee/.agents/skills/codify",
+  "candidate": "C24",
+  "authorization": "User approved skill improvement and verified candidate installation in representative scope",
+  "basis": "Independent semantic/outcome reviews and representative behavior checks; not a universal superiority claim",
+  "changed_files": [
+    "SKILL.md",
+    "references/delivery.md",
+    "references/orchestration.md"
+  ],
+  "backup_path": "/Users/junhyounglee/workspace/codify-eval/snapshots/installed-pre-C24-v1",
+  "backup_verified": true,
+  "before": {
+    ".DS_Store": {
+      "sha256": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d",
+      "bytes": 6148,
+      "mode": 420
+    },
+    "SKILL.md": {
+      "sha256": "402c7d87ab52dab4ef349103cf3ae46cbed54d2d8e54a186cba5fa63705b50f4",
+      "bytes": 6372,
+      "mode": 420
+    },
+    "agents/openai.yaml": {
+      "sha256": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20",
+      "bytes": 545,
+      "mode": 420
+    },
+    "references/delivery.md": {
+      "sha256": "0a0ea9255e0dd4275b2424afb07d7fd66cc731e7ba643f633d475789c4176da7",
+      "bytes": 7302,
+      "mode": 420
+    },
+    "references/intent-interview.md": {
+      "sha256": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec",
+      "bytes": 10292,
+      "mode": 420
+    },
+    "references/orchestration.md": {
+      "sha256": "8a247f2f91bf9680bf46151cce26a93ed3b8517148dff28372b66eb66c6e4e41",
+      "bytes": 6179,
+      "mode": 420
+    },
+    "references/specification.md": {
+      "sha256": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+      "bytes": 19883,
+      "mode": 420
+    }
+  },
+  "after": {
+    ".DS_Store": {
+      "sha256": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d",
+      "bytes": 6148,
+      "mode": 420
+    },
+    "SKILL.md": {
+      "sha256": "0095d569d11a643ffc7e82b89851c156c920db5c1736557b366a42cf929761b0",
+      "bytes": 8035,
+      "mode": 420
+    },
+    "agents/openai.yaml": {
+      "sha256": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20",
+      "bytes": 545,
+      "mode": 420
+    },
+    "references/delivery.md": {
+      "sha256": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398",
+      "bytes": 8294,
+      "mode": 420
+    },
+    "references/intent-interview.md": {
+      "sha256": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec",
+      "bytes": 10292,
+      "mode": 420
+    },
+    "references/orchestration.md": {
+      "sha256": "0d73ea0a31bb94648f9b8be1a6d591889b993acedd10143a81adc4b97ebe58e7",
+      "bytes": 8201,
+      "mode": 420
+    },
+    "references/specification.md": {
+      "sha256": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+      "bytes": 19883,
+      "mode": 420
+    }
+  },
+  "candidate_exact_match": true,
+  "validation": {
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  "goal_superiority_complete": false,
+  "independent_outcome_review_sha256": "9d1232468de642d9a9b358b4b6de3a727d491bb18fe868af6d53417d035463bb"
+}

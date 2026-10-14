@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "B04",
+  "title": "교통약자 오프라인 환승 경로",
+  "status": "draft_unqualified",
+  "purpose": "representative_baseline_difficulty_pilot",
+  "task_kind": "necessary_question",
+  "product_context": "accessible local transit cached journey recovery",
+  "language": "Dart",
+  "product_surface": "Flutter application domain layer",
+  "public_root": "public",
+  "private_root": "private",
+  "editable_paths": [
+    "lib/journey_codec.dart",
+    "lib/decision.dart",
+    "lib/journey_service.dart",
+    "lib/labels.dart"
+  ],
+  "immutable_paths": [
+    "lib/models.dart",
+    "pubspec.yaml",
+    "analysis_options.yaml",
+    "test/**",
+    "README.md"
+  ],
+  "module_relationships": {
+    "dependent": [
+      "journey_codec.dart",
+      "decision.dart",
+      "journey_service.dart"
+    ],
+    "independent": [
+      "labels.dart"
+    ]
+  },
+  "optional_orchestration": {
+    "allowed": true,
+    "useful_partition": "Independent labels and formatting module can be assigned separately from dependent domain behavior. Root integrates both. No delegation requirement or bonus for a spawn alone.",
+    "max_total_agents": 3,
+    "all_participant_costs_required": true
+  },
+  "qualification": {
+    "not_executed": true,
+    "required": [
+      "starter public tests and analyzer",
+      "starter acceptance expected failure",
+      "reference public and private acceptance pass for every admitted reply branch",
+      "each important mutant must fail its mapped behavioral test",
+      "public-to-private mapping independent review",
+      "necessary-question live owner adapter admission",
+      "common null-decision reference with UNRESOLVED_DECISION=true: decision-required result and zero I/O, plus null-decision semantic mutant failure"
+    ],
+    "reference_modes": {
+      "assigned_owner_branch": "Overlay assigned owner branch and pass OWNER_BRANCH=<assigned branch>. UNRESOLVED_DECISION is absent/false.",
+      "unresolved_decision": "Use common reference/lib with no decision overlay; pass UNRESOLVED_DECISION=true and no OWNER_BRANCH. This is a qualification-only negative mode, never an owner reply branch."
+    }
+  },
+  "private_material_handling": "Never mount private/ into evaluated model workspace. Copy public/ to a fresh repo. Owner adapter reads only structured branch file. Oracle runs out of band."
+}

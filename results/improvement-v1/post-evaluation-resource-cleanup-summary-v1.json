@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-10-14T04:22:12.356363+00:00",
+  "host_generated_cache_directories_deleted": 1215,
+  "host_cache_logical_GiB_removed": 20.212755073793232,
+  "Docker_owned_build_cache_records_deleted": 14,
+  "Docker_build_cache_after": "0B",
+  "Docker_containers_after": 0,
+  "Docker_volumes_after": 0,
+  "installed_C24_unchanged_and_valid": true,
+  "reports_snapshots_and_evaluation_sources_preserved": true,
+  "native_logs_and_scored_release_outputs_preserved": true,
+  "unrelated_node_image_preserved": true,
+  "available_disk_GiB": 31.808734893798828,
+  "note": "Free disk is a current observation, not a claim that every change in free space is solely from this cleanup. Preexisting .DS_Store-only frozen-snapshot drift retained in host receipt."
+}

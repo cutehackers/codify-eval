@@ -1,0 +1,12 @@
+{
+  "id": "M01",
+  "file": "lib/codec.dart",
+  "replace_once": {
+    "from": "final rows=schema==1?o['items']:o['ingredients'];",
+    "to": "final rows=o['ingredients'];"
+  },
+  "must_fail": [
+    "r1 legacy migration strict types and contents"
+  ],
+  "violation": "Break legacy disk compatibility"
+}

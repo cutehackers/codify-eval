@@ -1,0 +1,20 @@
+{
+  "id": "H04",
+  "type": "heldout_data_compatibility",
+  "framework": "flutter",
+  "command": [
+    "flutter",
+    "test",
+    "test/acceptance_test.dart"
+  ],
+  "allowed_paths": [
+    "lib/**",
+    "test/**"
+  ],
+  "protected_paths": [
+    "pubspec.yaml"
+  ],
+  "oracle_path": "oracle/test",
+  "solution_path": "reference",
+  "requirements_disclosed": true
+}

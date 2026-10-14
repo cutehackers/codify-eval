@@ -1,0 +1,55 @@
+{
+  "revision": "N03 v2 only",
+  "qualification": false,
+  "records": [
+    {
+      "label": "offline-resolve",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "pub",
+        "get",
+        "--offline"
+      ],
+      "exit_code": 0,
+      "seconds": 0.454,
+      "log": "private/preliminary-logs/revision-v2/offline-resolve.log"
+    },
+    {
+      "label": "N03-analyze",
+      "command": [
+        "dart",
+        "analyze",
+        "lib",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 2.144,
+      "log": "private/preliminary-logs/revision-v2/N03-analyze.log"
+    },
+    {
+      "label": "N03-full",
+      "command": [
+        "flutter",
+        "--no-version-check",
+        "--suppress-analytics",
+        "test",
+        "--no-pub",
+        "--reporter",
+        "expanded"
+      ],
+      "exit_code": 1,
+      "seconds": 4.191,
+      "log": "private/preliminary-logs/revision-v2/N03-full.log",
+      "failed_test_ids": [
+        "A02",
+        "P06",
+        "P07"
+      ],
+      "passed_count": 8,
+      "failed_count": 3,
+      "executed_count": 11
+    }
+  ]
+}

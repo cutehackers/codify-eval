@@ -1,0 +1,1 @@
+Implement the feed contract in README.md for an offline-first activity feed. Preserve all public APIs, existing tests and dependency constraints. Change only lib/implementation.dart. Verify the actual behavior with suitable tests without changing protected files.

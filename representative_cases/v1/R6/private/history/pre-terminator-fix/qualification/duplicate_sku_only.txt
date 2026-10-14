@@ -1,0 +1,28 @@
+test_errors_duplicates_and_rejected_rows_do_not_reserve (test_behavior.BatchChecks.test_errors_duplicates_and_rejected_rows_do_not_reserve) ... FAIL
+
+======================================================================
+FAIL: test_errors_duplicates_and_rejected_rows_do_not_reserve (test_behavior.BatchChecks.test_errors_duplicates_and_rejected_rows_do_not_reserve)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests/test_behavior.py", line 52, in test_errors_duplicates_and_rejected_rows_do_not_reserve
+    self.assertEqual([x.line_number for x in result.accepted],[2,4,5])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [2, 5] != [2, 4, 5]
+
+First differing element 1:
+5
+4
+
+Second list contains 1 additional elements.
+First extra element 2:
+5
+
+- [2, 5]
++ [2, 4, 5]
+?     +++
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

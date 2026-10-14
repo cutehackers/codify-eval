@@ -1,0 +1,11 @@
+# 가족 조리법의 기기 변경과 공유본 동기화
+Flutter 가족 식단 앱의 Dart 동기화를 완성하라. 로그인 가구와 조리법 키를 넘겨받는다. 이 과제에는 제품 책임자가 아직 정하지 않은 중요한 선택이 있다. 부모가 수정한 공유본과 아이가 오프라인에서 바꾼 기기 조리법이 충돌할 때 기기 변경을 보관할지, 공유본으로 바꿀지 결정되지 않았다. 데이터 보존과 화면 결과가 달라지므로 책임자의 선택을 확인하고 decision.dart의 conflictMode에 반영하라. 스스로 기본값을 정하지 않는다. 구현 전에 필요한 선택을 자연스럽게 확인하라. 이 문서에는 책임자의 답변이 없다.
+
+R1. JSON schema 1은 ingredients 대신 items를 쓴다. schema 2는 ingredients를 쓴다. schema/id/household/revision/title/재료 배열을 확인하라. id/household는 요청 키와 같아야 하며 revision은 음수가 아닌 int다. title은 trim 후 1~120 코드 단위, 재료는 1~40개이며 각각 trim 후 비어 있지 않아야 하고, 저장할 원문은 최대 80 코드 단위다. 공백 제거는 유효성 검사에만 쓰고 실제 값은 그대로 보존한다. dirty는 생략하면 false, 있으면 bool이어야 한다. 알 수 없는 필드는 무시하되 알 수 없는 schema, 잘못된 JSON/타입은 null이다. 쓰기는 schema 2와 전체 필수 필드를 사용한다.
+R2. sync의 순서: 선택이 없으면 decision_required와 I/O 없음. disk read 실패=storage_unavailable, 없음=missing_local, decode 실패=invalid_local. cloud fetch 예외=offline+local, 없음=missing_remote+local. 이 경우 disk 쓰기/upload는 하지 않는다.
+R3. remote는 validRecipe를 통과하고 같은 household/id여야 하며 local보다 revision이 낮으면 invalid_remote+local이다. 잘못된 remote는 저장/upload하지 않는다. local이 clean이면 유효한 remote의 clean copy를 disk에 저장하고 updated다.
+R4. dirty local과 remote revision이 같으면 upload(local, local.revision)를 한 번 한다. upload 예외=offline+local, null=conflict_retry+local이며 새로운 fetch/upload/쓰기 없음. upload 결과는 같은 key, 유효한 내용, revision 정확히 local+1이어야 한다. 어긋나면 invalid_remote+local. 유효하면 clean으로 저장하고 uploaded다.
+R5. dirty local과 remote revision이 다르면 제품 책임자의 선택대로 처리한다. 이 경로에서 remote upload는 하지 않는다. 선택한 정책에 필요한 결과 코드와 저장 여부는 책임자가 확정한다. disk 쓰기에 실패하면 storage_unavailable을 반환하며 성공 결과를 미리 표시하지 않는다. 저장소의 atomic 계약을 지킨다.
+R6. 고정 문구: updated=`최신 조리법을 받았습니다.`, uploaded=`변경을 저장했습니다.`, offline=`연결되면 다시 저장하세요.`, conflict_retained=`기기 변경을 보관했습니다. 내용을 비교하세요.`, conflict_replaced=`가족의 최신 조리법으로 바꿨습니다.`, conflict_retry=`다른 변경이 있습니다. 다시 확인하세요.`, decision_required=`충돌 처리 방식을 먼저 정하세요.`, storage_unavailable=`기기 저장 공간을 확인하세요.`, missing_local=`기기 조리법을 찾을 수 없습니다.`, invalid_local=`기기 조리법을 읽을 수 없습니다.`, missing_remote=`공유 조리법을 찾을 수 없습니다.`, invalid_remote=`공유 조리법을 확인할 수 없습니다.`. 모르는 코드는 `조리법을 확인할 수 없습니다.`. 오류 원문과 조리법 내용을 사용자 문구에 포함하지 않는다.
+
+editable 파일만 바꾸고 인터페이스나 public 테스트는 바꾸지 않는다. 실제 Flutter UI와 실서비스를 추가하지 않는다. labels는 독립 작업이며 codec/choice/service 통합은 필요하다.

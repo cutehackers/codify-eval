@@ -1,0 +1,15 @@
+{
+  "status": "historical_preliminary_v1",
+  "current_sources": false,
+  "review_path": "/Users/junhyounglee/workspace/codify-eval/results/improvement-v1/fresh-J01-semantic-review-v1.json",
+  "review_sha256": "a03feb8e59a4791ab0ef9e939124f9bcc621798f3adfe1f26ae4df4f909ddaaf",
+  "author_checks_v1": {
+    "private/author_checks/summary.json": "f20c3b4ac9553401165200567b62f33207da47cd069788cf00c65e530080dcd9",
+    "private/author_checks/stub.log": "4386cebb2d1d3b193c5cfe4fe2721548ccfbca0bc713738969a51176c5769034",
+    "private/author_checks/N01.log": "1fc613800d121967c3b5f5ef2e9dc776c457366495e1393728b2912449bab6ea",
+    "private/author_checks/N02.log": "fe5e6b2bf388f7ee36a0e25631a32f1acf53fc8dffacdaa3f32e1d28585b8e91",
+    "private/author_checks/N03.log": "b98966eacafdadb3d1c8e3f1c4ffaf8308585b722ddbad1527be10c2b93d44ee",
+    "private/author_checks/reference.log": "d835eaebeb334aa994a14d31c1db206fae10011cb0b4e31a2575b43fa8724309",
+    "private/author_checks/N04.log": "38f1bf25519be29a842680160ace0f5bf6f4aae3e86803ad8869901574a2bfab"
+  }
+}

@@ -1,0 +1,29 @@
+test_parse (test_smoke.Smoke.test_parse) ... ERROR
+test_summary (test_smoke.Smoke.test_summary) ... ERROR
+
+======================================================================
+ERROR: test_parse (test_smoke.Smoke.test_parse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/public/test_smoke.py", line 8, in test_parse
+    item=parse_line('ORD-1,SKU,2,3.25',1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/public/manifest_parser.py", line 4, in parse_line
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_summary (test_smoke.Smoke.test_summary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/public/test_smoke.py", line 11, in test_summary
+    result=summarize(['ORD-1,SKU,2,3.25'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/public/manifest.py", line 4, in summarize
+    raise NotImplementedError
+NotImplementedError
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+FAILED (errors=2)

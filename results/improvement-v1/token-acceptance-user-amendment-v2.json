@@ -1,0 +1,12 @@
+{
+  "authority": "Direct latest user instruction: tokens measured and communicated as reference only, not mandatory condition",
+  "original_metrics_and_failed_costs_preserved": true,
+  "quality_security_questions_orchestration_speed_requirements_preserved": true,
+  "recorded_at": "2026-10-14T01:34:45.027006+00:00",
+  "schema_version": 2,
+  "supersedes": "token-acceptance-user-amendment-v1.json",
+  "token_acceptance_gate": false,
+  "token_increase_limit": null,
+  "token_measurement_required": true,
+  "token_reduction_required": false
+}

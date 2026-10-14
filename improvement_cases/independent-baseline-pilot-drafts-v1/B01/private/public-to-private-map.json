@@ -1,0 +1,17 @@
+{
+  "R1": [
+    "r1 rejects boundaries but preserves ordinary text"
+  ],
+  "R2": [
+    "r2 scope sequence and outcomes"
+  ],
+  "R3": [
+    "r3 serialized concurrent flush and stable scoped key"
+  ],
+  "R4": [
+    "r4 durable checkpoint recovery and no later side effect"
+  ],
+  "R5": [
+    "r5 labels do not show identifiers or errors"
+  ]
+}

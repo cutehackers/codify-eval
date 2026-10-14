@@ -1,0 +1,93 @@
+.......F......
+======================================================================
+FAIL: test_invalid_input_before_integrity (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 68, in test_invalid_input_before_integrity
+    self.assertNotIsInstance(raised.exception,IntegrityError)
+AssertionError: IntegrityError('existing snapshot is corrupt') is an instance of <class 'snapshot.IntegrityError'>
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='../escape')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a/../b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='./x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a//b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a/')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a\\b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a\x00b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='manifest.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='manifest.json/x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 35, in test_invalid_paths_create_nothing
+    self.assertFalse(self.root.exists())
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.021s
+
+FAILED (failures=11)

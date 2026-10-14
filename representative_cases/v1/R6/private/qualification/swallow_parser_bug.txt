@@ -1,0 +1,15 @@
+test_unexpected_parser_exception_propagates (test_behavior.BatchChecks.test_unexpected_parser_exception_propagates) ... FAIL
+
+======================================================================
+FAIL: test_unexpected_parser_exception_propagates (test_behavior.BatchChecks.test_unexpected_parser_exception_propagates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests/test_behavior.py", line 66, in test_unexpected_parser_exception_propagates
+    with self.assertRaisesRegex(RuntimeError,'bug'): process_lines(['anything'],parser=broken)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: RuntimeError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

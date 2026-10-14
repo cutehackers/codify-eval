@@ -1,0 +1,12 @@
+{
+  "id": "M01",
+  "file": "lib/outbox.dart",
+  "replace_once": {
+    "from": "if (j.tenant!=tenant || j.state!='pending') continue;",
+    "to": "if (j.state!='pending') continue;"
+  },
+  "must_fail": [
+    "r2 scope sequence and outcomes"
+  ],
+  "violation": "Cross-tenant send"
+}

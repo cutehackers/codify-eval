@@ -1,0 +1,6 @@
+{
+  "fault_category": "reporting",
+  "changed_file": "lib/export_encoding.dart",
+  "independent_fault": "reporting_reverse_order",
+  "expected": "assertion_failure_not_compile_error"
+}

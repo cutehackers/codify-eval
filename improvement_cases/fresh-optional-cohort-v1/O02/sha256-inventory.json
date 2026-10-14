@@ -1,0 +1,444 @@
+{
+  "version": "current-authored-v1",
+  "status": "authored_unqualified",
+  "excludes_self_hash": true,
+  "file_and_symlink_count_excluding_inventory": 62,
+  "file_and_symlink_count_including_inventory": 63,
+  "includes_all_private_archives": true,
+  "entries": [
+    {
+      "path": "authoring-provenance.json",
+      "type": "file",
+      "bytes": 1092,
+      "sha256": "dffe32b583068aa6f906cbb0c9e867fd497874401e09e7891420953affcd6532",
+      "mode": "0o644"
+    },
+    {
+      "path": "metadata.json",
+      "type": "file",
+      "bytes": 17667,
+      "sha256": "61af2c15650bff0130a2cc92f34b67d6d662b4e55ecbb5f1215628737d92ba72",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/acceptance_test.dart",
+      "type": "file",
+      "bytes": 5418,
+      "sha256": "7eb624bf2e2837eccb2cfec99e85a04104a398762b050efd3b09c0d331a9d74f",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/.dart_tool/package_config.json",
+      "type": "file",
+      "bytes": 5000,
+      "sha256": "775457201429fd8d508fb34849861e6534e640aaaaa2c6a480652abd5cecb534",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/.dart_tool/package_graph.json",
+      "type": "file",
+      "bytes": 3831,
+      "sha256": "08e5883eae5a2c1454f62e5a63f7d3e21b9a3455379a42a2900d30ac773b8eca",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/.dart_tool/version",
+      "type": "file",
+      "bytes": 6,
+      "sha256": "9a8c236fb03c40b466c320d3994f9332b67d0518a2aa87e0ccf801a8f483a747",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/build/native_assets/macos/native_assets.json",
+      "type": "file",
+      "bytes": 45,
+      "sha256": "9548a31e4a048135c1d94f919328bfb62ae2c7bb3cab96557c7941daa97776cb",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/build/test_cache/build/0c76d00faa81ef97b9e29f9d80734c3b.cache.dill.track.dill",
+      "type": "file",
+      "bytes": 47976344,
+      "sha256": "8cc28d24cb5642758477d317306399f4339eaf7a62dc3b3756b6daf22f3c58fe",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/build/unit_test_assets/AssetManifest.bin",
+      "type": "file",
+      "bytes": 2,
+      "sha256": "f566cc6fccc657365c0197accf3a7d6f80f85209ff666ff774f4dcbc524aa842",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/build/unit_test_assets/FontManifest.json",
+      "type": "file",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/build/unit_test_assets/NOTICES.Z",
+      "type": "file",
+      "bytes": 97988,
+      "sha256": "a68ecc9f96e2b37c2bff882a137080e1ee05f041a84a57d60d6342e7c3ebb641",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/build/unit_test_assets/NativeAssetsManifest.json",
+      "type": "file",
+      "bytes": 45,
+      "sha256": "9548a31e4a048135c1d94f919328bfb62ae2c7bb3cab96557c7941daa97776cb",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/build/unit_test_assets/shaders/ink_sparkle.frag",
+      "type": "file",
+      "bytes": 13472,
+      "sha256": "ae7b534a900971131e73bf9cee9b038b5bb9450a582a516c9dc5ab3c43c75f3a",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/build/unit_test_assets/shaders/stretch_effect.frag",
+      "type": "file",
+      "bytes": 9464,
+      "sha256": "4fad651c3c906474ef20c490f11b23ff5ae8fff593686507c1f4fb4eb3603e89",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_archive/attempt-v2/pubspec.lock",
+      "type": "file",
+      "bytes": 5386,
+      "sha256": "1fca3c6690c0c04eb15788a4c16f46a982fd6256fdafc0a1bd5d80caa7377b4a",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/commands.json",
+      "type": "file",
+      "bytes": 5849,
+      "sha256": "68d14681c48eb6a876180c9066a6f56c88916978b12caff2a34a54f73bb8f981",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/negative_atomicity_stale_noop.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/negative_atomicity_stale_noop.stdout",
+      "type": "file",
+      "bytes": 13262,
+      "sha256": "568b9fbd63ddda0b13bb484abbea5d20ebef8b0a0bc562c3540f33cc7a2eaa01",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/negative_compatibility_byte_length.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/negative_compatibility_byte_length.stdout",
+      "type": "file",
+      "bytes": 14061,
+      "sha256": "6dd9201df3f81bca43c5a0ce3d176390230c1c3b67928081539fc6a70ec2a9fd",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/negative_reporting_reverse_order.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/negative_reporting_reverse_order.stdout",
+      "type": "file",
+      "bytes": 13590,
+      "sha256": "404b267f00000720496d5a5da006557ddf3ec206aedda8cfe3d5235ae1f003e2",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/negative_security_permission_bypass.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/negative_security_permission_bypass.stdout",
+      "type": "file",
+      "bytes": 13260,
+      "sha256": "2daa2e66d0601416ace04091cdeeac0751369a4569ee91c2dd09f481d1aab10b",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/offline_pub_get.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/offline_pub_get.stdout",
+      "type": "file",
+      "bytes": 841,
+      "sha256": "c1dcb44585fd54811a4912e1c6e2cc802a6e8e33d51a03bf6af59f42ba105cc9",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/reference_analyze.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/reference_analyze.stdout",
+      "type": "file",
+      "bytes": 96,
+      "sha256": "25f94e6132a522f0b9c9f32fe0c4fc77afd8da44fb603572707fb1affd1d1f9d",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/reference_private.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/reference_private.stdout",
+      "type": "file",
+      "bytes": 6282,
+      "sha256": "f77893b55a648aefe29ad4048cea2ae97a87a503193a83f36644043742fde2ec",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/reference_public.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/reference_public.stdout",
+      "type": "file",
+      "bytes": 6048,
+      "sha256": "86909100c50259781c2fac8a49cb73033cc0bc8910347a196c7d4aa023bae22d",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/starting_public.stderr",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_evidence/attempt-v2/starting_public.stdout",
+      "type": "file",
+      "bytes": 9235,
+      "sha256": "e48a1df5732e96c1bbe27868f6aa5a76ceca05f9a6ad417b3f499a579772fcaa",
+      "mode": "0o444"
+    },
+    {
+      "path": "private/host_summary.json",
+      "type": "file",
+      "bytes": 6466,
+      "sha256": "affcad1b94d1389e911afc0e850a554f9d5e36e6cc13824ab8a1d3076062e9f3",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/atomicity_stale_noop/fault.json",
+      "type": "file",
+      "bytes": 181,
+      "sha256": "ee642db2ff7cb34feff625cc37db6db8d18c272365266d72edb0c203c356b22f",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/atomicity_stale_noop/lib/export_encoding.dart",
+      "type": "file",
+      "bytes": 907,
+      "sha256": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/atomicity_stale_noop/lib/export_selection.dart",
+      "type": "file",
+      "bytes": 743,
+      "sha256": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/atomicity_stale_noop/lib/export_service.dart",
+      "type": "file",
+      "bytes": 1595,
+      "sha256": "19e30d7d6d51850c0afa9512bb2cad455495fcad8f710608edc69296540a4eb7",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/compatibility_byte_length/fault.json",
+      "type": "file",
+      "bytes": 191,
+      "sha256": "b0123f57e0eb83c73d9228df352e468693ce63f4c5bee99156436ba163fb70d7",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/compatibility_byte_length/lib/export_encoding.dart",
+      "type": "file",
+      "bytes": 913,
+      "sha256": "3ca476691b91f916ca99e81e8e8f5f20bdd49e918f10073f0cf0fb64ea95618f",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/compatibility_byte_length/lib/export_selection.dart",
+      "type": "file",
+      "bytes": 743,
+      "sha256": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/compatibility_byte_length/lib/export_service.dart",
+      "type": "file",
+      "bytes": 1595,
+      "sha256": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/reporting_reverse_order/fault.json",
+      "type": "file",
+      "bytes": 185,
+      "sha256": "340b95f9fe04c86406a95f3b9a30d7e2060fdc1267b46bf3201ad41dffd26792",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/reporting_reverse_order/lib/export_encoding.dart",
+      "type": "file",
+      "bytes": 925,
+      "sha256": "87359fc625d709668919d18bd8f9217d96a7ccf6850e3ac02d4a5ef06e246c43",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/reporting_reverse_order/lib/export_selection.dart",
+      "type": "file",
+      "bytes": 743,
+      "sha256": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/reporting_reverse_order/lib/export_service.dart",
+      "type": "file",
+      "bytes": 1595,
+      "sha256": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/security_permission_bypass/fault.json",
+      "type": "file",
+      "bytes": 186,
+      "sha256": "b5e74f2549b4e0719a4e347d282872171170f9c4298be1bfb82352c4ab2305e2",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/security_permission_bypass/lib/export_encoding.dart",
+      "type": "file",
+      "bytes": 907,
+      "sha256": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/security_permission_bypass/lib/export_selection.dart",
+      "type": "file",
+      "bytes": 743,
+      "sha256": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/negative_controls/security_permission_bypass/lib/export_service.dart",
+      "type": "file",
+      "bytes": 1555,
+      "sha256": "94e1269beb29945397343e7d1fb00f655b65e24538e303a8c8b785c99687437e",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/reference/lib/export_encoding.dart",
+      "type": "file",
+      "bytes": 907,
+      "sha256": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/reference/lib/export_selection.dart",
+      "type": "file",
+      "bytes": 743,
+      "sha256": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "mode": "0o644"
+    },
+    {
+      "path": "private/reference/lib/export_service.dart",
+      "type": "file",
+      "bytes": 1595,
+      "sha256": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82",
+      "mode": "0o644"
+    },
+    {
+      "path": "public/request.md",
+      "type": "file",
+      "bytes": 6937,
+      "sha256": "a41950da6cc47399a3ceda1a5e3d40848fb23f42f541308ec0a5215859dc1dfe",
+      "mode": "0o644"
+    },
+    {
+      "path": "repo/analysis_options.yaml",
+      "type": "file",
+      "bytes": 71,
+      "sha256": "825cc031ddaa640a9f0eb7dbf94f09e293cd19576c224a9be9da6442fb339ff9",
+      "mode": "0o644"
+    },
+    {
+      "path": "repo/lib/export_encoding.dart",
+      "type": "file",
+      "bytes": 127,
+      "sha256": "0cdaf4d49b5fbec50f4e46c42ae8a22d02543b4d05127d5dfe7f86257e5e4de7",
+      "mode": "0o644"
+    },
+    {
+      "path": "repo/lib/export_selection.dart",
+      "type": "file",
+      "bytes": 203,
+      "sha256": "a8264819279d12a4f2ae63ab5acb797377bf428ee39b99bd7e994e54e58abfaf",
+      "mode": "0o644"
+    },
+    {
+      "path": "repo/lib/export_service.dart",
+      "type": "file",
+      "bytes": 267,
+      "sha256": "5e970696c90fe36b978e0d9897142b1655453e8afba1e454030d49f7384d6ead",
+      "mode": "0o644"
+    },
+    {
+      "path": "repo/lib/models.dart",
+      "type": "file",
+      "bytes": 4160,
+      "sha256": "c88ac3e794a43be0def2d6cdd2a7e40b1b1ccd9abc846be80650ab29f69ddb0a",
+      "mode": "0o644"
+    },
+    {
+      "path": "repo/pubspec.yaml",
+      "type": "file",
+      "bytes": 165,
+      "sha256": "ac56580081b444b68e8f3baafb4e5e2579ea020a8b640adb27bc94bca50278de",
+      "mode": "0o644"
+    },
+    {
+      "path": "repo/test/contract_test.dart",
+      "type": "file",
+      "bytes": 5255,
+      "sha256": "eaac6747c0ab8152b6590b7adf4f498e93cb7bad32aa04b6aa120f551df32289",
+      "mode": "0o644"
+    }
+  ]
+}

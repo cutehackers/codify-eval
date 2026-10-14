@@ -1,0 +1,21 @@
+test_validation_precedence (test_behavior.ParserChecks.test_validation_precedence) ... FAIL
+
+======================================================================
+FAIL: test_validation_precedence (test_behavior.ParserChecks.test_validation_precedence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests/test_behavior.py", line 34, in test_validation_precedence
+    self.assertCode('!,!,0,NaN','order_id')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests/test_behavior.py", line 12, in assertCode
+    self.assertEqual(caught.exception.code,code)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'sku' != 'order_id'
+- sku
++ order_id
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

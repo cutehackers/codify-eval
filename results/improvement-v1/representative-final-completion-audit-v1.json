@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-14T04:04:13.025730+00:00",
+  "completion_authority": "representative-final-closure-user-amendment-v1.json",
+  "completion_under_latest_human_scope": true,
+  "original_universal_superiority_proven": false,
+  "six_items_verified": true,
+  "original_comparison_root_runs": 18,
+  "original_private_checks": 216,
+  "supplementary_single_worker_handoff_root_runs": 1,
+  "supplementary_private_checks": 14,
+  "R3_specific_C0_defect_independently_verified": true,
+  "independent_reviews_pass": true,
+  "frozen_inputs_verified_current": true,
+  "installed_C24_exact_match": true,
+  "C0_backup_restorable": true,
+  "Docker_containers": 0,
+  "owned_evaluation_image_removed": true,
+  "unrelated_node_image_preserved": true,
+  "final_report": "docs/representative-evaluation-final-report-v3.md",
+  "final_report_sha256": "dc285a6c32dea473529c4400832d74c54bb187d7e9737b6fa53e1303f7e7ceb2",
+  "earlier_reports_preserved": true,
+  "no_additional_work_remaining_in_user_final_scope": true,
+  "limitations_preserved": [
+    "No universal quality/security/question/speed superiority claim",
+    "Post-hoc R3 diagnostic does not establish skill causality",
+    "Explicit single-worker handoff does not establish voluntary delegation or comparative efficiency",
+    "Token reference only; billable currency unknown"
+  ]
+}

@@ -1,0 +1,5 @@
+These two cases are independent drafts for future untouched confirmation. They have not been executed, qualified, piloted, sealed or used to establish improvement. Their author read only AGENTS.md and docs/improvement-spec-v1.md. No candidate, skill, snapshots, previous task semantics, or earlier run evidence was inspected.
+
+Public preparation consists only of repo/ and public/request.md. Private acceptance tests, reference implementations, reply and qualification plans must remain unavailable to evaluated agents. Root must not inspect private semantics before candidate freeze. The reference overlay requires copying the acceptance test into repo/test/ so package imports resolve in the isolated fixture.
+
+Metadata lists exact proposed test counts. Qualification must reconcile discovered counts, pass the reference, fail the start, kill each semantic mutant with behavior assertions and qualify transcript scoring. No actual baseline evaluation, Docker allocation or model allocation was performed by this author. Do not describe these drafts as heldout evidence, qualified fixtures, or superiority results.

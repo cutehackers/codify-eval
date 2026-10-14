@@ -1,0 +1,12 @@
+{
+  "id": "M04",
+  "file": "lib/gate_service.dart",
+  "replace_once": {
+    "from": "return const GateDecision('entered',historySaved:false);",
+    "to": "return const GateDecision('unavailable');"
+  },
+  "must_fail": [
+    "r5 successful remote entry survives local storage failure"
+  ],
+  "violation": "Storage failure loses successful admission"
+}

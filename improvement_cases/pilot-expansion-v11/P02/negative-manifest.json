@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "case_id": "P02",
+  "status": "authored_unqualified",
+  "construction": "Independent reference-derived, compile-valid-intended, single-defect overlays. Each overlay contains both editable library files; protected public files are supplied by repo.",
+  "acceptance_suite": "oracle/test/acceptance_test.dart",
+  "controls": [
+    {
+      "id": "N01_authorization_empty_allowlist",
+      "overlay": "negative/N01_authorization_empty_allowlist",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "An empty allowedTenants set incorrectly grants access to a syntactically valid bound tenant.",
+      "requirements": [
+        "R1"
+      ],
+      "public_requirement_clause": "Each operation first checks exact membership of the bound tenant in allowedTenants. A missing membership returns unauthorized without collaborator work.",
+      "discriminating_cases": [
+        "C01"
+      ],
+      "discriminating_test_names": [
+        "A01 authorization and tenant isolation authorized positive and denied precedence with no collaborator calls"
+      ],
+      "expected_failure_identity": "authorization_bypass_empty_allowlist",
+      "files_sha256": {
+        "lib/event_processor.dart": "5738a814aea9e948b054af94ef195cbf47a6de8a72c9a95208f660e2ebddcaf4",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false,
+      "expected_failure_test_names": [
+        "A01 authorization and tenant isolation authorized positive and denied precedence with no collaborator calls"
+      ],
+      "expected_failure_cases": [
+        "C01"
+      ],
+      "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+    },
+    {
+      "id": "N02_premature_local_publication",
+      "overlay": "negative/N02_premature_local_publication",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "Publishes staged stock, revision, and replay ledger before the pending CAS settles, including failed CAS outcomes.",
+      "requirements": [
+        "R1",
+        "R4"
+      ],
+      "public_requirement_clause": "On CAS success only, replace the local state with staged state. CAS false or StoreUnavailable must preserve local state. Busy returns the unchanged pre-operation view.",
+      "discriminating_cases": [
+        "C20"
+      ],
+      "discriminating_test_names": [
+        "A05 atomic batch and revision semantics C20 current and busy view preserve captured state while CAS pending"
+      ],
+      "expected_failure_identity": "premature_local_publication_while_CAS_pending",
+      "files_sha256": {
+        "lib/event_processor.dart": "5086ca265af5b79dc8267483d71e0e6bd60d3ba56d46bb2fdefc155358eed0b5",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false,
+      "expected_failure_test_names": [
+        "A05 atomic batch and revision semantics C20 current and busy view preserve captured state while CAS pending",
+        "A06 deterministic optimistic concurrency scheduled winner, unchanged loser, explicit refresh and retry",
+        "A07 failures and busy lifecycle read/CAS exceptions preserve state and release busy"
+      ],
+      "expected_failure_cases": [
+        "C09",
+        "C10",
+        "C20"
+      ],
+      "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+    },
+    {
+      "id": "N03_replay_timestamp_omission",
+      "overlay": "negative/N03_replay_timestamp_omission",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "Fingerprints omit occurredAt, so timestamp-only changes become exact replays.",
+      "requirements": [
+        "R3"
+      ],
+      "public_requirement_clause": "The event fingerprint is sha256Hex(utf8.encode(jsonEncode([id, sku, delta, occurredAt]))). Do not drop a field.",
+      "discriminating_cases": [
+        "C04"
+      ],
+      "discriminating_test_names": [
+        "A03 content replay identity canonical fingerprint and every content field, duplicates, case sensitivity"
+      ],
+      "expected_failure_identity": "omit_timestamp_fingerprint",
+      "files_sha256": {
+        "lib/event_processor.dart": "62e89e4837de232f792a35b0703c6f12bbe5f7c8019d122ec6c704453fa3ea0c",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false,
+      "expected_failure_test_names": [
+        "A03 content replay identity canonical fingerprint and every content field, duplicates, case sensitivity",
+        "A04 ordered stock and capacity first semantic error, replay at capacity and stock before capacity",
+        "A05 atomic batch and revision semantics maximum revision staging precedence, replay succeeds without encode"
+      ],
+      "expected_failure_cases": [
+        "C04",
+        "C06",
+        "C08"
+      ],
+      "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+    },
+    {
+      "id": "N04_payload_before_verification",
+      "overlay": "negative/N04_payload_before_verification",
+      "reference": "reference",
+      "mutation_file": "lib/checkpoint_codec.dart",
+      "defect": "Strict UTF8/JSON parse failures reject canonical malformed payloads before calling the trusted verification boundary.",
+      "requirements": [
+        "R5"
+      ],
+      "public_requirement_clause": "Call verifyCheckpoint on decoded payload bytes before interpreting their JSON content. A false result fails immediately.",
+      "discriminating_cases": [
+        "C21"
+      ],
+      "discriminating_test_names": [
+        "A08 authenticated canonical checkpoint codec C21 verify boundary is called once before malformed payload rejection"
+      ],
+      "expected_failure_identity": "payload_first_malformed_rejection_without_verification",
+      "files_sha256": {
+        "lib/event_processor.dart": "2e60526b377c2ac7dfbec8d6d6c33cbb62df996c3c8aa4f7fb376b034088ef7c",
+        "lib/checkpoint_codec.dart": "7076a482f3415d9d904c22bcc9913d4abb1abc8bb8aa5a9ca3b9930117722eb8"
+      },
+      "qualified": false,
+      "expected_failure_test_names": [
+        "A08 authenticated canonical checkpoint codec C21 verify boundary is called once before malformed payload rejection",
+        "A08 authenticated canonical checkpoint codec bad MAC, byte tamper, noncanonical outer and base64 reject"
+      ],
+      "expected_failure_cases": [
+        "C14",
+        "C21"
+      ],
+      "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+    },
+    {
+      "id": "N05_character_length_limit",
+      "overlay": "negative/N05_character_length_limit",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "Checks Dart string length rather than UTF8 bytes, allowing a multibyte oversized batch with valid effective duplicate-key content.",
+      "requirements": [
+        "R2"
+      ],
+      "public_requirement_clause": "UTF-8 encoding of the full string must be at most 65,536 bytes. Excess bytes produce invalidBatch without store work.",
+      "discriminating_cases": [
+        "C22"
+      ],
+      "discriminating_test_names": [
+        "A02 complete input validation C22 valid effective JSON exceeds UTF8 bytes but not character limit"
+      ],
+      "expected_failure_identity": "character_length_instead_of_UTF8_byte_limit",
+      "files_sha256": {
+        "lib/event_processor.dart": "5544cb531c5ad06c8012fc70880bd5e88c047268dab4eb3c7d57f90bfb4602ba",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false,
+      "expected_failure_test_names": [
+        "A02 complete input validation C22 valid effective JSON exceeds UTF8 bytes but not character limit"
+      ],
+      "expected_failure_cases": [
+        "C22"
+      ],
+      "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+    },
+    {
+      "id": "N06_ignored_mac_verdict",
+      "overlay": "negative/N06_ignored_mac_verdict",
+      "reference": "reference",
+      "mutation_file": "lib/checkpoint_codec.dart",
+      "defect": "Calls the trusted verifier but ignores false, accepting well-formed canonical checkpoint payloads with invalid MACs.",
+      "requirements": [
+        "R5"
+      ],
+      "public_requirement_clause": "Call verifyCheckpoint on decoded payload bytes. A false result fails immediately. Integrity failure becomes corruptCheckpoint at the processor boundary.",
+      "discriminating_cases": [
+        "C14"
+      ],
+      "discriminating_test_names": [
+        "A08 authenticated canonical checkpoint codec bad MAC, byte tamper, noncanonical outer and base64 reject"
+      ],
+      "expected_failure_identity": "checkpoint_mac_false_verdict_ignored",
+      "files_sha256": {
+        "lib/event_processor.dart": "2e60526b377c2ac7dfbec8d6d6c33cbb62df996c3c8aa4f7fb376b034088ef7c",
+        "lib/checkpoint_codec.dart": "bc7011d5acc2da5fae8f7c4b6aef78d89786844aae7cfa7afec03c45b499be8f"
+      },
+      "qualified": false,
+      "expected_failure_test_names": [
+        "A08 authenticated canonical checkpoint codec C21 verify boundary is called once before malformed payload rejection",
+        "A08 authenticated canonical checkpoint codec bad MAC, byte tamper, noncanonical outer and base64 reject"
+      ],
+      "expected_failure_cases": [
+        "C14",
+        "C21"
+      ],
+      "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+    },
+    {
+      "id": "N07",
+      "overlay": "negative/N07",
+      "reference": "reference",
+      "mutation_file": "lib/event_processor.dart",
+      "defect": "Ignores a false CAS verdict and publishes staged state with a success result after a real revision conflict. Pending CAS still keeps the old local state, distinguishing this from N02.",
+      "requirements": [
+        "R4"
+      ],
+      "critical_groups": [
+        "A06"
+      ],
+      "public_requirement_clause": "CAS false produces concurrentCommit. Neither failed CAS nor StoreUnavailable updates local state, counts, revision, or durable data. Caller resolves concurrent commit by explicitly restoring and retrying.",
+      "discriminating_cases": [
+        "C09"
+      ],
+      "discriminating_test_names": [
+        "A06 deterministic optimistic concurrency scheduled winner, unchanged loser, explicit refresh and retry"
+      ],
+      "expected_failure_identity": "cas_conflict_verdict_ignored",
+      "files_sha256": {
+        "lib/event_processor.dart": "1c3cfab09c9cba989d2ad48acc50cffb6a4a711d3c83abdde0c4334b48e8f6d5",
+        "lib/checkpoint_codec.dart": "285907dae78bd1a805a4844de60b95e89153c471329bfc9f1b69def8a088f7f8"
+      },
+      "qualified": false,
+      "expected_failure_test_names": [
+        "A05 atomic batch and revision semantics C20 current and busy view preserve captured state while CAS pending",
+        "A06 deterministic optimistic concurrency scheduled winner, unchanged loser, explicit refresh and retry",
+        "A07 failures and busy lifecycle read/CAS exceptions preserve state and release busy"
+      ],
+      "expected_failure_cases": [
+        "C09",
+        "C10",
+        "C20"
+      ],
+      "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+    },
+    {
+      "id": "N08",
+      "overlay": "negative/N08",
+      "reference": "reference",
+      "mutation_file": "lib/checkpoint_codec.dart",
+      "defect": "Preserves MAC, tenant, domain, and canonical validation but accepts a signed recovery checkpoint whose embedded revision differs from the store record. Allows stale recovery to replace current local state.",
+      "requirements": [
+        "R5",
+        "R6"
+      ],
+      "critical_groups": [
+        "A09"
+      ],
+      "public_requirement_clause": "Decoded revision equals expectedRevision. Independently decode each checkpoint copy against the bound tenant and record revision. Recovery is redundant data for the same committed revision, never an older revision or historical backup.",
+      "discriminating_cases": [
+        "C17"
+      ],
+      "discriminating_test_names": [
+        "A09 restore and current-revision recovery invalid record, contradictory valid copies, stale recovery and preservation"
+      ],
+      "expected_failure_identity": "checkpoint_revision_binding_removed",
+      "files_sha256": {
+        "lib/event_processor.dart": "2e60526b377c2ac7dfbec8d6d6c33cbb62df996c3c8aa4f7fb376b034088ef7c",
+        "lib/checkpoint_codec.dart": "ba1b7b24d3d06e1a0db1555aa4826022045cd95b24af3edceac4f6137b6a9ccb"
+      },
+      "qualified": false,
+      "expected_failure_test_names": [
+        "A08 authenticated canonical checkpoint codec authenticated malformed states and noncanonical payloads reject",
+        "A09 restore and current-revision recovery each copy independently recoverable, no repair until novel ingest",
+        "A09 restore and current-revision recovery invalid record, contradictory valid copies, stale recovery and preservation"
+      ],
+      "expected_failure_cases": [
+        "C15",
+        "C16",
+        "C17"
+      ],
+      "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+    }
+  ],
+  "fixed_image_qualification": {
+    "executed": false,
+    "reason": "New complete failure map requires fresh full qualification; old failed receipts preserved."
+  },
+  "complete_failure_mapping_status": "prospective_reviewed_unqualified"
+}

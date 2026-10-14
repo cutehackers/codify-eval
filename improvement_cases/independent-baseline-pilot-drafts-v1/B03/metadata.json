@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "id": "B03",
+  "title": "\uac00\uc871 \uc870\ub9ac\ubc95 \ub3d9\uae30\ud654",
+  "status": "draft_unqualified",
+  "purpose": "representative_baseline_difficulty_pilot",
+  "task_kind": "necessary_question",
+  "product_context": "household recipe local/cloud conflict",
+  "language": "Dart",
+  "product_surface": "Flutter application domain layer",
+  "public_root": "public",
+  "private_root": "private",
+  "editable_paths": [
+    "lib/codec.dart",
+    "lib/decision.dart",
+    "lib/sync_service.dart",
+    "lib/labels.dart"
+  ],
+  "immutable_paths": [
+    "lib/models.dart",
+    "pubspec.yaml",
+    "analysis_options.yaml",
+    "test/**",
+    "README.md"
+  ],
+  "module_relationships": {
+    "dependent": [
+      "codec.dart",
+      "decision.dart",
+      "sync_service.dart"
+    ],
+    "independent": [
+      "labels.dart"
+    ]
+  },
+  "optional_orchestration": {
+    "allowed": true,
+    "useful_partition": "Independent labels and formatting module can be assigned separately from dependent domain behavior. Root integrates both. No delegation requirement or bonus for a spawn alone.",
+    "max_total_agents": 3,
+    "all_participant_costs_required": true
+  },
+  "qualification": {
+    "not_executed": true,
+    "required": [
+      "starter public tests and analyzer",
+      "starter acceptance expected failure",
+      "reference public and private acceptance pass for every admitted reply branch",
+      "each important mutant must fail its mapped behavioral test",
+      "public-to-private mapping independent review",
+      "necessary-question live owner adapter admission"
+    ]
+  },
+  "private_material_handling": "Never mount private/ into evaluated model workspace. Copy public/ to a fresh repo. Owner adapter reads only structured branch file. Oracle runs out of band."
+}

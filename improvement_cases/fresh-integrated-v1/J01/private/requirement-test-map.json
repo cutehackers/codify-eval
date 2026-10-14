@@ -1,0 +1,214 @@
+{
+  "status": "authored_unqualified",
+  "source_blind": true,
+  "public_test_count": 2,
+  "private_test_count": 31,
+  "requirements": [
+    {
+      "public_clause": "R01",
+      "private_tests": [
+        "J01-T14",
+        "J01-T15",
+        "J01-T16",
+        "J01-T17",
+        "J01-T19",
+        "J01-T22",
+        "J01-T26",
+        "J01-T27"
+      ],
+      "coverage": "Injected dependencies, UTC time, atomic CAS and separate service instances"
+    },
+    {
+      "public_clause": "R02",
+      "private_tests": [
+        "J01-T01",
+        "J01-T02",
+        "J01-T17",
+        "J01-T20",
+        "J01-T27",
+        "J01-T30",
+        "J01-T31"
+      ],
+      "coverage": "Tenant/permission first, strict inputs, opaque error results"
+    },
+    {
+      "public_clause": "R03",
+      "private_tests": [
+        "J01-T18"
+      ],
+      "coverage": "Foreign/malformed snapshot validation before any use or ID generation"
+    },
+    {
+      "public_clause": "R04",
+      "private_tests": [
+        "J01-T03",
+        "J01-T04",
+        "J01-T17",
+        "J01-T19",
+        "J01-T21",
+        "J01-T26"
+      ],
+      "coverage": "Tenant-wide exact-payload submission replay and atomic job/key creation"
+    },
+    {
+      "public_clause": "R05",
+      "private_tests": [
+        "J01-T05",
+        "J01-T06",
+        "J01-T07",
+        "J01-T10",
+        "J01-T19",
+        "J01-T22"
+      ],
+      "coverage": "Ordering, availability, fresh permanent lease IDs and atomic ownership"
+    },
+    {
+      "public_clause": "R06",
+      "private_tests": [
+        "J01-T07",
+        "J01-T08",
+        "J01-T10",
+        "J01-T14",
+        "J01-T15",
+        "J01-T20",
+        "J01-T28",
+        "J01-T29"
+      ],
+      "coverage": "Current lease authorization, expiry boundary and settlement state changes"
+    },
+    {
+      "public_clause": "R07",
+      "private_tests": [
+        "J01-T09",
+        "J01-T10",
+        "J01-T11",
+        "J01-T23",
+        "J01-T28"
+      ],
+      "coverage": "Exact historical replay and cross-operation/delay conflicts"
+    },
+    {
+      "public_clause": "R08",
+      "private_tests": [
+        "J01-T11",
+        "J01-T12",
+        "J01-T13",
+        "J01-T29"
+      ],
+      "coverage": "Third failure/expiry terminal, skip exhausted and commit cleanup with claim"
+    },
+    {
+      "public_clause": "R09",
+      "private_tests": [
+        "J01-T04",
+        "J01-T06",
+        "J01-T12",
+        "J01-T13",
+        "J01-T14",
+        "J01-T15",
+        "J01-T16",
+        "J01-T17",
+        "J01-T21",
+        "J01-T22",
+        "J01-T25",
+        "J01-T26",
+        "J01-T28"
+      ],
+      "coverage": "Fresh conflict recovery, bounded retries, atomic writes and no exception retry"
+    },
+    {
+      "public_clause": "R10",
+      "private_tests": [
+        "J01-T03",
+        "J01-T05",
+        "J01-T09",
+        "J01-T10",
+        "J01-T23",
+        "J01-T24",
+        "J01-T25",
+        "J01-T26"
+      ],
+      "coverage": "Immutable constructors, detached snapshots and unrelated record preservation"
+    }
+  ],
+  "negative_controls": [
+    {
+      "id": "N01",
+      "defect": "Remove tenant equality from permission authorization",
+      "public_clause": "R02",
+      "must_fail": [
+        "J01-T01",
+        "J01-T30"
+      ],
+      "failure_kind": "Unauthorized operation proceeds to store instead of denial before dependencies"
+    },
+    {
+      "id": "N02",
+      "defect": "Ignore current lease ID when settling",
+      "public_clause": "R06",
+      "must_fail": [
+        "J01-T07"
+      ],
+      "failure_kind": "Expired old lease can settle same-worker replacement lease"
+    },
+    {
+      "id": "N03",
+      "defect": "Return proposed result even when CAS reports false",
+      "public_clause": "R09",
+      "must_fail": [
+        "J01-T16",
+        "J01-T21",
+        "J01-T22"
+      ],
+      "failure_kind": "Reports uncommitted success or stale result"
+    },
+    {
+      "id": "N04",
+      "defect": "Do not exhaust expired third lease",
+      "public_clause": "R08",
+      "must_fail": [
+        "J01-T12",
+        "J01-T13"
+      ],
+      "failure_kind": "Fourth attempt replaces required terminal state and skip/cleanup"
+    }
+  ],
+  "limits": [
+    "No UI, mobile, persistence-engine, real worker execution or distributed-clock evaluation.",
+    "Editable-file/dependency scope and non-print logging side effects require runner evidence or independent review in addition to value assertions.",
+    "Preliminary author checks do not establish independent qualification, pilot difficulty or confirmation sample size."
+  ],
+  "question_policy": "All initial policies are specified. No scripted product answer is required.",
+  "authoring_revision": 3,
+  "revision_changes": [
+    {
+      "finding": "F1",
+      "public_clause": "R02",
+      "test": "J01-T31",
+      "change": "Capture output and reject protected payload/backend/clock/ID-source marker content. Benign fixed diagnostic messages remain allowed.",
+      "preliminary_probes": {
+        "benign_diagnostics": "must pass",
+        "sensitive_payload_log": "must fail J01-T31"
+      }
+    },
+    {
+      "finding": "F2",
+      "public_clause": "R02",
+      "tests": [
+        "J01-T01",
+        "J01-T02"
+      ],
+      "change": "Count clock, job-ID and lease-ID invocations independently of generated values. Assert zero store/clock/ID calls after every denied or invalid path for all four operations.",
+      "preliminary_probes": {
+        "clock_before_guard": "must fail J01-T01 and J01-T02 by counters"
+      }
+    },
+    {
+      "finding": "N03 analyzer dead_code",
+      "public_clause": "R09",
+      "change": "Remove N03 unreachable retry wrapper and busy return. It still performs one CAS and returns the proposed outcome regardless of CAS false. No oracle/public/reference change.",
+      "prior_source": "private/historical/N03-v2.dart",
+      "current_preliminary_checks": "private/author_checks_v3/summary.json"
+    }
+  ]
+}

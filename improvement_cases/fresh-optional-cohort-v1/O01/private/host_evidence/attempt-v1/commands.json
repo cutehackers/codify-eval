@@ -1,0 +1,21 @@
+[
+  {
+    "label": "offline_pub_get",
+    "argv": [
+      "flutter",
+      "pub",
+      "get",
+      "--offline"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 0.458,
+    "completed_test_events": 0,
+    "successful_test_events": 0,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "search_import_service.dart": "6f06f4519b93a5536dae47d56386b1de00a650217c3366f6b55b449c0190950d",
+      "search_plan.dart": "f0c9fb8419f3af5457cf566d93f1d916c136c4f60d944e7d86be0996a4db5ac5",
+      "search_codec.dart": "8e0b15e77c35b2e8459c2eb6b5d2f6cb7e233e38b55588ad629b6ae56b903388"
+    }
+  }
+]

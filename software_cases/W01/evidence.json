@@ -1,0 +1,274 @@
+{
+  "version": "2-review-repair",
+  "case": "W01",
+  "valid_fixture": true,
+  "source_bytes_unchanged": true,
+  "image": "sha256:9751b1bbd374a218e0fe7dcd362e478f2b8bb5453dbed90658da8dd0b2be3638",
+  "network": "none",
+  "variants": [
+    {
+      "variant": "baseline",
+      "status": "fail",
+      "gui_requirements": {},
+      "error": "accessible product label missing: '새 메모'; tree=[{'name': 'main', 'role': 'desktop frame', 'interfaces': ['Accessible', 'Component']}, {'name': 'dev.codify.notes_app', 'role': 'application', 'interfaces': ['Accessible', 'Collection']}, {'name': 'notes_app', 'role': 'frame', 'interfaces': ['Accessible', 'Collection', 'Component']}, {'name': '메모 앱 구현 대기', 'role': 'panel', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}]",
+      "processes": [
+        {
+          "phase": 1,
+          "pid": 29,
+          "fresh_process": true
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "elapsed_seconds": 24.373
+    },
+    {
+      "variant": "reference",
+      "status": "pass",
+      "gui_requirements": {
+        "initial_empty": true,
+        "blank_validation": true,
+        "valid_create_cancel": true,
+        "empty_body_allowed": true,
+        "create_trim_multiline": true,
+        "app_creates_data_directory": true,
+        "detail_read": true,
+        "valid_edit_cancel": true,
+        "edit_without_duplicate": true,
+        "delete_confirmation_cancel": true,
+        "real_local_file": true,
+        "cold_restart_restore": true,
+        "delete_survives_restart": true
+      },
+      "error": null,
+      "processes": [
+        {
+          "phase": 1,
+          "pid": 29,
+          "fresh_process": true
+        },
+        {
+          "phase": 2,
+          "pid": 106,
+          "fresh_process": true
+        },
+        {
+          "phase": 3,
+          "pid": 173,
+          "fresh_process": true
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_seconds": 37.653
+    },
+    {
+      "variant": "omit_restore",
+      "status": "fail",
+      "gui_requirements": {
+        "initial_empty": true,
+        "blank_validation": true,
+        "valid_create_cancel": true,
+        "empty_body_allowed": true,
+        "create_trim_multiline": true,
+        "app_creates_data_directory": true,
+        "detail_read": true,
+        "valid_edit_cancel": true,
+        "edit_without_duplicate": true,
+        "delete_confirmation_cancel": true,
+        "real_local_file": true
+      },
+      "error": "accessible product label missing: '열기: 긴 산책'; tree=[{'name': 'main', 'role': 'desktop frame', 'interfaces': ['Accessible', 'Component']}, {'name': 'dev.codify.notes_app', 'role': 'application', 'interfaces': ['Accessible', 'Collection']}, {'name': 'notes_app', 'role': 'frame', 'interfaces': ['Accessible', 'Collection', 'Component']}, {'name': '내 메모', 'role': 'header', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '메모가 없습니다', 'role': 'panel', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '새 메모', 'role': 'push button', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}]",
+      "processes": [
+        {
+          "phase": 1,
+          "pid": 29,
+          "fresh_process": true
+        },
+        {
+          "phase": 2,
+          "pid": 107,
+          "fresh_process": true
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "elapsed_seconds": 43.741
+    },
+    {
+      "variant": "duplicate_edit",
+      "status": "fail",
+      "gui_requirements": {
+        "initial_empty": true,
+        "blank_validation": true,
+        "valid_create_cancel": true,
+        "empty_body_allowed": true,
+        "create_trim_multiline": true,
+        "app_creates_data_directory": true,
+        "detail_read": true,
+        "valid_edit_cancel": true
+      },
+      "error": "forbidden product label present: '열기: 산책 기록'",
+      "processes": [
+        {
+          "phase": 1,
+          "pid": 29,
+          "fresh_process": true
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "elapsed_seconds": 32.628
+    },
+    {
+      "variant": "ignore_delete",
+      "status": "fail",
+      "gui_requirements": {
+        "initial_empty": true,
+        "blank_validation": true,
+        "valid_create_cancel": true,
+        "empty_body_allowed": true
+      },
+      "error": "forbidden product label present: '열기: 내용 없는 기록'",
+      "processes": [
+        {
+          "phase": 1,
+          "pid": 29,
+          "fresh_process": true
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "elapsed_seconds": 28.52
+    }
+  ],
+  "runtime_evidence_directory": "/Users/junhyounglee/workspace/codify-eval/runtime/software-validation/W01-v2-review-repair",
+  "source_hashes": {
+    "repo": {
+      ".gitignore": "441eaa1de5b3db9fae056e7503567e9f8dd94173e1389c60f76956abf729015a",
+      ".metadata": "c83a33c886a8996a51438acb839bfd6eeada4bdd48bcfb352f08317484d921da",
+      "lib/main.dart": "be9f086e5ac677449f325715153897402430f6005b88202e2f7a119db60fab3b",
+      "linux/.gitignore": "5ded4f1a9d10d34bf6ee5beb0711d88ee2ef07b0f07ace9ed77935a246e8eb82",
+      "linux/CMakeLists.txt": "7b46a6fd6e01881685661503358e26c4cf8fedcd5acd1fc47733565b71e69be6",
+      "linux/flutter/CMakeLists.txt": "787189e2623313cfee590a0b553338eb9fc68b3af922ddd77c5d39c75f989aeb",
+      "linux/flutter/generated_plugin_registrant.cc": "7861b227b10a10cc1d7643f82a246b7db35b503f2d9ff1d3c906136e6c260dce",
+      "linux/flutter/generated_plugin_registrant.h": "00f93bb5b1faefdede8f6065df327522900fb0b8efee86bacf424fd947ed14bb",
+      "linux/flutter/generated_plugins.cmake": "d5aaa52ef8594d3128b35b6619c6a353e1be5f3c5a63a9c29c0a32b424e91952",
+      "linux/runner/CMakeLists.txt": "8cdcfd911e770fd7d511c97c7bce6559486a815352a47c953f7ef632e236d2cc",
+      "linux/runner/main.cc": "ea23f7cdf74091d63bba29ef60486370b766157b848f0cfe62bd8b1c1695a0c1",
+      "linux/runner/my_application.cc": "05208bb995360dc65e76459b164264a5f1133524365610920ce85891278849a7",
+      "linux/runner/my_application.h": "a4218d7ac0db8a9a6716daf216b2d4fc6bdc7ac647e3183078b2c962ebdfcf70",
+      "pubspec.yaml": "7f6667f72f2db249822d0e5091a1e6411f6e7ef933dc8c91eb092d7d66c6728e"
+    },
+    "reference": {
+      ".gitignore": "441eaa1de5b3db9fae056e7503567e9f8dd94173e1389c60f76956abf729015a",
+      ".metadata": "c83a33c886a8996a51438acb839bfd6eeada4bdd48bcfb352f08317484d921da",
+      "lib/main.dart": "fd85d09f2b58ea764623f2e620c2da3a92a7aa7fbda67f03d28ba30640924720",
+      "linux/.gitignore": "5ded4f1a9d10d34bf6ee5beb0711d88ee2ef07b0f07ace9ed77935a246e8eb82",
+      "linux/CMakeLists.txt": "7b46a6fd6e01881685661503358e26c4cf8fedcd5acd1fc47733565b71e69be6",
+      "linux/flutter/CMakeLists.txt": "787189e2623313cfee590a0b553338eb9fc68b3af922ddd77c5d39c75f989aeb",
+      "linux/flutter/generated_plugin_registrant.cc": "7861b227b10a10cc1d7643f82a246b7db35b503f2d9ff1d3c906136e6c260dce",
+      "linux/flutter/generated_plugin_registrant.h": "00f93bb5b1faefdede8f6065df327522900fb0b8efee86bacf424fd947ed14bb",
+      "linux/flutter/generated_plugins.cmake": "d5aaa52ef8594d3128b35b6619c6a353e1be5f3c5a63a9c29c0a32b424e91952",
+      "linux/runner/CMakeLists.txt": "8cdcfd911e770fd7d511c97c7bce6559486a815352a47c953f7ef632e236d2cc",
+      "linux/runner/main.cc": "ea23f7cdf74091d63bba29ef60486370b766157b848f0cfe62bd8b1c1695a0c1",
+      "linux/runner/my_application.cc": "05208bb995360dc65e76459b164264a5f1133524365610920ce85891278849a7",
+      "linux/runner/my_application.h": "a4218d7ac0db8a9a6716daf216b2d4fc6bdc7ac647e3183078b2c962ebdfcf70",
+      "pubspec.yaml": "7f6667f72f2db249822d0e5091a1e6411f6e7ef933dc8c91eb092d7d66c6728e"
+    },
+    "oracle": {
+      "gui_acceptance.py": "f03a85ad52b5f78577552b1bc9f52814f1a964151264f160e2cd0569a14eaa3b",
+      "probe_accessibility.py": "30cad60d4840d351caafb6bcc7a74073d91582fc820953b0c9e9146b2effc9dc"
+    },
+    "contract": {
+      "task.md": "7623587e65470d1c16dd60e67c1f956fe85737104ca723b2e571b3f0b55f9448",
+      "metadata.json": "b723489e1384815553056cd9fe5eeb176b1b5a5e600aab611bc6cd5120cdb4b9"
+    },
+    "grader": {
+      "tools/software_fixtures.py": "b4c27eace2d0f17bd165eebe19d0bd9abbe8bff899d3e795ddf371056fb6365c",
+      "scripts/software_runtime.py": "1fd12596d7e2b9d49de458199036378c8a634951e03ddc8b59852b0a85d39082"
+    }
+  },
+  "suggested_limits": {
+    "trajectory_minutes": 60,
+    "user_turns": 8,
+    "delegation": false,
+    "reason": "Gold requires Linux scaffold/build, real file storage and external GUI cold restarts. Build/driver command durations are recorded; budget accommodates implementation and relevant verification."
+  },
+  "evidence_tier": "external_linux_release_executable",
+  "review_repair_evidence": "/Users/junhyounglee/workspace/codify-eval/runtime/software-validation/W01-v2-review-repair/review-probes.json",
+  "review_repairs": [
+    "R1: distinct opening-label set checks replace raw accessibility node cardinality",
+    "R2: exact stored title/body read via named EditableText+Text interfaces before edit and after process restart"
+  ],
+  "review_probes": [
+    {
+      "variant": "duplicate-semantics",
+      "status": "pass",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "error": null,
+      "grade_evidence": "/Users/junhyounglee/workspace/codify-eval/runtime/software-validation/W01-v2-review-repair/probes/duplicate-semantics/grade.json"
+    },
+    {
+      "variant": "body-suffix",
+      "status": "fail",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "error": "editable field exact mismatch: expected={'제목': '내용 없는 기록', '내용': ''}, actual={'제목': '내용 없는 기록', '내용': ' [추가된 내용]'}, read_error=None",
+      "grade_evidence": "/Users/junhyounglee/workspace/codify-eval/runtime/software-validation/W01-v2-review-repair/probes/body-suffix/grade.json"
+    },
+    {
+      "variant": "body-suffix-nonempty",
+      "status": "fail",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "error": "editable field exact mismatch: expected={'제목': '산책 기록', '내용': '  저녁 공원\\n30분 걸음  '}, actual={'제목': '산책 기록', '내용': '  저녁 공원\\n30분 걸음   [추가된 내용]'}, read_error=None",
+      "grade_evidence": "/Users/junhyounglee/workspace/codify-eval/runtime/software-validation/W01-v2-review-repair/probes/body-suffix-nonempty/grade.json"
+    }
+  ],
+  "grading_limits": [
+    "Distinct opening labels do not independently identify same-title duplicate records; universal record cardinality is not claimed."
+  ],
+  "shared_driver_unchanged": true
+}

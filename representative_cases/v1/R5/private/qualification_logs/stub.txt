@@ -1,0 +1,399 @@
+EEEEEEEEEEEE
+======================================================================
+ERROR: test_conflict_preserves (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 28, in test_conflict_preserves
+    out=self.make();before=(out/'manifest.json').read_bytes()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_corrupt_bytes_not_repaired (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 47, in test_corrupt_bytes_not_repaired
+    out=self.make();(out/'a.txt').write_bytes(b'broken')
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_empty_snapshot (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 22, in test_empty_snapshot
+    out=self.make({});self.assertEqual(json.loads((out/'manifest.json').read_text()),{'files':{}})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_idempotent_without_replacement (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 24, in test_idempotent_without_replacement
+    out=self.make();before={p.name:(p.stat().st_ino,p.read_bytes()) for p in out.iterdir()}
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_integrity_before_conflict (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 63, in test_integrity_before_conflict
+    out=self.make();(out/'a.txt').write_bytes(b'bad')
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_content_and_collision (test_behavior.Behavior) (entries={'a': 'text'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 44, in test_invalid_content_and_collision
+    with self.assertRaises(ValueError):self.make(entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_content_and_collision (test_behavior.Behavior) (entries={'a': bytearray(b'x')})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 44, in test_invalid_content_and_collision
+    with self.assertRaises(ValueError):self.make(entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_content_and_collision (test_behavior.Behavior) (entries={'a': b'x', 'a/b': b'y'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 44, in test_invalid_content_and_collision
+    with self.assertRaises(ValueError):self.make(entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_content_and_collision (test_behavior.Behavior) (entries=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 44, in test_invalid_content_and_collision
+    with self.assertRaises(ValueError):self.make(entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_content_and_collision (test_behavior.Behavior) (entries={1: b'x'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 44, in test_invalid_content_and_collision
+    with self.assertRaises(ValueError):self.make(entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_ids_create_nothing (test_behavior.Behavior) (identifier='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 39, in test_invalid_ids_create_nothing
+    with self.assertRaises(ValueError):publish_snapshot(self.root,identifier,{})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_ids_create_nothing (test_behavior.Behavior) (identifier='../x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 39, in test_invalid_ids_create_nothing
+    with self.assertRaises(ValueError):publish_snapshot(self.root,identifier,{})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_ids_create_nothing (test_behavior.Behavior) (identifier='.x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 39, in test_invalid_ids_create_nothing
+    with self.assertRaises(ValueError):publish_snapshot(self.root,identifier,{})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_ids_create_nothing (test_behavior.Behavior) (identifier='a b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 39, in test_invalid_ids_create_nothing
+    with self.assertRaises(ValueError):publish_snapshot(self.root,identifier,{})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_ids_create_nothing (test_behavior.Behavior) (identifier='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 39, in test_invalid_ids_create_nothing
+    with self.assertRaises(ValueError):publish_snapshot(self.root,identifier,{})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_ids_create_nothing (test_behavior.Behavior) (identifier=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 39, in test_invalid_ids_create_nothing
+    with self.assertRaises(ValueError):publish_snapshot(self.root,identifier,{})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_input_before_integrity (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 66, in test_invalid_input_before_integrity
+    out=self.make();(out/'a.txt').write_bytes(b'bad')
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='/abs')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='../escape')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a/../b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='./x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a//b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a/')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a\\b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='a\x00b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='manifest.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='manifest.json/x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_paths_create_nothing (test_behavior.Behavior) (key='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 34, in test_invalid_paths_create_nothing
+    with self.assertRaises(ValueError):self.make({key:b'x'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_malformed_manifest (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 56, in test_malformed_manifest
+    out=self.make()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_missing_and_extra_files (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 51, in test_missing_and_extra_files
+    out=self.make();(out/'a.txt').unlink()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_nested_binary_manifest (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 16, in test_nested_binary_manifest
+    entries={'nested/a.bin':bytes(range(256)),'empty':b''};out=self.make(entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_promotion_failure_cleanup_and_retry (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 82, in test_promotion_failure_cleanup_and_retry
+    publish_snapshot(self.root,'prior',{'p':b'prior'})
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_root_and_destination_symlinks (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 76, in test_root_and_destination_symlinks
+    with self.assertRaises(ValueError):self.make()
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_symlinks_rejected (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 70, in test_symlinks_rejected
+    out=self.make();external=Path(self.tmp.name)/'external';external.write_bytes(b'old')
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests/test_behavior.py", line 14, in make
+    def make(self,entries=None):return publish_snapshot(self.root,'daily',{'a.txt':b'old'} if entries is None else entries)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/snapshot.py", line 8, in publish_snapshot
+    raise NotImplementedError
+NotImplementedError
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.007s
+
+FAILED (errors=34)

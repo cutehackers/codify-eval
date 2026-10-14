@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-14T04:43:42.883443+00:00",
+  "authority": "Direct human request to keep only repository maintenance essentials after evaluation; raw evidence retention superseded",
+  "runtime_removed": true,
+  "result_files_retained": 30,
+  "protected_source_files_hash_verified": 2524,
+  "raw_logs_archives_and_generated_caches_removed": true,
+  "raw_reaudit_available_in_repo": false,
+  "result_summaries_and_code_preserved": true,
+  "permission_handling": "Read-only historical log directories temporarily made owner-writable for requested deletion; retained parent permissions restored",
+  "earlier_partial_deletion_error_recorded": "PermissionError on Q06 historical log; remaining deletion completed without changing retained source bytes"
+}

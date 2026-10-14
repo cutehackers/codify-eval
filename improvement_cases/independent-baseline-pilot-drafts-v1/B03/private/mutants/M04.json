@@ -1,0 +1,15 @@
+{
+  "id": "M04",
+  "file": "lib/sync_service.dart",
+  "replace_once": {
+    "from": "if(conflictMode=='retain-draft') return RecipeSync('conflict_retained',local);",
+    "to": "if(conflictMode=='retain-draft') return _save(remote.clean(),'conflict_replaced');"
+  },
+  "branches": [
+    "retain-draft"
+  ],
+  "must_fail": [
+    "r5 resolved conflict policy and write failure"
+  ],
+  "violation": "Deletes owner-preserved local edits"
+}

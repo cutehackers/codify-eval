@@ -1,0 +1,124 @@
+{
+  "case_id": "R2",
+  "qualified": true,
+  "editable_paths": [
+    "outbox.py"
+  ],
+  "expected_private_tests": 15,
+  "public_smoke_tests": 1,
+  "qualification_runs": [
+    {
+      "target": "stub",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/stub.txt",
+      "summary": "FAILED (errors=15)"
+    },
+    {
+      "target": "reference",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/reference python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2",
+      "exit_code": 0,
+      "passed": true,
+      "expected_passed": true,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/reference.txt",
+      "summary": "OK"
+    },
+    {
+      "target": "cross_tenant",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/faulty/cross_tenant python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/cross_tenant.txt",
+      "summary": "FAILED (failures=1)"
+    },
+    {
+      "target": "ignore_conflict",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/faulty/ignore_conflict python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/ignore_conflict.txt",
+      "summary": "FAILED (failures=1)"
+    },
+    {
+      "target": "lost_retry_schedule",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/faulty/lost_retry_schedule python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/lost_retry_schedule.txt",
+      "summary": "FAILED (failures=1)"
+    },
+    {
+      "target": "partial_batch_commit",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/faulty/partial_batch_commit python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/partial_batch_commit.txt",
+      "summary": "FAILED (failures=1)"
+    }
+  ],
+  "requirement_coverage": {
+    "canonical payload and same-key duplicates": [
+      "test_canonical_duplicate"
+    ],
+    "explicit conflict and transaction preservation": [
+      "test_conflict_preserves_original",
+      "test_batch_failure_rolls_back"
+    ],
+    "tenant separation": [
+      "test_tenant_separation"
+    ],
+    "restart persistence and permanent delivered idempotency": [
+      "test_restart_and_done_idempotency",
+      "test_pending_survives_restart"
+    ],
+    "lease timing and retry attempts": [
+      "test_lease_boundary_and_attempts",
+      "test_retry_schedule"
+    ],
+    "legal state transitions": [
+      "test_state_transitions"
+    ],
+    "FIFO batch limit": [
+      "test_fifo_limit"
+    ],
+    "validation without mutation": [
+      "test_invalid_claim_preserves",
+      "test_invalid_payload_and_identity",
+      "test_invalid_retry_preserves_lease"
+    ],
+    "competing connections": [
+      "test_other_connection_cannot_steal_lease",
+      "test_simultaneous_claims_are_disjoint"
+    ]
+  },
+  "limits": [
+    "Standard-library local fixture only. No model runs, network, production, or external service verification.",
+    "Fault variants establish targeted discrimination, not exhaustive correctness."
+  ],
+  "public_smoke_qualification": {
+    "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/reference python3 -B -c 'import runpy, unittest; ns=runpy.run_path('\"'\"'/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/test_smoke.py'\"'\"'); suite=unittest.defaultTestLoader.loadTestsFromTestCase(ns['\"'\"'Smoke'\"'\"']); result=unittest.TextTestRunner().run(suite); raise SystemExit(not result.wasSuccessful())'",
+    "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2",
+    "exit_code": 0,
+    "passed": true,
+    "tests_run": 1,
+    "output_file": "private/qualification_logs/reference_public_smoke.txt"
+  }
+}

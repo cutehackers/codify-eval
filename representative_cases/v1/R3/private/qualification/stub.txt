@@ -1,0 +1,23 @@
+test_single_and_order (test_smoke.Smoke.test_single_and_order) ... ERROR
+
+======================================================================
+ERROR: test_single_and_order (test_smoke.Smoke.test_single_and_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 128, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/public/test_smoke.py", line 7, in test_single_and_order
+    self.assertEqual(await service.get("a"), "A")
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/public/record_service.py", line 8, in get
+    raise NotImplementedError
+NotImplementedError
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (errors=1)

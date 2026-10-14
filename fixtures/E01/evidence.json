@@ -1,0 +1,58 @@
+[
+  {
+    "id": "E01",
+    "variant": "repo",
+    "checks": [
+      {
+        "command": [
+          "pub",
+          "get",
+          "--offline"
+        ],
+        "exit_code": 0,
+        "output": "Resolving dependencies...\nDownloading packages...\n+ async 2.13.1\n+ boolean_selector 2.1.2\n+ characters 1.4.1\n+ clock 1.1.3\n+ collection 1.19.1\n+ fake_async 1.3.3\n+ flutter 0.0.0 from sdk flutter\n+ flutter_test 0.0.0 from sdk flutter\n+ leak_tracker 11.0.2\n+ leak_tracker_flutter_testing 3.0.10\n+ leak_tracker_testing 3.0.2\n+ matcher 0.12.20\n+ material_color_utilities 0.13.0\n+ meta 1.19.0\n+ path 1.9.1\n+ sky_engine 0.0.0 from sdk flutter\n+ source_span 1.10.2\n+ stack_trace 1.12.2\n+ stream_channel 2.1.4\n+ string_scanner 1.4.1\n+ term_glyph 1.2.2\n+ test_api 0.7.12 (0.7.14 available)\n+ vector_math 2.4.2\n+ vm_service 15.3.0\nChanged 24 dependencies!\n1 package has newer versions incompatible with dependency constraints.\nTry `flutter pub outdated` for more information.\n"
+      },
+      {
+        "command": [
+          "test",
+          "test/acceptance_test.dart"
+        ],
+        "exit_code": 1,
+        "output": "00:00 +0: loading /private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-jstrh6lh/test/acceptance_test.dart\n00:00 +0: last and singleton are selectable\n══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════\nThe following TestFailure was thrown running a test:\nExpected: exactly one matching candidate\n  Actual: _TextWidgetFinder:<Found 0 widgets with text \"선택: 끝\": []>\n   Which: means none were found but one was expected\n\nWhen the exception was thrown, this was the stack:\n#4      main.<anonymous closure> (file:///private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-jstrh6lh/test/acceptance_test.dart:9:7)\n<asynchronous suspension>\n#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)\n<asynchronous suspension>\n#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)\n<asynchronous suspension>\n<asynchronous suspension>\n(elided one frame from package:stack_trace)\n\nThis was caught by the test expectation on the following line:\n  file:///private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-jstrh6lh/test/acceptance_test.dart line 9\nThe test description was:\n  last and singleton are selectable\n════════════════════════════════════════════════════════════════════════════════════════════════════\n00:00 +0 -1: last and singleton are selectable [E]\n  Test failed. See exception logs above.\n  The test description was: last and singleton are selectable\n  \n00:00 +0 -1: empty list has explicit state\n00:00 +1 -1: Some tests failed.\n\nFailing tests:\n  /private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-jstrh6lh/test/acceptance_test.dart: last and singleton are selectable\n"
+      }
+    ],
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E01",
+    "variant": "reference",
+    "checks": [
+      {
+        "command": [
+          "pub",
+          "get",
+          "--offline"
+        ],
+        "exit_code": 0,
+        "output": "Resolving dependencies...\nDownloading packages...\n+ async 2.13.1\n+ boolean_selector 2.1.2\n+ characters 1.4.1\n+ clock 1.1.3\n+ collection 1.19.1\n+ fake_async 1.3.3\n+ flutter 0.0.0 from sdk flutter\n+ flutter_test 0.0.0 from sdk flutter\n+ leak_tracker 11.0.2\n+ leak_tracker_flutter_testing 3.0.10\n+ leak_tracker_testing 3.0.2\n+ matcher 0.12.20\n+ material_color_utilities 0.13.0\n+ meta 1.19.0\n+ path 1.9.1\n+ sky_engine 0.0.0 from sdk flutter\n+ source_span 1.10.2\n+ stack_trace 1.12.2\n+ stream_channel 2.1.4\n+ string_scanner 1.4.1\n+ term_glyph 1.2.2\n+ test_api 0.7.12 (0.7.14 available)\n+ vector_math 2.4.2\n+ vm_service 15.3.0\nChanged 24 dependencies!\n1 package has newer versions incompatible with dependency constraints.\nTry `flutter pub outdated` for more information.\n"
+      },
+      {
+        "command": [
+          "test",
+          "test/acceptance_test.dart"
+        ],
+        "exit_code": 0,
+        "output": "00:00 +0: loading /private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-uge3_5dg/test/acceptance_test.dart\n00:00 +0: last and singleton are selectable\n00:00 +1: empty list has explicit state\n00:00 +2: All tests passed!\n"
+      },
+      {
+        "command": [
+          "analyze",
+          "--no-pub"
+        ],
+        "exit_code": 0,
+        "output": "Analyzing codify-fixture-uge3_5dg...                            \nNo issues found! (ran in 3.1s)\n"
+      }
+    ],
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  }
+]

@@ -1,0 +1,13 @@
+..............F
+======================================================================
+FAIL: test_tenant_separation (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 26, in test_tenant_separation
+    self.assertFalse(self.box.complete('b',a));self.assertFalse(self.box.retry('b',a,1))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.033s
+
+FAILED (failures=1)

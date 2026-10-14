@@ -1,0 +1,27 @@
+{
+  "id": "D02",
+  "type": "development_regression",
+  "framework": "Flutter flutter_test / pure Dart filesystem",
+  "command": "flutter pub get --offline && flutter test test/acceptance_test.dart --reporter expanded",
+  "allowed_paths": [
+    "lib/**",
+    "test/**"
+  ],
+  "protected_paths": [
+    "pubspec.yaml",
+    "AGENTS.md",
+    "test/smoke_test.dart"
+  ],
+  "oracle_path": "oracle/test/acceptance_test.dart",
+  "solution_path": "reference",
+  "requirements_disclosed": true,
+  "role": "development_only",
+  "negative_variants": [
+    "no_authorization",
+    "no_identity_validation",
+    "unordered_operations",
+    "follow_symlinks",
+    "no_temporary_cleanup",
+    "delete_destination_early"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "status": "authored_unqualified",
+  "source_blind_authorized_reads": [
+    "AGENTS.md",
+    "docs/improvement-spec-v1.md",
+    "improvement_cases/fresh-question-design-v1/proposal-v2.json",
+    "own new Q05/Q06 files"
+  ],
+  "excluded_reads": [
+    "existing fixtures",
+    "snapshots",
+    "results",
+    "evaluation runtime",
+    "sessions",
+    "model outputs",
+    "other repositories",
+    "private answers"
+  ],
+  "host_preliminary_checks": "Host Flutter/Dart only, offline resolution, no dependency download, no Docker, model calls, network or existing evaluation containers. Logs retained under private/preliminary-logs.",
+  "design_source": "proposal-v2.json",
+  "limitations": [
+    "No qualification, difficulty, candidate comparison or superiority claim.",
+    "Root owns independent static review and fixed-image qualification."
+  ],
+  "host_dependency_resolution": "flutter pub get --offline succeeded using locally available SDK/cache dependencies. The CLI printed its generic Downloading packages status, but offline resolution prohibits network package retrieval. Exact output preserved.",
+  "generated_artifacts": "Host lockfile, .dart_tool and build preserved in private/preliminary-host-artifacts.tar.gz and removed from the public repo to prevent compiled reference/control or host configuration from reaching evaluated agents."
+}

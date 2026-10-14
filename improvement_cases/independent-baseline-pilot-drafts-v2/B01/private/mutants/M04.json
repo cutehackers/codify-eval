@@ -1,0 +1,12 @@
+{
+  "id": "M04",
+  "file": "lib/job_rules.dart",
+  "replace_once": {
+    "from": "j.note.trim().isNotEmpty && j.note.length <= 240",
+    "to": "j.note.trim().isNotEmpty"
+  },
+  "must_fail": [
+    "r1 rejects boundaries but preserves ordinary text"
+  ],
+  "violation": "Oversize payload accepted"
+}

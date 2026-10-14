@@ -1,0 +1,28 @@
+Complete the shipment manifest import feature in the supplied isolated repository.
+Read README.md for the full software contract. Read the selected Codify skill at
+.agents/skills/codify/SKILL.md and follow it for this authorized implementation.
+The interpreter is:
+/Users/junhyounglee/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3
+
+This request explicitly calls for one bounded implementation worker and integration.
+Spawn exactly one worker with model gpt-6.1-sol, reasoning_effort medium, fork_turns none.
+The worker owns manifest_parser.py only and must not delegate further.
+You own batch_processor.py and manifest.py while the worker runs.
+Pass the worker the accessible repository path, the full public README contract,
+models.py, relevant starting code, the selected skill path, its file ownership,
+the same interpreter, and a stopping condition. Do not supply private/oracle tests,
+reference implementations, other outputs or evaluation conclusions.
+Both agents must preserve all other files and existing interfaces. Do not edit the
+worker's file while it is running. Read its actual resulting source, explicitly
+accept or reject its contribution with concrete reasons, and integrate yourself.
+If a repair is necessary after the worker terminates, record the repair and why.
+Run the prescribed smoke tests on the integrated result, inspect the final diff,
+and report ownership, the contribution you used, integration checks and known gaps.
+Worker spawn alone is not successful handoff or integration evidence.
+
+Use only Python standard library. No network, new dependencies, Docker, real repos,
+outside-file changes or further evaluated-model experiments. Temporary standard
+library test data is allowed. The one worker is the only permitted delegation.
+Batch the first required reads of known paths where practical. Preserve command
+exit statuses and failed diagnostic evidence. Do not create process trackers or
+evaluation infrastructure. Finish the public implementation, not merely smoke tests.

@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "case_id": "P02",
+  "status": "authored_unqualified",
+  "acceptance_suite": "oracle/test/acceptance_test.dart",
+  "groups": [
+    {
+      "id": "A01",
+      "requirements": [
+        "R1"
+      ],
+      "observations": "authorization and tenant isolation",
+      "important_removal": "authorization_bypass_or_tenant_partition_removal",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A02",
+      "requirements": [
+        "R2"
+      ],
+      "observations": "complete input validation",
+      "important_removal": "normalized_invalid_date_or_partial_structural_validation",
+      "critical": false,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A03",
+      "requirements": [
+        "R3"
+      ],
+      "observations": "content-bound replay identity",
+      "important_removal": "omit_sku_delta_or_timestamp_fingerprint",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A04",
+      "requirements": [
+        "R3"
+      ],
+      "observations": "ordered stock, capacity and replay-at-capacity",
+      "important_removal": "aggregate_deltas_or_evict_ledger",
+      "critical": false,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A05",
+      "requirements": [
+        "R4"
+      ],
+      "observations": "atomic staging and one commit",
+      "important_removal": "commit_each_event_or_publish_before_cas",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A06",
+      "requirements": [
+        "R4"
+      ],
+      "observations": "scheduled CAS winner and loser",
+      "important_removal": "blind_overwrite_hidden_retry_or_publish_failed_cas",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A07",
+      "requirements": [
+        "R1",
+        "R4",
+        "R6"
+      ],
+      "observations": "safe store failure, unchanged refresh and busy lifecycle",
+      "important_removal": "sticky_busy_or_clear_state_on_refresh_failure",
+      "critical": false,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A08",
+      "requirements": [
+        "R5"
+      ],
+      "observations": "authenticated canonical codec with tenant/revision binding",
+      "important_removal": "skip_mac_tenant_revision_or_schema_check",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A09",
+      "requirements": [
+        "R6"
+      ],
+      "observations": "independent same-revision recovery and disagreement rejection",
+      "important_removal": "trust_primary_accept_stale_or_choose_disagreement",
+      "critical": true,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    },
+    {
+      "id": "A10",
+      "requirements": [
+        "R1",
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "observations": "immutable snapshots and persisted replay ledger",
+      "important_removal": "alias_maps_or_drop_replay_metadata",
+      "critical": false,
+      "positive_and_counterexample_authored": true,
+      "executed_reference": false,
+      "executed_removal": false
+    }
+  ],
+  "gate": {
+    "id": "G01",
+    "owner": "root qualifier",
+    "checks": [
+      "exact editable path scope",
+      "protected inventory hash preservation",
+      "pinned offline image",
+      "dart analyze",
+      "public tests and hidden behavior tests"
+    ]
+  },
+  "coverage_review_required": true,
+  "critical_removal_variants_required": true,
+  "coverage_not_qualification": true,
+  "fixture_version": "pilot-expansion-v5",
+  "authoring_revision": 2,
+  "acceptance_case_count": 22,
+  "cases": [
+    {
+      "id": "C01",
+      "group": "A01",
+      "test_name": "authorized positive and denied precedence with no collaborator calls",
+      "line": 71,
+      "requirements": [
+        "R1",
+        "R2"
+      ],
+      "mapped_public_behavior": "Authorization precedes input and initialization, denied collaborators untouched, tenant-local IDs and caller tenant selector rejected",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C02",
+      "group": "A02",
+      "test_name": "calendar bounds, grammar, type and effective duplicate key policy",
+      "line": 121,
+      "requirements": [
+        "R2"
+      ],
+      "mapped_public_behavior": "Timestamp bounds/calendar/type/field/count/length boundaries, caller duplicate keys use effective last value",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C03",
+      "group": "A02",
+      "test_name": "later invalid event precedes earlier semantic conflict or underflow and no read",
+      "line": 239,
+      "requirements": [
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "mapped_public_behavior": "Complete structural validation precedes replay/stock, invalid ingest performs no store work",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C04",
+      "group": "A03",
+      "test_name": "canonical fingerprint and every content field, duplicates, case sensitivity",
+      "line": 268,
+      "requirements": [
+        "R3"
+      ],
+      "mapped_public_behavior": "All event fields bind SDK canonical fingerprint, exact duplicates and reordered JSON replay, changed content conflicts, case-sensitive IDs/SKUs",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C05",
+      "group": "A04",
+      "test_name": "ordered transitions, zero deletion, chronological freedom, upper bound",
+      "line": 322,
+      "requirements": [
+        "R3"
+      ],
+      "mapped_public_behavior": "Sequential stock bounds, zero-key removal, chronology is unrestricted",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C06",
+      "group": "A04",
+      "test_name": "first semantic error, replay at capacity and stock before capacity",
+      "line": 357,
+      "requirements": [
+        "R3"
+      ],
+      "mapped_public_behavior": "Replay at ledger capacity, stock precedes capacity, first semantic error and atomic capacity boundary",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C07",
+      "group": "A05",
+      "test_name": "late failure leaves ledger, stock, bytes and counts unchanged without encoding",
+      "line": 414,
+      "requirements": [
+        "R3",
+        "R4"
+      ],
+      "mapped_public_behavior": "Late failure exposes no staged data or signing/CAS, novel batch single CAS/revision, exact counts and all-replay no rewrite",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C08",
+      "group": "A05",
+      "test_name": "maximum revision staging precedence, replay succeeds without encode",
+      "line": 461,
+      "requirements": [
+        "R3",
+        "R4"
+      ],
+      "mapped_public_behavior": "Semantic staging precedes maximum revision error, replay success at maximum without encode/CAS",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C09",
+      "group": "A06",
+      "test_name": "scheduled winner, unchanged loser, explicit refresh and retry",
+      "line": 496,
+      "requirements": [
+        "R1",
+        "R4",
+        "R6"
+      ],
+      "mapped_public_behavior": "Independent instances race with one winner, failed CAS preserves loser, no hidden read/retry, explicit restore then retry",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C10",
+      "group": "A07",
+      "test_name": "read/CAS exceptions preserve state and release busy",
+      "line": 533,
+      "requirements": [
+        "R1",
+        "R4",
+        "R6"
+      ],
+      "mapped_public_behavior": "Read/CAS failures preserve initialized state, release busy, failed refresh keeps old revision for CAS conflict",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C11",
+      "group": "A07",
+      "test_name": "same-instance overlapping restore/ingest returns immediately busy without work",
+      "line": 565,
+      "requirements": [
+        "R1",
+        "R4"
+      ],
+      "mapped_public_behavior": "Busy precedes initialization/input while restore/ingest pending, same-instance calls perform no extra collaborator work",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C12",
+      "group": "A08",
+      "test_name": "deterministic sorted canonical roundtrip and trusted integrity use",
+      "line": 598,
+      "requirements": [
+        "R5"
+      ],
+      "mapped_public_behavior": "Sorted deterministic SDK canonical outer/payload, trusted signing/verification, empty revision-zero and replay-only states",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C13",
+      "group": "A08",
+      "test_name": "all invalid encode state domains reject",
+      "line": 653,
+      "requirements": [
+        "R5"
+      ],
+      "mapped_public_behavior": "Encode state domain bounds and grammar reject invalid states",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C14",
+      "group": "A08",
+      "test_name": "bad MAC, byte tamper, noncanonical outer and base64 reject",
+      "line": 676,
+      "requirements": [
+        "R5"
+      ],
+      "mapped_public_behavior": "MAC/tamper, canonical outer and padded base64, strict UTF8, tag grammar reject invalid checkpoints",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C15",
+      "group": "A08",
+      "test_name": "authenticated malformed states and noncanonical payloads reject",
+      "line": 736,
+      "requirements": [
+        "R5"
+      ],
+      "mapped_public_behavior": "Authenticated malformed domain/schema/type/tenant/revision and noncanonical/duplicate persisted payload reject",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C16",
+      "group": "A09",
+      "test_name": "each copy independently recoverable, no repair until novel ingest",
+      "line": 817,
+      "requirements": [
+        "R3",
+        "R4",
+        "R6"
+      ],
+      "mapped_public_behavior": "Independent copies recover only current revision, no restore/all-replay repair, novel ingest repairs both copies",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C17",
+      "group": "A09",
+      "test_name": "invalid record, contradictory valid copies, stale recovery and preservation",
+      "line": 865,
+      "requirements": [
+        "R1",
+        "R6"
+      ],
+      "mapped_public_behavior": "Invalid revision/empty form/disagreement/stale/foreign copies corrupt, failed refresh preserves state, both revision-zero forms accepted",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C18",
+      "group": "A10",
+      "test_name": "defensive constructors, frozen captured views, checkpoint immutability",
+      "line": 912,
+      "requirements": [
+        "R1",
+        "R3",
+        "R5",
+        "R6"
+      ],
+      "mapped_public_behavior": "Protected defensive value constructors, decoded maps and captured views immutable, replay ledger survives restart",
+      "contradictory_assertions_found": false
+    },
+    {
+      "id": "C19",
+      "group": "A10",
+      "test_name": "first failed restore stays uninitialized before caller input or crypto work",
+      "line": 972,
+      "requirements": [
+        "R1",
+        "R4",
+        "R6"
+      ],
+      "mapped_public_behavior": "Uninitialized ingest precedes parsing/crypto, failed first restores stay uninitialized, later valid restore succeeds",
+      "contradictory_assertions_found": false
+    },
+    {
+      "group": "A05",
+      "requirements": [
+        "R1",
+        "R4"
+      ],
+      "review_issue": "P02-COV-01",
+      "mapped_public_behavior": "Freeze pre-operation values and observe current/busy view while CAS waits, then settle success, real revision mismatch or precommit store failure; failed attempt does not publish ledger",
+      "id": "C20",
+      "test_name": "C20 current and busy view preserve captured state while CAS pending",
+      "line": 1002
+    },
+    {
+      "group": "A08",
+      "requirements": [
+        "R5"
+      ],
+      "review_issue": "P02-COV-02",
+      "mapped_public_behavior": "Each canonical outer/base64 invalid UTF8 or JSON invokes verification exactly once before rejection; covers true/false MAC and false MAC over valid payload",
+      "id": "C21",
+      "test_name": "C21 verify boundary is called once before malformed payload rejection",
+      "line": 1085
+    },
+    {
+      "group": "A02",
+      "requirements": [
+        "R2"
+      ],
+      "review_issue": "P02-COV-03",
+      "mapped_public_behavior": "Valid multibyte duplicate-key JSON with valid effective content exceeds UTF8 byte limit while under character limit; invalidBatch and no store work",
+      "id": "C22",
+      "test_name": "C22 valid effective JSON exceeds UTF8 bytes but not character limit",
+      "line": 1121
+    }
+  ],
+  "coverage_gap_fixes": [
+    {
+      "id": "P02-COV-01",
+      "case": "C20",
+      "status": "authored_requires_reference_and_removal_execution"
+    },
+    {
+      "id": "P02-COV-02",
+      "case": "C21",
+      "status": "authored_requires_reference_and_removal_execution"
+    },
+    {
+      "id": "P02-COV-03",
+      "case": "C22",
+      "status": "authored_requires_reference_and_removal_execution"
+    }
+  ],
+  "expected_failure_identities": [
+    {
+      "identity": "premature_local_publication_while_CAS_pending",
+      "group": "A05",
+      "cases": [
+        "C20"
+      ]
+    },
+    {
+      "identity": "payload_first_malformed_rejection_without_verification",
+      "group": "A08",
+      "cases": [
+        "C21"
+      ]
+    },
+    {
+      "identity": "character_length_instead_of_UTF8_byte_limit",
+      "group": "A02",
+      "cases": [
+        "C22"
+      ]
+    }
+  ],
+  "verification_order_observation_limit": "C21 distinguishes payload-first malformed rejection without verification. Parsing first but delaying every rejection until after verification has identical black-box observations with the current pure SDK parser and IntegrityService API."
+}

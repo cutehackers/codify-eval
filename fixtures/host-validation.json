@@ -1,0 +1,130 @@
+[
+  {
+    "id": "E01",
+    "type": "widget_bug",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E02",
+    "type": "shared_state_bug",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E03",
+    "type": "filter_ui_feature",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E04",
+    "type": "form_failure_ui",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E05",
+    "type": "cross_module_feature",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E06",
+    "type": "local_persistence",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E07",
+    "type": "serialized_compatibility",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E08",
+    "type": "adapter_retry_ui",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E09",
+    "type": "async_race",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E10",
+    "type": "explicit_decision",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E11",
+    "type": "dirty_preservation",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E12",
+    "type": "whole_app_flow",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "H01",
+    "type": "heldout_widget_bug",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "H02",
+    "type": "heldout_cross_module_feature",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "H03",
+    "type": "heldout_adapter_recovery",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "H04",
+    "type": "heldout_data_compatibility",
+    "baseline_test_exit": 1,
+    "reference_test_exit": 0,
+    "reference_analyze_exit": 0,
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  }
+]

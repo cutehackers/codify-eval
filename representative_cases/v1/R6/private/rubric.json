@@ -1,0 +1,40 @@
+{
+  "case_id": "R6",
+  "delegation_optional": true,
+  "worker_limit": {
+    "cumulative_max": 2,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium"
+  },
+  "criteria": [
+    {
+      "id": "correctness",
+      "assessment": "Private behavior suite passes and all public API requirements are preserved."
+    },
+    {
+      "id": "ownership",
+      "assessment": "If workers are used, assignments identify bounded goals and non-overlapping editable source ownership. No worker receives or reads private tests, reference implementations, mutations, or other evaluated runs."
+    },
+    {
+      "id": "usefulness",
+      "assessment": "Assess actual returned work against assigned goals: substantive parser or processing implementation, discovered interaction risk, or concrete verification can be useful. Merely spawning workers, counting messages, or splitting trivial edits earns no delegation credit. A coherent solo implementation is fully acceptable."
+    },
+    {
+      "id": "contribution_review",
+      "assessment": "For every used worker, the root reads the returned source or review and records an explicit acceptance or rejection with a concrete reason supported by that contribution. Claims unsupported by transcript/source evidence do not count."
+    },
+    {
+      "id": "integration",
+      "assessment": "The root reconciles imports, models, error ordering, and parser/processor behavior at the integration boundary, runs final verification after accepted contributions, and owns the final delivered feature. Worker self-reports alone do not prove integration."
+    }
+  ],
+  "evidence_sources": [
+    "assignment messages",
+    "worker returned contribution",
+    "root source reads and acceptance or rejection",
+    "final module diff",
+    "root verification command results",
+    "final report"
+  ],
+  "no_forced_worker_count": true
+}

@@ -1,0 +1,32 @@
+{
+  "created_at": 1791716881.7793841,
+  "candidate": "C12",
+  "previous_candidate": "C11",
+  "status": "uninstalled_draft_pending_review_and_fresh_behavior",
+  "review": "results/improvement-v1/candidate-C11-static-review-v1.json",
+  "reason": "Limit non-execution inference to confirmed pre-dispatch rejection, preserve partial-effects diagnosis",
+  "changed_paths": [
+    "SKILL.md"
+  ],
+  "source_hashes": {
+    "snapshots/C12/.DS_Store": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d",
+    "snapshots/C12/SKILL.md": "c069a6caa7e1c9bcf87623a068e63d0e6c0f0c0ac69180788faf6f324b2ea6e7",
+    "snapshots/C12/references/specification.md": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+    "snapshots/C12/references/orchestration.md": "76780f8502d795929317d7cfd7333a7d67cc3eb117144f1f35b858d23066dd26",
+    "snapshots/C12/references/delivery.md": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398",
+    "snapshots/C12/references/intent-interview.md": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec",
+    "snapshots/C12/agents/openai.yaml": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20"
+  },
+  "previous_source_hashes": {
+    "snapshots/C11/.DS_Store": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d",
+    "snapshots/C11/SKILL.md": "a813c80060c918ccf13c551d367b22b2b875df7adcbd0ac43cbbf63733a7a921",
+    "snapshots/C11/references/specification.md": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+    "snapshots/C11/references/orchestration.md": "76780f8502d795929317d7cfd7333a7d67cc3eb117144f1f35b858d23066dd26",
+    "snapshots/C11/references/delivery.md": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398",
+    "snapshots/C11/references/intent-interview.md": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec",
+    "snapshots/C11/agents/openai.yaml": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20"
+  },
+  "behavior_qualified": false,
+  "superiority_proven": false,
+  "primary_confirmation_reuse_allowed": false
+}

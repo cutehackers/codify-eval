@@ -1,0 +1,17 @@
+test_batch_cancel_releases_callers_preserves_loads (test_behavior.Behavior.test_batch_cancel_releases_callers_preserves_loads) ... ok
+test_batch_failure_releases_siblings (test_behavior.Behavior.test_batch_failure_releases_siblings) ... ok
+test_cancel_one_preserves_other (test_behavior.Behavior.test_cancel_one_preserves_other) ... ok
+test_cancel_only_waiter_retains_ownership (test_behavior.Behavior.test_cancel_only_waiter_retains_ownership) ... ok
+test_close_cancels_waiters_and_cleanup (test_behavior.Behavior.test_close_cancels_waiters_and_cleanup) ... ok
+test_closed_rejects_all_new_calls (test_behavior.Behavior.test_closed_rejects_all_new_calls) ... ok
+test_concurrent_close_waits_for_cleanup (test_behavior.Behavior.test_concurrent_close_waits_for_cleanup) ... ok
+test_different_keys_concurrent_and_ordered (test_behavior.Behavior.test_different_keys_concurrent_and_ordered) ... ok
+test_empty_batch (test_behavior.Behavior.test_empty_batch) ... ok
+test_failure_fanout_and_immediate_retry (test_behavior.Behavior.test_failure_fanout_and_immediate_retry) ... ok
+test_same_key_coalesces (test_behavior.Behavior.test_same_key_coalesces) ... ok
+test_success_not_cached_and_no_finished_tasks (test_behavior.Behavior.test_success_not_cached_and_no_finished_tasks) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.032s
+
+OK

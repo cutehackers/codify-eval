@@ -1,0 +1,1 @@
+If any requested quantity is unavailable, reserve nothing and leave all stock unchanged. Return every shortage with its requested and available quantities, and no reserved rows. Record that outcome for the order ID so repeating the same order returns the same outcome.

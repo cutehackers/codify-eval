@@ -1,0 +1,38 @@
+{
+  "id": "Q02",
+  "type": "authorization_persistence_boundary",
+  "framework": "flutter",
+  "command": [
+    "flutter",
+    "test",
+    "test/acceptance_test.dart"
+  ],
+  "allowed_paths": [
+    "lib/implementation.dart"
+  ],
+  "protected_paths": [
+    "pubspec.yaml",
+    "lib/api.dart",
+    "test/**",
+    "README.md"
+  ],
+  "oracle_path": "oracle/test",
+  "solution_path": "reference",
+  "requirements_disclosed": true,
+  "status": "prospective_unqualified",
+  "negative_variants": [
+    "N01",
+    "N02",
+    "N03"
+  ],
+  "qualification": {
+    "start": "must fail at least one behavior assertion; public tests must pass",
+    "gold": "overlay reference lib on clean repo, add oracle tests, require analyze and all tests pass",
+    "negative": "Each negative must compile and fail behavioral assertions; analyzer diagnostics are recorded separately and do not prove behavioral discrimination.",
+    "coverage": "independent read-only review of task and public docs against oracle before sealing"
+  },
+  "fixture_revision": "v2",
+  "scope_limitations": [
+    "Pure service/domain tests in Flutter packages; no GUI, device, production storage or real identity-provider qualification."
+  ]
+}

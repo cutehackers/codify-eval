@@ -1,0 +1,16 @@
+runtime/
+.dart_tool/
+build/
+**/.dart_tool/
+**/build/
+**/.flutter-plugins*
+__pycache__/
+*.pyc
+.DS_Store
+results/**/*.jsonl
+results/**/*.log
+results/**/*.stdout
+results/**/*.stderr
+results/**/*.tar
+results/**/*.tar.gz
+results/**/*.zip

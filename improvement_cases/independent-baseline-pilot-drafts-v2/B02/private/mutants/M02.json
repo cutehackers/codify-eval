@@ -1,0 +1,12 @@
+{
+  "id": "M02",
+  "file": "lib/gate_service.dart",
+  "replace_once": {
+    "from": "if(pass.venue!=fresh.venue) return const GateDecision('denied');",
+    "to": ""
+  },
+  "must_fail": [
+    "r3 venue expiry and replay precedence"
+  ],
+  "violation": "Foreign venue pass enters"
+}

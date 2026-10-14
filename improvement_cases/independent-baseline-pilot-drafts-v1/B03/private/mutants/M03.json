@@ -1,0 +1,12 @@
+{
+  "id": "M03",
+  "file": "lib/sync_service.dart",
+  "replace_once": {
+    "from": "if(saved==null) return RecipeSync('conflict_retry',local);",
+    "to": "if(saved==null) return _save(local.clean(),'uploaded');"
+  },
+  "must_fail": [
+    "r4 CAS success failure recovery and returned identity"
+  ],
+  "violation": "Concurrent failed CAS loses unsent edits"
+}

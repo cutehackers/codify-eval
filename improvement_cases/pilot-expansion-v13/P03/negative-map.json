@@ -1,0 +1,86 @@
+[
+  {
+    "id": "N01_path_containment",
+    "path": "negative/N01_path_containment",
+    "removed_requirement": "path_containment",
+    "intended_detection_assertions": [
+      "A01"
+    ],
+    "observed_failures": null
+  },
+  {
+    "id": "N02_manifest_authentication",
+    "path": "negative/N02_manifest_authentication",
+    "removed_requirement": "manifest_authentication",
+    "intended_detection_assertions": [
+      "A04",
+      "PUBLIC02"
+    ],
+    "observed_failures": null
+  },
+  {
+    "id": "N03_archive_duplicates",
+    "path": "negative/N03_archive_duplicates",
+    "removed_requirement": "archive_duplicates",
+    "intended_detection_assertions": [
+      "A06"
+    ],
+    "observed_failures": null
+  },
+  {
+    "id": "N04_stream_bound",
+    "path": "negative/N04_stream_bound",
+    "removed_requirement": "stream_bound",
+    "intended_detection_assertions": [
+      "A08"
+    ],
+    "observed_failures": null
+  },
+  {
+    "id": "N05_file_integrity",
+    "path": "negative/N05_file_integrity",
+    "removed_requirement": "file_integrity",
+    "intended_detection_assertions": [
+      "A10"
+    ],
+    "observed_failures": null
+  },
+  {
+    "id": "N06_missing_files",
+    "path": "negative/N06_missing_files",
+    "removed_requirement": "missing_files",
+    "intended_detection_assertions": [
+      "A07"
+    ],
+    "observed_failures": null
+  },
+  {
+    "id": "N07_write_cancellation",
+    "path": "negative/N07_write_cancellation",
+    "removed_requirement": "cancellation checkpoints",
+    "intended_detection_assertions": [
+      "A11",
+      "A12"
+    ],
+    "observed_failures": null
+  },
+  {
+    "id": "N08_rollback",
+    "path": "negative/N08_rollback",
+    "removed_requirement": "rollback",
+    "intended_detection_assertions": [
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "A11",
+      "A12",
+      "A14",
+      "A15",
+      "A20"
+    ],
+    "observed_failures": null
+  }
+]

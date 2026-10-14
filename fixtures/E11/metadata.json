@@ -1,0 +1,26 @@
+{
+  "id": "E11",
+  "type": "dirty_preservation",
+  "framework": "flutter",
+  "command": [
+    "flutter",
+    "test",
+    "test/acceptance_test.dart"
+  ],
+  "allowed_paths": [
+    "lib/**",
+    "test/**"
+  ],
+  "protected_paths": [
+    "pubspec.yaml",
+    "lib/user_banner.dart"
+  ],
+  "oracle_path": "oracle/test",
+  "solution_path": "reference",
+  "requirements_disclosed": true,
+  "initial_dirty": {
+    "path": "lib/user_banner.dart",
+    "head_content": "const userBanner='기본 문구';\n",
+    "working_content": "const userBanner='사용자가 작성한 문구: 오늘도 꾸준히';\n"
+  }
+}

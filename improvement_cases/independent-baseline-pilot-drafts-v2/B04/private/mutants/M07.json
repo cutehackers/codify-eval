@@ -1,0 +1,17 @@
+{
+  "id": "M07",
+  "file": "lib/journey_service.dart",
+  "replace_once": {
+    "from": "if(expiredCacheMode==null)return const JourneyView('decision_required');",
+    "to": "if(expiredCacheMode==null){await cache.read('qualification-unresolved');return const JourneyView('decision_required');}"
+  },
+  "must_fail": [
+    "unresolved decision blocks every cache and network operation"
+  ],
+  "violation": "Unresolved owner decision performs cache I/O",
+  "qualification_mode": "unresolved_decision",
+  "dart_defines": [
+    "UNRESOLVED_DECISION=true"
+  ],
+  "owner_branch_overlay": false
+}

@@ -1,0 +1,486 @@
+{
+  "version": "fresh-optional-cohort-v1",
+  "case_id": "O02",
+  "title": "Workspace text export bundle",
+  "status": "authored_unqualified",
+  "design_proposal_id": "O-design-2",
+  "retained_regardless_of_baseline_outcome": true,
+  "editable_paths": [
+    "lib/export_encoding.dart",
+    "lib/export_selection.dart",
+    "lib/export_service.dart"
+  ],
+  "public_test_count": 12,
+  "private_test_count": 12,
+  "combined_test_count": 24,
+  "reference_implementation_file_count": 3,
+  "negative_control_count": 4,
+  "negative_implementation_files_per_control": 3,
+  "negative_controls": [
+    "atomicity_stale_noop",
+    "compatibility_byte_length",
+    "reporting_reverse_order",
+    "security_permission_bypass"
+  ],
+  "source_hashes": {
+    "AGENTS.md": "0bc20608e6ffda9d3b8dc3f5e26d56eac793cceca7c56474ec33abae36f6f8ea",
+    "docs/improvement-spec-v1.md": "229caa70e643dd97247ea28143398d9551d1a386bd1326d080f30aa1d65ad691",
+    "results/improvement-v1/fresh-optional-orchestration-design-v1.json": "94cf017a4e8462eb38c4d18fd9eef6ea438941c0d01b6f91a4dae0e576652673"
+  },
+  "source_access": [
+    "AGENTS.md",
+    "docs/improvement-spec-v1.md",
+    "results/improvement-v1/fresh-optional-orchestration-design-v1.json"
+  ],
+  "actor_mount_allowlist": [
+    "public/request.md",
+    "repo/"
+  ],
+  "private_mount_forbidden": [
+    "private/",
+    "metadata.json",
+    "authoring-provenance.json"
+  ],
+  "qualification": {
+    "qualified": false,
+    "frozen": false,
+    "difficulty_established": false,
+    "model_run_performed": false,
+    "superiority_claimed": false
+  },
+  "provenance_mapping": [
+    {
+      "check": "P01",
+      "visibility": "public",
+      "purpose": "P01 complete UTF8 export manifest order LF and report",
+      "public_source": "public/request.md",
+      "rules": [
+        "R2",
+        "R3",
+        "R4",
+        "R8"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P02",
+      "visibility": "public",
+      "purpose": "P02 denied malformed request precedes reads",
+      "public_source": "public/request.md",
+      "rules": [
+        "R1",
+        "R2"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P03",
+      "visibility": "public",
+      "purpose": "P03 request grammar duplicates counts and types rejected",
+      "public_source": "public/request.md",
+      "rules": [
+        "R1",
+        "R3"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P04",
+      "visibility": "public",
+      "purpose": "P04 missing selection no bundle",
+      "public_source": "public/request.md",
+      "rules": [
+        "R2"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P05",
+      "visibility": "public",
+      "purpose": "P05 wrong workspace or ID denied",
+      "public_source": "public/request.md",
+      "rules": [
+        "R2"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P06",
+      "visibility": "public",
+      "purpose": "P06 current no-op stale repeated request conflicts",
+      "public_source": "public/request.md",
+      "rules": [
+        "R5",
+        "R7"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P07",
+      "visibility": "public",
+      "purpose": "P07 rollback and false compare preserve previous bundle",
+      "public_source": "public/request.md",
+      "rules": [
+        "R5",
+        "R6"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P08",
+      "visibility": "public",
+      "purpose": "P08 record shape lengths invalid before commit",
+      "public_source": "public/request.md",
+      "rules": [
+        "R3",
+        "R8"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P09",
+      "visibility": "public",
+      "purpose": "P09 reader store encoder exceptions sanitized",
+      "public_source": "public/request.md",
+      "rules": [
+        "R6",
+        "R8"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P10",
+      "visibility": "public",
+      "purpose": "P10 empty body title valid unchanged exact no added LF",
+      "public_source": "public/request.md",
+      "rules": [
+        "R3",
+        "R4"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P11",
+      "visibility": "public",
+      "purpose": "P11 other bundle workspace preserved",
+      "public_source": "public/request.md",
+      "rules": [
+        "R6"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "P12",
+      "visibility": "public",
+      "purpose": "P12 pure selection ordered validation protected helper",
+      "public_source": "public/request.md",
+      "rules": [
+        "R1",
+        "R2"
+      ],
+      "assertions_source": "repo/test/contract_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R01",
+      "visibility": "private",
+      "purpose": "R01 denied valid target hides reader storage diagnostics",
+      "public_source": "public/request.md",
+      "rules": [
+        "R1",
+        "R2"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R02",
+      "visibility": "private",
+      "purpose": "R02 invalid revisions IDs target prevent contents",
+      "public_source": "public/request.md",
+      "rules": [
+        "R1",
+        "R3"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R03",
+      "visibility": "private",
+      "purpose": "R03 mixed foreign selection cannot commit earlier valid document",
+      "public_source": "public/request.md",
+      "rules": [
+        "R2",
+        "R6"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R04",
+      "visibility": "private",
+      "purpose": "R04 mixed missing selection cannot commit earlier document",
+      "public_source": "public/request.md",
+      "rules": [
+        "R2"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R05",
+      "visibility": "private",
+      "purpose": "R05 body UTF8 bytes versus UTF16 units exact escaping",
+      "public_source": "public/request.md",
+      "rules": [
+        "R3",
+        "R4",
+        "R8"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R06",
+      "visibility": "private",
+      "purpose": "R06 100 documents maximum content and UTF16 title",
+      "public_source": "public/request.md",
+      "rules": [
+        "R1",
+        "R3",
+        "R4"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R07",
+      "visibility": "private",
+      "purpose": "R07 exact old version1 bundle no rewrite report order",
+      "public_source": "public/request.md",
+      "rules": [
+        "R5",
+        "R7",
+        "R8"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R08",
+      "visibility": "private",
+      "purpose": "R08 stale byte identical bundle still conflict",
+      "public_source": "public/request.md",
+      "rules": [
+        "R5",
+        "R7"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R09",
+      "visibility": "private",
+      "purpose": "R09 atomic rollback full replacement mixed file old preserved",
+      "public_source": "public/request.md",
+      "rules": [
+        "R5",
+        "R6"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R10",
+      "visibility": "private",
+      "purpose": "R10 exact successful report input order independent manifest",
+      "public_source": "public/request.md",
+      "rules": [
+        "R8"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R11",
+      "visibility": "private",
+      "purpose": "R11 existing files completeness affects no-op comparison",
+      "public_source": "public/request.md",
+      "rules": [
+        "R5"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    },
+    {
+      "check": "R12",
+      "visibility": "private",
+      "purpose": "R12 normal validation before unexpected injected encoder",
+      "public_source": "public/request.md",
+      "rules": [
+        "R3",
+        "R8"
+      ],
+      "assertions_source": "private/acceptance_test.dart",
+      "public_api_details": "Supplied API details in public/request.md"
+    }
+  ],
+  "public_contract_clarifications_are_published": true,
+  "verification": "Host-only offline preliminary checks; see private/host_summary.json and immutable per-attempt stdout/stderr/commands. Not container/runtime/model qualification.",
+  "host_preliminary_results": {
+    "offline_pub_get": {
+      "exit_status": 0,
+      "completed_test_events": 0,
+      "successful_test_events": 0,
+      "failed_test_events": 0,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "a8264819279d12a4f2ae63ab5acb797377bf428ee39b99bd7e994e54e58abfaf",
+        "export_encoding.dart": "0cdaf4d49b5fbec50f4e46c42ae8a22d02543b4d05127d5dfe7f86257e5e4de7",
+        "export_service.dart": "5e970696c90fe36b978e0d9897142b1655453e8afba1e454030d49f7384d6ead"
+      }
+    },
+    "starting_public": {
+      "exit_status": 1,
+      "completed_test_events": 12,
+      "successful_test_events": 0,
+      "failed_test_events": 12,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "a8264819279d12a4f2ae63ab5acb797377bf428ee39b99bd7e994e54e58abfaf",
+        "export_encoding.dart": "0cdaf4d49b5fbec50f4e46c42ae8a22d02543b4d05127d5dfe7f86257e5e4de7",
+        "export_service.dart": "5e970696c90fe36b978e0d9897142b1655453e8afba1e454030d49f7384d6ead"
+      }
+    },
+    "reference_analyze": {
+      "exit_status": 0,
+      "completed_test_events": 0,
+      "successful_test_events": 0,
+      "failed_test_events": 0,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+        "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+        "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+      }
+    },
+    "reference_public": {
+      "exit_status": 0,
+      "completed_test_events": 12,
+      "successful_test_events": 12,
+      "failed_test_events": 0,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+        "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+        "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+      }
+    },
+    "reference_private": {
+      "exit_status": 0,
+      "completed_test_events": 12,
+      "successful_test_events": 12,
+      "failed_test_events": 0,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+        "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+        "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+      }
+    },
+    "negative_atomicity_stale_noop": {
+      "exit_status": 1,
+      "completed_test_events": 24,
+      "successful_test_events": 22,
+      "failed_test_events": 2,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+        "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+        "export_service.dart": "19e30d7d6d51850c0afa9512bb2cad455495fcad8f710608edc69296540a4eb7"
+      },
+      "failed_tests": [
+        "P06 current no-op stale repeated request conflicts",
+        "R08 stale byte identical bundle still conflict"
+      ]
+    },
+    "negative_compatibility_byte_length": {
+      "exit_status": 1,
+      "completed_test_events": 24,
+      "successful_test_events": 20,
+      "failed_test_events": 4,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+        "export_encoding.dart": "3ca476691b91f916ca99e81e8e8f5f20bdd49e918f10073f0cf0fb64ea95618f",
+        "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+      },
+      "failed_tests": [
+        "R05 body UTF8 bytes versus UTF16 units exact escaping",
+        "R06 100 documents maximum content and UTF16 title",
+        "R10 exact successful report input order independent manifest",
+        "P01 complete UTF8 export manifest order LF and report"
+      ]
+    },
+    "negative_reporting_reverse_order": {
+      "exit_status": 1,
+      "completed_test_events": 24,
+      "successful_test_events": 21,
+      "failed_test_events": 3,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+        "export_encoding.dart": "87359fc625d709668919d18bd8f9217d96a7ccf6850e3ac02d4a5ef06e246c43",
+        "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+      },
+      "failed_tests": [
+        "P01 complete UTF8 export manifest order LF and report",
+        "R06 100 documents maximum content and UTF16 title",
+        "R10 exact successful report input order independent manifest"
+      ]
+    },
+    "negative_security_permission_bypass": {
+      "exit_status": 1,
+      "completed_test_events": 24,
+      "successful_test_events": 22,
+      "failed_test_events": 2,
+      "count_derivation": "Recount from retained original machine stdout; error and failure both count as failures.",
+      "evidence_attempt": "attempt-v2",
+      "source_sha256": {
+        "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+        "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+        "export_service.dart": "94e1269beb29945397343e7d1fb00f655b65e24538e303a8c8b785c99687437e"
+      },
+      "failed_tests": [
+        "R01 denied valid target hides reader storage diagnostics",
+        "P02 denied malformed request precedes reads"
+      ]
+    }
+  },
+  "remaining_issues": [
+    "Pristine image start/reference/negative qualification and source-bound independent review remain root-owned.",
+    "No model behavior, optional runtime, difficulty or superiority claim is established."
+  ],
+  "actor_repository_file_count": 7,
+  "actor_mount_file_count": 8
+}

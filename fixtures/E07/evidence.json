@@ -1,0 +1,58 @@
+[
+  {
+    "id": "E07",
+    "variant": "repo",
+    "checks": [
+      {
+        "command": [
+          "pub",
+          "get",
+          "--offline"
+        ],
+        "exit_code": 0,
+        "output": "Resolving dependencies...\nDownloading packages...\n+ async 2.13.1\n+ boolean_selector 2.1.2\n+ characters 1.4.1\n+ clock 1.1.3\n+ collection 1.19.1\n+ fake_async 1.3.3\n+ flutter 0.0.0 from sdk flutter\n+ flutter_test 0.0.0 from sdk flutter\n+ leak_tracker 11.0.2\n+ leak_tracker_flutter_testing 3.0.10\n+ leak_tracker_testing 3.0.2\n+ matcher 0.12.20\n+ material_color_utilities 0.13.0\n+ meta 1.19.0\n+ path 1.9.1\n+ sky_engine 0.0.0 from sdk flutter\n+ source_span 1.10.2\n+ stack_trace 1.12.2\n+ stream_channel 2.1.4\n+ string_scanner 1.4.1\n+ term_glyph 1.2.2\n+ test_api 0.7.12 (0.7.14 available)\n+ vector_math 2.4.2\n+ vm_service 15.3.0\nChanged 24 dependencies!\n1 package has newer versions incompatible with dependency constraints.\nTry `flutter pub outdated` for more information.\n"
+      },
+      {
+        "command": [
+          "test",
+          "test/acceptance_test.dart"
+        ],
+        "exit_code": 1,
+        "output": "00:00 +0: loading /private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-6uzehcpj/test/acceptance_test.dart\n00:00 +0: legacy migration and current roundtrip\n00:00 +0 -1: legacy migration and current roundtrip [E]\n  type 'Null' is not a subtype of type 'String' in type cast\n  package:fixture_app/main.dart 6:172  decodeTasks.<fn>\n  dart:_internal                       ListIterable.toList\n  package:fixture_app/main.dart 6:204  decodeTasks\n  test/acceptance_test.dart 5:64       main.<fn>\n  \n00:00 +0 -1: invalid shape uses stable error type\n00:00 +0 -2: invalid shape uses stable error type [E]\n  Expected: throws <Instance of 'FormatException'>\n    Actual: <Closure: () => List<SavedTask>>\n     Which: threw _TypeError:<type '_Map<String, dynamic>' is not a subtype of type 'List<dynamic>' in type cast>\n            stack package:fixture_app/main.dart 6:72                  decodeTasks\n                  test/acceptance_test.dart 6:237                     main.<fn>.<fn>\n                  package:matcher                                     expect\n                  package:flutter_test/src/widget_tester.dart 473:18  expect\n                  test/acceptance_test.dart 6:226                     main.<fn>\n                  \n            which is not an instance of 'FormatException'\n  {}\n  \n  package:matcher                                     expect\n  package:flutter_test/src/widget_tester.dart 473:18  expect\n  test/acceptance_test.dart 6:226                     main.<fn>\n  \n00:00 +0 -2: Some tests failed.\n\nFailing tests:\n  /private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-6uzehcpj/test/acceptance_test.dart: invalid shape uses stable error type\n  /private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-6uzehcpj/test/acceptance_test.dart: legacy migration and current roundtrip\n"
+      }
+    ],
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  },
+  {
+    "id": "E07",
+    "variant": "reference",
+    "checks": [
+      {
+        "command": [
+          "pub",
+          "get",
+          "--offline"
+        ],
+        "exit_code": 0,
+        "output": "Resolving dependencies...\nDownloading packages...\n+ async 2.13.1\n+ boolean_selector 2.1.2\n+ characters 1.4.1\n+ clock 1.1.3\n+ collection 1.19.1\n+ fake_async 1.3.3\n+ flutter 0.0.0 from sdk flutter\n+ flutter_test 0.0.0 from sdk flutter\n+ leak_tracker 11.0.2\n+ leak_tracker_flutter_testing 3.0.10\n+ leak_tracker_testing 3.0.2\n+ matcher 0.12.20\n+ material_color_utilities 0.13.0\n+ meta 1.19.0\n+ path 1.9.1\n+ sky_engine 0.0.0 from sdk flutter\n+ source_span 1.10.2\n+ stack_trace 1.12.2\n+ stream_channel 2.1.4\n+ string_scanner 1.4.1\n+ term_glyph 1.2.2\n+ test_api 0.7.12 (0.7.14 available)\n+ vector_math 2.4.2\n+ vm_service 15.3.0\nChanged 24 dependencies!\n1 package has newer versions incompatible with dependency constraints.\nTry `flutter pub outdated` for more information.\n"
+      },
+      {
+        "command": [
+          "test",
+          "test/acceptance_test.dart"
+        ],
+        "exit_code": 0,
+        "output": "00:00 +0: loading /private/var/folders/_f/454mnxfx7y38dh38gk3b34qc0000gn/T/codify-fixture-76qcr1j8/test/acceptance_test.dart\n00:00 +0: legacy migration and current roundtrip\n00:00 +1: invalid shape uses stable error type\n00:00 +2: All tests passed!\n"
+      },
+      {
+        "command": [
+          "analyze",
+          "--no-pub"
+        ],
+        "exit_code": 0,
+        "output": "Analyzing codify-fixture-76qcr1j8...                            \nNo issues found! (ran in 1.9s)\n"
+      }
+    ],
+    "runtime": "host Flutter 3.47.2 / Dart 3.13.2"
+  }
+]

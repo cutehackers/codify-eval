@@ -1,0 +1,213 @@
+{
+  "source_bytes_unchanged": true,
+  "case": "W02",
+  "artifact_version": "v2",
+  "valid_fixture": true,
+  "source_hashes": {
+    "repo": {
+      ".metadata": "c83a33c886a8996a51438acb839bfd6eeada4bdd48bcfb352f08317484d921da",
+      "pubspec.lock": "981be4d79b15e303a243df40ef1af6af2e64baa7f7f137fa44db9345405281dd",
+      "pubspec.yaml": "20056fdb4bb060fee923fda5d82051bdec35ab12e1d40c88f407f5dba258b019",
+      ".gitignore": "441eaa1de5b3db9fae056e7503567e9f8dd94173e1389c60f76956abf729015a",
+      "AGENTS.md": "3d9f2462e4d7bf7a5aa75b85b9f63c1144bde79946787374d1914c57b7336930",
+      "test/existing_regression_test.dart": "46f0660442875bf891e2ff91cd90e95bb2f906901c4c2dfd773c121a2f7c8342",
+      "linux/CMakeLists.txt": "72cbf0733ca7a5aba7280e663b3ffc5c8fb2eecc26b4cd429daa006f3a689639",
+      "linux/.gitignore": "5ded4f1a9d10d34bf6ee5beb0711d88ee2ef07b0f07ace9ed77935a246e8eb82",
+      "linux/runner/main.cc": "ea23f7cdf74091d63bba29ef60486370b766157b848f0cfe62bd8b1c1695a0c1",
+      "linux/runner/CMakeLists.txt": "8cdcfd911e770fd7d511c97c7bce6559486a815352a47c953f7ef632e236d2cc",
+      "linux/runner/my_application.h": "a4218d7ac0db8a9a6716daf216b2d4fc6bdc7ac647e3183078b2c962ebdfcf70",
+      "linux/runner/my_application.cc": "e1314481ec6a7c2368baeb30a51d4860ce9e7fbfbd9efe83049fbe7c485b52d0",
+      "linux/flutter/generated_plugin_registrant.cc": "7861b227b10a10cc1d7643f82a246b7db35b503f2d9ff1d3c906136e6c260dce",
+      "linux/flutter/CMakeLists.txt": "787189e2623313cfee590a0b553338eb9fc68b3af922ddd77c5d39c75f989aeb",
+      "linux/flutter/generated_plugins.cmake": "d5aaa52ef8594d3128b35b6619c6a353e1be5f3c5a63a9c29c0a32b424e91952",
+      "linux/flutter/generated_plugin_registrant.h": "00f93bb5b1faefdede8f6065df327522900fb0b8efee86bacf424fd947ed14bb",
+      "lib/todo_store.dart": "4d5374bbf91cd807aa6a27bc63b1898836995b4407b8e3aa0de366bfb3a2e2b8",
+      "lib/user_banner.dart": "3e0e4e0d64b56487019c143a0f091e0827201f128cd1d468aa38a277897e09b3",
+      "lib/pages.dart": "4ee58161d9039e76c5c55b212b1a25cba629d3abc63558d6ad3ad03532d10f67",
+      "lib/todo_controller.dart": "143c55a14e9661df08883e78927fb8ed040612445a4d060d48f10a2809455baa",
+      "lib/main.dart": "69f895b149298dc77f6539314a72eaef87a8604854ed2754a0a589b3f38cd82b",
+      "lib/todo.dart": "906de8ef97c631c84040599af9184f9d9ae83b16976258992b4a77950d82a071"
+    },
+    "reference": {
+      ".metadata": "c83a33c886a8996a51438acb839bfd6eeada4bdd48bcfb352f08317484d921da",
+      "pubspec.lock": "981be4d79b15e303a243df40ef1af6af2e64baa7f7f137fa44db9345405281dd",
+      "pubspec.yaml": "20056fdb4bb060fee923fda5d82051bdec35ab12e1d40c88f407f5dba258b019",
+      ".gitignore": "441eaa1de5b3db9fae056e7503567e9f8dd94173e1389c60f76956abf729015a",
+      "AGENTS.md": "3d9f2462e4d7bf7a5aa75b85b9f63c1144bde79946787374d1914c57b7336930",
+      "test/existing_regression_test.dart": "46f0660442875bf891e2ff91cd90e95bb2f906901c4c2dfd773c121a2f7c8342",
+      "linux/CMakeLists.txt": "72cbf0733ca7a5aba7280e663b3ffc5c8fb2eecc26b4cd429daa006f3a689639",
+      "linux/.gitignore": "5ded4f1a9d10d34bf6ee5beb0711d88ee2ef07b0f07ace9ed77935a246e8eb82",
+      "linux/runner/main.cc": "ea23f7cdf74091d63bba29ef60486370b766157b848f0cfe62bd8b1c1695a0c1",
+      "linux/runner/CMakeLists.txt": "8cdcfd911e770fd7d511c97c7bce6559486a815352a47c953f7ef632e236d2cc",
+      "linux/runner/my_application.h": "a4218d7ac0db8a9a6716daf216b2d4fc6bdc7ac647e3183078b2c962ebdfcf70",
+      "linux/runner/my_application.cc": "e1314481ec6a7c2368baeb30a51d4860ce9e7fbfbd9efe83049fbe7c485b52d0",
+      "linux/flutter/generated_plugin_registrant.cc": "7861b227b10a10cc1d7643f82a246b7db35b503f2d9ff1d3c906136e6c260dce",
+      "linux/flutter/CMakeLists.txt": "787189e2623313cfee590a0b553338eb9fc68b3af922ddd77c5d39c75f989aeb",
+      "linux/flutter/generated_plugins.cmake": "d5aaa52ef8594d3128b35b6619c6a353e1be5f3c5a63a9c29c0a32b424e91952",
+      "linux/flutter/generated_plugin_registrant.h": "00f93bb5b1faefdede8f6065df327522900fb0b8efee86bacf424fd947ed14bb",
+      "lib/todo_store.dart": "4d5374bbf91cd807aa6a27bc63b1898836995b4407b8e3aa0de366bfb3a2e2b8",
+      "lib/user_banner.dart": "3e0e4e0d64b56487019c143a0f091e0827201f128cd1d468aa38a277897e09b3",
+      "lib/pages.dart": "45949fb0a147d47ba22a47daecb603c91b64ef46b7a3a485c0a45987bd7d3246",
+      "lib/todo_controller.dart": "06399d548c14744ba44c510ba464e77e1d64b58f01637ae59c5c57b38a4d848d",
+      "lib/main.dart": "69f895b149298dc77f6539314a72eaef87a8604854ed2754a0a589b3f38cd82b",
+      "lib/todo.dart": "bbe0965009b0519b98609fc43e08b9fa635c000713c828a56c53c04b2b30906a"
+    },
+    "oracle": {
+      "gui_acceptance.py": "cd3374fab017141c916e1e6f7535c36fbe7fe207fd37aa6f4c6e1170f66299f2"
+    }
+  },
+  "image": "sha256:9751b1bbd374a218e0fe7dcd362e478f2b8bb5453dbed90658da8dd0b2be3638",
+  "network": "none",
+  "evidence_tier": "external_linux_release_executable",
+  "scope_limits": [
+    "No Android/iOS or provider claims",
+    "Policy reply timing is evaluated from actor transcript, not this standalone runtime grader"
+  ],
+  "suggested_limits": {
+    "trajectory_minutes": 60,
+    "user_turns": 8,
+    "delegation": false
+  },
+  "runtime_evidence_directory": "/Users/junhyounglee/workspace/codify-eval/runtime/software-validation/W02/v2-final-driver",
+  "variants": [
+    {
+      "variant": "baseline",
+      "status": "fail",
+      "protected_files": {
+        "test/existing_regression_test.dart": true,
+        "lib/user_banner.dart": true
+      },
+      "gui_requirements": {
+        "app_creates_missing_data_directory": true,
+        "legacy_load_unarchived": true,
+        "blank_title_rejected": true,
+        "create_trim_and_toggle": true
+      },
+      "error": "no enabled click action for '진행 중': []; tree=[{'name': 'main', 'role': 'desktop frame', 'interfaces': ['Accessible', 'Component']}, {'name': 'dev.codify.todos_app', 'role': 'application', 'interfaces': ['Accessible', 'Collection']}, {'name': 'todos_app', 'role': 'frame', 'interfaces': ['Accessible', 'Collection', 'Component']}, {'name': '내 할 일', 'role': 'header', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '할 일 제목', 'role': 'text', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component', 'EditableText', 'Text']}, {'name': '추가', 'role': 'push button', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '기존 진행\\n진행 중', 'role': 'panel', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '완료: 기존 진행', 'role': 'push button', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '기존 완료\\n완료', 'role': 'panel', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '완료 취소: 기존 완료', 'role': 'push button', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '새 산책\\n완료', 'role': 'panel', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}, {'name': '완료 취소: 새 산책', 'role': 'push button', 'interfaces': ['Accessible', 'Action', 'Collection', 'Component']}]",
+      "processes": [
+        {
+          "phase": 1,
+          "pid": 29,
+          "fresh_process": true,
+          "data_dir": "/evidence/data"
+        },
+        {
+          "phase": 2,
+          "pid": 103,
+          "fresh_process": true,
+          "data_dir": "/evidence/data"
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "elapsed_seconds": 32.676
+    },
+    {
+      "variant": "reference",
+      "status": "pass",
+      "protected_files": {
+        "test/existing_regression_test.dart": true,
+        "lib/user_banner.dart": true
+      },
+      "gui_requirements": {
+        "app_creates_missing_data_directory": true,
+        "legacy_load_unarchived": true,
+        "blank_title_rejected": true,
+        "create_trim_and_toggle": true,
+        "active_item_cannot_be_archived": true,
+        "all_active_done_filters": true,
+        "save_failure_preserves_data_and_ui": true,
+        "original_save_retries_after_recovery": true,
+        "archive_only_completed_without_delete": true,
+        "archive_survives_cold_restart": true,
+        "restore_keeps_completion": true,
+        "restore_survives_second_cold_restart": true,
+        "legacy_id_title_done_preserved": true
+      },
+      "error": null,
+      "processes": [
+        {
+          "phase": 1,
+          "pid": 29,
+          "fresh_process": true,
+          "data_dir": "/evidence/data"
+        },
+        {
+          "phase": 2,
+          "pid": 103,
+          "fresh_process": true,
+          "data_dir": "/evidence/data"
+        },
+        {
+          "phase": 3,
+          "pid": 170,
+          "fresh_process": true,
+          "data_dir": "/evidence/data"
+        },
+        {
+          "phase": 4,
+          "pid": 237,
+          "fresh_process": true,
+          "data_dir": "/evidence/data"
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_seconds": 32.312
+    },
+    {
+      "variant": "no_archive",
+      "status": "fail",
+      "protected_files": {
+        "test/existing_regression_test.dart": true,
+        "lib/user_banner.dart": true
+      },
+      "gui_requirements": {
+        "app_creates_missing_data_directory": true,
+        "legacy_load_unarchived": true,
+        "blank_title_rejected": true,
+        "create_trim_and_toggle": true,
+        "active_item_cannot_be_archived": true,
+        "all_active_done_filters": true,
+        "save_failure_preserves_data_and_ui": true,
+        "original_save_retries_after_recovery": true
+      },
+      "error": "forbidden product label present: '완료 취소: 기존 완료'",
+      "processes": [
+        {
+          "phase": 1,
+          "pid": 29,
+          "fresh_process": true,
+          "data_dir": "/evidence/data"
+        },
+        {
+          "phase": 2,
+          "pid": 103,
+          "fresh_process": true,
+          "data_dir": "/evidence/data"
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "elapsed_seconds": 29.486
+    }
+  ]
+}

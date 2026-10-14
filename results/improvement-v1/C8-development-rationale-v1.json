@@ -1,0 +1,68 @@
+{
+  "status": "development_candidate_unexecuted",
+  "candidate": "C8",
+  "installed": false,
+  "superiority_proven": false,
+  "purpose": "Reduce avoidable context/invocation overhead while retaining acceptance, security, recovery, async, approval and delegation requirements.",
+  "observed": [
+    {
+      "run_id": "control-probe-improvement-c6-v1-D01-C6-1",
+      "broker_command_count": 7,
+      "recorded_command_seconds": 14.515470333921257,
+      "nonzero_exit_codes": [
+        1
+      ]
+    },
+    {
+      "run_id": "control-probe-improvement-c6-v1-D02-C6-1",
+      "broker_command_count": 8,
+      "recorded_command_seconds": 10.361265416955575,
+      "nonzero_exit_codes": []
+    },
+    {
+      "run_id": "control-probe-improvement-v2-D01-A-1",
+      "broker_command_count": 5,
+      "recorded_command_seconds": 13.424735958979,
+      "nonzero_exit_codes": [
+        1
+      ]
+    },
+    {
+      "run_id": "control-probe-improvement-v2-D02-A-1",
+      "broker_command_count": 6,
+      "recorded_command_seconds": 21.228519584052265,
+      "nonzero_exit_codes": [
+        1
+      ]
+    }
+  ],
+  "hypotheses": [
+    "Independent relevant repository reads were split across multiple calls; combine after skill load when inputs are known.",
+    "Complete applicable behavioral coverage before final validation to avoid late test addition and repeated validation.",
+    "Coherent implementation and test changes can share an invocation when no intermediate result affects the edit."
+  ],
+  "changes": [
+    "Targeted read grouping includes instructions/status/code/contracts/callers/tests.",
+    "Coherent implementation plus needed test edits before expensive validation.",
+    "Grouped checks explicitly retain each exit status and stop on failure; no masking earlier failures.",
+    "Restore explicit affected build/static checks for shared/public contract changes, independent of whether repository policy names a command."
+  ],
+  "limits": [
+    "Four historical task attempts are exploratory, not paired statistical evidence.",
+    "Host-shell failures and all native costs remain in original receipts; broker command count is not a complete native call count.",
+    "C8 has not executed any model task; shorter instructions do not prove efficiency or quality.",
+    "Q fixtures remain unused by evaluated models; no Q implementation or oracle inspected for this proposal."
+  ],
+  "unchanged_resources": "All C6 supporting references and agent invocation policy byte-identical.",
+  "quick_validate": "python3 skill-creator/scripts/quick_validate.py snapshots/C8: exit0 Skill is valid!",
+  "source_hashes": {
+    "snapshots/C6/SKILL.md": "cdaac1442d147350aa09cfcf90de7953eb27c3fe30c2c9f18f15c68a0cf582d9",
+    "snapshots/C7/SKILL.md": "e1e93c22229e9b820869ab055d3d74908a8eeb9967389b2ed4ac2c16037fa0ea",
+    "results/improvement-v1/C6-development-summary-v4.json": "16ed54e6dc72c6cd05e5779287df5c93c440a60b2c2c3446085a997bab5c7a09",
+    "runtime/control-probe-improvement-c6-v1-D01-C6-1/commands.jsonl": "445ce6a0745456a9ba57e08fd36bd13b6d6cb7253e17ffedc16b183d4b015286",
+    "runtime/control-probe-improvement-c6-v1-D02-C6-1/commands.jsonl": "33a311505ed3860e2225479b465e1b4ca3c57925e1b75548f840bbaa23cc066c",
+    "runtime/control-probe-improvement-v2-D01-A-1/commands.jsonl": "3018744c47f605f2bb7852f73c7ea4d867e68be756185af8ca35eb09a4c86107",
+    "runtime/control-probe-improvement-v2-D02-A-1/commands.jsonl": "7238c69e753de13888a20aba0a31297cb174f805b3142049dccf1d7bd3c2f0e9",
+    "snapshots/C8/SKILL.md": "6ebc4d3a402bb9457bcf2caa2777c675d2e51ef5f5572f20295e3f575f43b540"
+  }
+}

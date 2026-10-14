@@ -1,0 +1,69 @@
+{
+  "id": "J01",
+  "cohort": "fresh-integrated-v1",
+  "title": "Tenant-scoped background-job leasing",
+  "status": "authored_unqualified",
+  "language": "dart",
+  "framework": "flutter",
+  "category": "software-security-concurrency",
+  "starting_repository": "repo",
+  "task_file": "task.md",
+  "owned_files": [
+    "lib/implementation.dart"
+  ],
+  "offline": true,
+  "dependencies": [
+    "flutter",
+    "flutter_test"
+  ],
+  "public_smoke": "test/public_smoke_test.dart",
+  "scope": {
+    "allowed_files": [
+      "lib/implementation.dart"
+    ]
+  },
+  "expected_public_test_count": 2,
+  "expected_private_test_count": 31,
+  "expected_total_test_count": 33,
+  "necessary_product_questions": 0,
+  "private_acceptance": "private/acceptance_test.dart",
+  "private_reference": "private/reference_implementation.dart",
+  "private_requirement_map": "private/requirement-test-map.json",
+  "negative_controls": {
+    "N01": "private/negative/N01.dart",
+    "N02": "private/negative/N02.dart",
+    "N03": "private/negative/N03.dart",
+    "N04": "private/negative/N04.dart"
+  },
+  "qualification": {
+    "independent_review": "pending",
+    "difficulty_pilot": "not_run",
+    "model_evaluation": "not_run",
+    "confirmation_allocation": "not_authorized",
+    "semantic_review_v1": "needs_changes_addressed_pending_v2_review",
+    "revised_N03_independent_review": "pending"
+  },
+  "public_contract_parameters": {
+    "lease_seconds": 60,
+    "retry_delay_seconds": [
+      0,
+      300
+    ],
+    "maximum_attempts": 3,
+    "maximum_cas_failures": 8
+  },
+  "authoring_revision": 3,
+  "current_preliminary_checks": "private/author_checks_v3/summary.json",
+  "historical_preliminary_checks": [
+    "private/author_checks/summary.json"
+  ],
+  "historical_manifest": "private/historical/hash-manifest-v2.json",
+  "current_private_test_count": 31,
+  "current_source_preliminary_evidence": {
+    "reference_and_N01_N02_N04": "private/author_checks_v2/summary.json",
+    "revised_N03": "private/author_checks_v3/summary.json"
+  },
+  "historical_negative_sources": {
+    "N03_revision_2": "private/historical/N03-v2.dart"
+  }
+}

@@ -1,0 +1,25 @@
+test_injected_parser_single_call_physical_positions (test_behavior.BatchChecks.test_injected_parser_single_call_physical_positions) ... FAIL
+
+======================================================================
+FAIL: test_injected_parser_single_call_physical_positions (test_behavior.BatchChecks.test_injected_parser_single_call_physical_positions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests/test_behavior.py", line 54, in test_injected_parser_single_call_physical_positions
+    self.assertEqual(calls,[('opaque one',2),('opaque two',4)])
+AssertionError: Lists differ: [('opaque one', 1), ('opaque two', 2)] != [('opaque one', 2), ('opaque two', 4)]
+
+First differing element 0:
+('opaque one', 1)
+('opaque one', 2)
+
+- [('opaque one', 1), ('opaque two', 2)]
+?                 ^                  ^
+
++ [('opaque one', 2), ('opaque two', 4)]
+?                 ^                  ^
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

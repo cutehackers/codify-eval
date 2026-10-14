@@ -1,0 +1,6 @@
+{
+  "fault_category": "security",
+  "changed_file": "lib/export_service.dart",
+  "independent_fault": "security_permission_bypass",
+  "expected": "assertion_failure_not_compile_error"
+}

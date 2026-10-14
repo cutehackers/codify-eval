@@ -1,0 +1,68 @@
+{
+  "status": "authored_unqualified",
+  "scope": "exposed O02 development supplementary quality checks only",
+  "declared_tests": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "new_file_pins": [
+    {
+      "path": "/Users/junhyounglee/workspace/codify-eval/improvement_cases/O02-development-quality-supplement-v1/encoder_success_invariants_test.dart",
+      "kind": "regular_file",
+      "mode": 420,
+      "bytes": 5671,
+      "sha256": "e70f9af1a6401a2821ebfd04bcbfdadc4f293342954e8d940c5b2e81d7fc43bb"
+    },
+    {
+      "path": "/Users/junhyounglee/workspace/codify-eval/improvement_cases/O02-development-quality-supplement-v1/PUBLIC-CONTRACT-MAPPING.md",
+      "kind": "regular_file",
+      "mode": 420,
+      "bytes": 2994,
+      "sha256": "08558960210c22e6ce045971bc7a3b1b97a3ee60c5025d19f3b6ad148682497a"
+    }
+  ],
+  "unchanged_public_contract_and_frozen_test_pins": [
+    {
+      "path": "/Users/junhyounglee/workspace/codify-eval/improvement_cases/fresh-optional-cohort-v1/O02/public/request.md",
+      "kind": "regular_file",
+      "mode": 420,
+      "bytes": 6937,
+      "sha256": "a41950da6cc47399a3ceda1a5e3d40848fb23f42f541308ec0a5215859dc1dfe"
+    },
+    {
+      "path": "/Users/junhyounglee/workspace/codify-eval/improvement_cases/fresh-optional-cohort-v1/O02/repo/lib/models.dart",
+      "kind": "regular_file",
+      "mode": 420,
+      "bytes": 4160,
+      "sha256": "c88ac3e794a43be0def2d6cdd2a7e40b1b1ccd9abc846be80650ab29f69ddb0a"
+    },
+    {
+      "path": "/Users/junhyounglee/workspace/codify-eval/improvement_cases/fresh-optional-cohort-v1/O02/repo/test/contract_test.dart",
+      "kind": "regular_file",
+      "mode": 420,
+      "bytes": 5255,
+      "sha256": "eaac6747c0ab8152b6590b7adf4f498e93cb7bad32aa04b6aa120f551df32289"
+    },
+    {
+      "path": "/Users/junhyounglee/workspace/codify-eval/improvement_cases/fresh-optional-cohort-v1/O02/private/acceptance_test.dart",
+      "kind": "regular_file",
+      "mode": 420,
+      "bytes": 5418,
+      "sha256": "7eb624bf2e2837eccb2cfec99e85a04104a398762b050efd3b09c0d331a9d74f"
+    }
+  ],
+  "sdk_or_actor_allocated": false,
+  "analyzer_or_tests_executed": false,
+  "prelaunch_review_required": true,
+  "existing_frozen_oracle_changed": false,
+  "final_superiority_proven": false,
+  "assumptions": [
+    "Malformed non-null return handling has no uniquely specified error code or validation order. S02-S06 allow documented rejection or canonical success.",
+    "Successful applied/unchanged outcomes must meet published manifest/file/report bytes and revision/CAS invariants.",
+    "This supplement is run alongside unchanged original tests on separate copies, never used to replace old outcomes."
+  ]
+}

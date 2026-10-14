@@ -1,0 +1,12 @@
+{
+  "id": "M06",
+  "file": "lib/journey_codec.dart",
+  "replace_once": {
+    "from": "v.containsKey('cancelled') && v['cancelled'] is! bool",
+    "to": "v['cancelled']!=null && v['cancelled'] is! bool"
+  },
+  "must_fail": [
+    "r5 legacy codec types cache isolation and failures"
+  ],
+  "violation": "Explicit null accepted as absent boolean"
+}

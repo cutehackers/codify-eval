@@ -1,0 +1,12 @@
+{
+  "id": "M02",
+  "file": "lib/outbox.dart",
+  "replace_once": {
+    "from": "await store.replace(updated);",
+    "to": "if (next.state != 'sent') await store.replace(updated);"
+  },
+  "must_fail": [
+    "r4 durable checkpoint recovery and no later side effect"
+  ],
+  "violation": "Successful delivery not durably checkpointed"
+}

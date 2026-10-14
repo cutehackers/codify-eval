@@ -1,0 +1,110 @@
+[
+  {
+    "label": "offline_pub_get",
+    "argv": [
+      "flutter",
+      "pub",
+      "get",
+      "--offline"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 0.459,
+    "completed_test_events": 0,
+    "successful_test_events": 0,
+    "failed_test_events": 0,
+    "failed_tests": [],
+    "source_sha256": {
+      "test/contract_test.dart": "4f3cbcb1c217b8f12108cfb64f1ef0c1ff143b1c21d7603dea702cd5aad02cdf",
+      "lib/search_import_service.dart": "6f06f4519b93a5536dae47d56386b1de00a650217c3366f6b55b449c0190950d",
+      "lib/search_plan.dart": "f0c9fb8419f3af5457cf566d93f1d916c136c4f60d944e7d86be0996a4db5ac5",
+      "lib/search_codec.dart": "8e0b15e77c35b2e8459c2eb6b5d2f6cb7e233e38b55588ad629b6ae56b903388",
+      "lib/models.dart": "05535a9b3f256567036776cb7bff4e6642ec9666693893726ccf0604b975c6b0"
+    }
+  },
+  {
+    "label": "negative_atomicity_stale_revision",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart",
+      "test/author_acceptance_test.dart"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 4.209,
+    "completed_test_events": 24,
+    "successful_test_events": 21,
+    "failed_test_events": 3,
+    "failed_tests": [
+      "R10 stale mutation blocks transaction and reports",
+      "P05 current no-op no transaction but stale no-op conflicts",
+      "P06 empty collection is valid no-op with revision check"
+    ],
+    "source_sha256": {
+      "test/author_acceptance_test.dart": "afe917f7e7909cfaa78e169ba11ffcf8a74c3e887ea4a372acb1169a35ea6ba8",
+      "test/contract_test.dart": "4f3cbcb1c217b8f12108cfb64f1ef0c1ff143b1c21d7603dea702cd5aad02cdf",
+      "lib/search_import_service.dart": "31cda51303d67dc7f37cb991a6249b4ecd074449e1be12838d0e1894e626695f",
+      "lib/search_plan.dart": "5398782db0988f02c042eda7afe78f956364fbaaeaba92007295785453ce99f7",
+      "lib/search_codec.dart": "59e85392c3dfe92a3fe285bbd595ee2a0d5cbb4c69abcf6e356f05901829d414",
+      "lib/models.dart": "05535a9b3f256567036776cb7bff4e6642ec9666693893726ccf0604b975c6b0"
+    }
+  },
+  {
+    "label": "negative_compatibility_v1_query",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart",
+      "test/author_acceptance_test.dart"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 1.586,
+    "completed_test_events": 24,
+    "successful_test_events": 22,
+    "failed_test_events": 2,
+    "failed_tests": [
+      "P04 v1 v2 equivalence and exact v2 key order LF",
+      "R07 v1 imported expression title retain different text"
+    ],
+    "source_sha256": {
+      "test/author_acceptance_test.dart": "afe917f7e7909cfaa78e169ba11ffcf8a74c3e887ea4a372acb1169a35ea6ba8",
+      "test/contract_test.dart": "4f3cbcb1c217b8f12108cfb64f1ef0c1ff143b1c21d7603dea702cd5aad02cdf",
+      "lib/search_import_service.dart": "4c32f996002ddb1470d79f12dd13b4f00437fe06da37e8fc51fbc401807dd189",
+      "lib/search_plan.dart": "5398782db0988f02c042eda7afe78f956364fbaaeaba92007295785453ce99f7",
+      "lib/search_codec.dart": "a91735ab2aa79f26ef3a2f14d490edfe0e778da4bcf78ebb262ea1788110181d",
+      "lib/models.dart": "05535a9b3f256567036776cb7bff4e6642ec9666693893726ccf0604b975c6b0"
+    }
+  },
+  {
+    "label": "negative_reporting_reverse_order",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart",
+      "test/author_acceptance_test.dart"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 1.576,
+    "completed_test_events": 24,
+    "successful_test_events": 21,
+    "failed_test_events": 3,
+    "failed_tests": [
+      "P01 mixed effects preserve metadata and unlisted workspaces",
+      "P12 pure planner stable order and store read exception",
+      "R09 report mixed ordering all once and no-op metadata untouched"
+    ],
+    "source_sha256": {
+      "test/author_acceptance_test.dart": "afe917f7e7909cfaa78e169ba11ffcf8a74c3e887ea4a372acb1169a35ea6ba8",
+      "test/contract_test.dart": "4f3cbcb1c217b8f12108cfb64f1ef0c1ff143b1c21d7603dea702cd5aad02cdf",
+      "lib/search_import_service.dart": "4c32f996002ddb1470d79f12dd13b4f00437fe06da37e8fc51fbc401807dd189",
+      "lib/search_plan.dart": "f0b38c4cecffff18f5f22d070e4cb982e022efecd70c08f760904d8ed8a4dcaf",
+      "lib/search_codec.dart": "59e85392c3dfe92a3fe285bbd595ee2a0d5cbb4c69abcf6e356f05901829d414",
+      "lib/models.dart": "05535a9b3f256567036776cb7bff4e6642ec9666693893726ccf0604b975c6b0"
+    }
+  }
+]

@@ -1,0 +1,6 @@
+test_single_and_order (test_smoke.Smoke.test_single_and_order) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK

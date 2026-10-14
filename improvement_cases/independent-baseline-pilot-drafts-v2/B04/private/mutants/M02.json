@@ -1,0 +1,13 @@
+{
+  "id": "M02",
+  "file": "lib/journey_codec.dart",
+  "replace_once": {
+    "from": "j.riderId==r.id && j.region==r.region",
+    "to": "j.region==r.region"
+  },
+  "must_fail": [
+    "r3 unauthorized or unsafe live routes never fallback",
+    "r5 legacy codec types cache isolation and failures"
+  ],
+  "violation": "Other rider cache read"
+}

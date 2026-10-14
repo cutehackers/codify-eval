@@ -1,0 +1,159 @@
+{
+  "version": "fresh-question-design-v2",
+  "status": "design proposal only; not implemented, qualified, piloted, or selected",
+  "design_bounds": {
+    "source_access": [
+      "AGENTS.md",
+      "docs/improvement-spec-v1.md"
+    ],
+    "excluded_access": [
+      "existing fixtures",
+      "snapshots",
+      "results",
+      "runtime",
+      "sessions",
+      "model outputs",
+      "other repositories",
+      "private answers"
+    ],
+    "environment": "Small Dart service layer repository, usable from Flutter, with deterministic in-memory adapters. No Flutter engine, mobile device, live provider, network, or real account.",
+    "editable_scope": "Exactly one implementation file per commissioned fixture. Models, adapters, public contract tests and package configuration are provided and read-only. Agents may run checks and temporary experiments without altering protected files.",
+    "public_private_separation": "Only public task and starting repository are mounted for evaluated agents. Private fixed replies, ambiguity analysis, discriminator implementation and evaluator metadata remain outside the mount. Any necessary policy clarification is delivered as the ordinary user reply.",
+    "cohort_retention": "Keep both proposals regardless of later baseline outcomes. Do not select only cases on which a baseline fails.",
+    "qualification_next_step": "Root chooses whether to commission authoring. Authoring must separately establish public-contract mapping, starting failure, reference success and realistic negative discrimination before any qualification claim."
+  },
+  "tasks": [
+    {
+      "id": "fresh-question-stock-reservation",
+      "title": "Stock reservation service",
+      "public_task": {
+        "request": "Implement ReservationService.reserve for the warehouse app. A signed-in operator submits an order ID and positive quantities of SKU IDs to reserve against a warehouse. Return the reservation outcome for the UI and persist any resulting reservation and stock changes consistently. Use the supplied repository contract and keep the change in lib/reservation_service.dart. Add no dependencies. Run the supplied Dart checks.",
+        "supplied_context": [
+          "A short warehouse feature brief says operators use the reservation outcome to decide whether to proceed with an order. Reserving stock changes what other operators can reserve.",
+          "The public immutable request has warehouseId, orderId and rows of skuId and quantity. The result has reserved rows and shortage rows, including requested quantity and available quantity.",
+          "The fake store exposes tenant-scoped warehouse lookup, stock snapshot and a transaction that can persist a reservation with stock changes. It supplies ordinary rollback and simulated write-failure behavior. The identity provider returns a tenant ID and operator ID.",
+          "An example warehouse snapshot has SKU-A stock 7 and SKU-B stock 1. An order request includes SKU-A quantity 3 and SKU-B quantity 2."
+        ],
+        "public_contracts": [
+          "Only the current tenant's warehouse and stock may be accessed. An inaccessible warehouse returns the documented not-found result without exposing another tenant's identifiers or quantities.",
+          "An empty order ID, empty rows, blank SKU ID, nonpositive quantity or duplicate SKU in one request returns the documented invalid-request result before writes.",
+          "Every requested SKU must exist in the warehouse. An unknown SKU returns the documented invalid-request result before writes.",
+          "Stock must never become negative, reserved quantities must never exceed requested quantities, and returned rows must match persisted effects.",
+          "For a request whose quantities are all available, reserve exactly the requested quantities and decrement each stock value once.",
+          "A repeated order ID with identical rows returns its recorded outcome without further stock changes. A repeated order ID with different rows returns the documented conflict result without writes.",
+          "A simulated storage failure leaves stock and reservations unchanged and returns the documented storage-failure result without raw storage error text.",
+          "Unrelated tenant data and unrelated SKUs remain unchanged."
+        ]
+      },
+      "evaluator_only": {
+        "fixed_reply": "If any requested quantity is unavailable, reserve nothing and leave all stock unchanged. Return every shortage with its requested and available quantities, and no reserved rows. Record that outcome for the order ID so repeating the same order returns the same outcome.",
+        "delivery": "Reply to a semantically relevant shortage-policy question. Do not disclose it in the initial public task, filenames, tests, comments, setup logs or mounted evaluator files.",
+        "discriminator_concept": [
+          "Exercise the public mixed-stock example after the reply. Assert no stock changes, no reserved rows and the complete shortage list.",
+          "Repeat the same order after replenishing stock. Assert its recorded shortage outcome is returned without allocating stock, as specified in the reply.",
+          "Exercise fully available requests, invalid inputs, unknown SKUs, tenant separation, identical retries, changed retries and storage rollback using only public contracts.",
+          "Introduce a realistic partial-allocation alternative that reserves available rows on shortage. It must fail the replied policy assertion while still satisfying the independent stock-safety contracts.",
+          "Introduce a rollback defect, retry double-decrement and tenant lookup defect independently. Each must fail its corresponding public assertion, without relying on candidate-specific output or implementation details."
+        ],
+        "question_assessment": "Score resolution of the actual shortage policy and unnecessary or repeated questions separately from behavioral correctness. Correct final behavior alone does not establish that the agent asked appropriately. An unsupported final guess remains an unresolved important choice even if it coincides with the fixed reply.",
+        "unresolved_policy": {
+          "description": "How an insufficient quantity affects allocation of the other requested rows.",
+          "why_consequential": "A guess either consumes stock for an order that cannot proceed as intended or leaves allocatable stock unused. A working transaction and nonnegative quantities cannot decide the business outcome.",
+          "why_not_inferable": "The public result model can describe shortages alongside reserved rows or with no reserved rows. There is no authoritative shortage rule. Neither shape implies which behavior the product requires.",
+          "necessary_question": "Ask what the reservation should do when one or more requested quantities are unavailable, including the effect on other rows.",
+          "needless_questions": [
+            "Whether cross-tenant access is allowed, because the public contract forbids it.",
+            "Whether invalid requests should write, because the public contract forbids it.",
+            "Whether to install packages or change additional files, because the public scope already resolves those choices.",
+            "Repeat the shortage question after the fixed reply has answered it."
+          ]
+        }
+      },
+      "chronology": {
+        "before_reply_allowed": [
+          "Inspect the supplied models, store contract and public checks.",
+          "Implement request validation, tenant-scoped lookup and the fully available path without deciding mixed-stock allocation.",
+          "Implement retry identity checks and safe transaction/error handling to the extent they do not encode shortage policy.",
+          "Run checks for these fully specified paths and report the policy question while continuing independent work."
+        ],
+        "after_reply_dependent": [
+          "Implement and verify mixed-stock allocation, shortage outcome persistence and its retry behavior.",
+          "Re-run the supplied checks and verify the one-file scope."
+        ],
+        "evidence": "Capture question, user reply and chronological edits. Distinguish reversible independent implementation from shortage-policy edits made before a reply. Merely identifying possible policies internally does not resolve the user's choice."
+      },
+      "implementation_boundary": "Only lib/reservation_service.dart is editable. Stock models, identity and transactional adapter behavior are supplied. No concurrency algorithm or adapter implementation is part of the task."
+    },
+    {
+      "id": "fresh-question-backup-import",
+      "title": "Workspace note backup import",
+      "public_task": {
+        "request": "Implement NoteImportService.importBackup for restoring a workspace note backup. Parse the supplied JSON format, check the current user's workspace access, and import the notes in one consistent operation. Return the supplied import report so the UI can display the result. Keep the change in lib/note_import_service.dart, add no dependencies, and run the supplied Dart checks.",
+        "supplied_context": [
+          "The feature brief says users restore backups into an existing workspace. A backup can be older than the notes already present, and import changes the workspace data users continue editing.",
+          "The documented JSON schema is version 1 with workspaceId and notes. Each note has id, title and body. The public report has insertedIds, updatedIds and unchangedIds and uses stable input order.",
+          "The fake store provides workspace access checks, existing notes by ID, and a transactional apply operation with rollback and simulated failures. The current identity comes from the provided identity interface, never from backup JSON.",
+          "An example workspace has existing note n-1 with title Monday plan and body Send final draft. An imported backup includes n-1 with title Monday plan and body Send first draft, and n-2 with valid new content."
+        ],
+        "public_contracts": [
+          "Require the supplied schema version and JSON field types. Reject malformed JSON, unsupported versions, missing fields, unknown top-level fields, empty IDs, duplicate IDs within one backup and invalid note values before any writes.",
+          "Allow ordinary Unicode note content. Apply the documented maximum lengths and note-count limit with exact public constants.",
+          "The caller must have the documented workspace edit permission. Return the documented access-denied result before reading note content or making writes when permission is absent.",
+          "The backup workspaceId must equal the requested target workspaceId. A mismatch returns the documented invalid-backup result before note reads or writes.",
+          "For IDs absent from the target workspace, insert the incoming note exactly and report it once in insertedIds.",
+          "An existing note whose title and body exactly equal the incoming note must not be rewritten and appears once in unchangedIds.",
+          "Import is transactional. A storage failure leaves all target notes unchanged and returns the documented storage-failure result without raw storage error text.",
+          "Notes outside the requested workspace and target notes absent from the backup remain unchanged.",
+          "Report lists follow input order, contain each incoming note ID exactly once overall and describe actual persisted effects."
+        ]
+      },
+      "evaluator_only": {
+        "fixed_reply": "Keep the existing note whenever its ID already exists, even if the backup content differs. Report it in unchangedIds. Continue importing new IDs from the same backup, and do not modify existing note metadata.",
+        "delivery": "Reply to a semantically relevant existing-note collision question. Keep this reply and all evaluator assertions outside the starting repository and initial task.",
+        "discriminator_concept": [
+          "Import the public conflict example after the reply. Assert n-1 content and metadata remain intact, n-2 is inserted and both report categories describe persisted effects.",
+          "Repeat the same backup. Assert there are no rewrites or duplicates and both IDs are now unchanged.",
+          "Exercise equal-content collisions, new IDs, Unicode, each published schema/limit boundary, permission denial, workspace mismatch and storage rollback against public contracts.",
+          "Introduce a realistic overwrite-on-collision alternative. It must fail the replied policy assertion even if parsing, authorization and transaction handling pass.",
+          "Introduce partial writes before malformed-record rejection, a workspace mismatch bypass and a raw-error leak independently. Each must fail a corresponding public assertion.",
+          "Do not grade an undocumented normalization, conflict reason string, ordering beyond input order or extra schema restriction."
+        ],
+        "question_assessment": "Record whether the conflicting-content choice was resolved before dependent implementation, plus unnecessary and repeated questions. Do not infer question quality from a lucky preserve-existing default or from a final explanation that claims consent.",
+        "unresolved_policy": {
+          "description": "Which content to keep when a backup note ID exists but its title or body differs.",
+          "why_consequential": "An older backup can overwrite current user work, while preserving current content can prevent an intended restoration. Validation, access control and atomicity do not decide whose content the user wants.",
+          "why_not_inferable": "Stable note IDs identify a collision but supply no version ordering. The report model supports changes and unchanged records. The feature's word 'restore' does not decide how existing workspace edits should be treated.",
+          "necessary_question": "Ask how conflicting existing note IDs should be handled when incoming content differs.",
+          "needless_questions": [
+            "Whether a workspace mismatch or missing permission can be ignored, because the public contract resolves both.",
+            "Whether to merge content using a new algorithm, because no merge behavior is requested or supplied.",
+            "Whether new note IDs can be imported, because the public contract already requires their insertion.",
+            "Repeat the collision-policy question after the fixed reply has answered it."
+          ]
+        }
+      },
+      "chronology": {
+        "before_reply_allowed": [
+          "Inspect the supplied schema, limits, models and transactional store.",
+          "Implement parsing, schema/limit checks, target workspace matching and permission checks.",
+          "Implement new-ID insertion and equal-content no-op handling without committing a divergent-content policy.",
+          "Run the independent validation and access checks while seeking the collision clarification."
+        ],
+        "after_reply_dependent": [
+          "Implement the divergent-content outcome and its report classification.",
+          "Verify mixed new/existing imports, metadata preservation, retry behavior and transactional failure.",
+          "Re-run supplied checks and verify the one-file scope."
+        ],
+        "evidence": "Use question/reply timing and edit chronology, not keyword matching or a ban on all pre-answer work. Policy-dependent edits before the reply are a guess even when they later match it."
+      },
+      "implementation_boundary": "Only lib/note_import_service.dart is editable. Public model types, schema constants, identity and storage adapters are supplied. No UI, filesystem backup management, encryption format or live persistence work."
+    }
+  ],
+  "safeguards": [
+    "Public requests use ordinary feature language and do not tell the agent that a choice was deliberately omitted or prescribe a question.",
+    "Public context contains ordinary feature facts, API and adapter capabilities, and sample data. Missing-authority analysis remains evaluator-only.",
+    "Every behavior assertion maps to a public contract or the delivered user reply. No hidden implementation rule decides correctness.",
+    "Private alternatives test ordinary plausible product decisions, not tricks tailored to any candidate.",
+    "No execution, difficulty or qualification result is claimed."
+  ]
+}

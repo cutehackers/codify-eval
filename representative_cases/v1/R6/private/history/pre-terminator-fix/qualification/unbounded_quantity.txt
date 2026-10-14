@@ -1,0 +1,18 @@
+test_quantity_limits_and_ascii (test_behavior.ParserChecks.test_quantity_limits_and_ascii) ... FAIL
+
+======================================================================
+FAIL: test_quantity_limits_and_ascii (test_behavior.ParserChecks.test_quantity_limits_and_ascii)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests/test_behavior.py", line 27, in test_quantity_limits_and_ascii
+    self.assertCode('a,b,'+qty+',1.00','quantity')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests/test_behavior.py", line 11, in assertCode
+    with self.assertRaises(ManifestError) as caught: parse_line(text,7)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: ManifestError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

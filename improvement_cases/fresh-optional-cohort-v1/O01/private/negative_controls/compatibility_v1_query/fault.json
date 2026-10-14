@@ -1,0 +1,6 @@
+{
+  "fault_category": "compatibility",
+  "changed_file": "lib/search_codec.dart",
+  "independent_fault": "compatibility_v1_query",
+  "expected": "assertion_failure_not_compile_error"
+}

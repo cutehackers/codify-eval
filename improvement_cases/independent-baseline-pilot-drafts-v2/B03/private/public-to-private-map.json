@@ -1,0 +1,25 @@
+{
+  "R1": [
+    "r1 legacy migration strict types and contents"
+  ],
+  "R2": [
+    "r2 early failure preserves disk and cloud boundaries",
+    "unresolved decision blocks every persistence and remote operation"
+  ],
+  "R3": [
+    "r3 reject foreign malformed or backwards snapshots"
+  ],
+  "R4": [
+    "r4 CAS success failure recovery and returned identity"
+  ],
+  "R5": [
+    "r5 resolved conflict policy and write failure"
+  ],
+  "R6": [
+    "r6 messages contain no remote diagnostics"
+  ],
+  "owner_choice": [
+    "r5 resolved conflict policy and write failure",
+    "unresolved decision blocks every persistence and remote operation"
+  ]
+}

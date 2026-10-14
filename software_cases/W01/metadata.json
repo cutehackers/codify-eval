@@ -1,0 +1,98 @@
+{
+  "id": "W01",
+  "type": "new_flutter_software",
+  "framework": "flutter",
+  "platform": "linux",
+  "starting_point": "minimal_linux_scaffold",
+  "primary_evidence": "external_linux_release_executable",
+  "public_entrypoint": "lib/main.dart main()",
+  "internal_api_constraints": false,
+  "allowed_paths": [
+    "lib/**",
+    "linux/**",
+    "test/**",
+    "integration_test/**",
+    "pubspec.yaml",
+    "pubspec.lock",
+    "README.md",
+    "analysis_options.yaml",
+    ".metadata"
+  ],
+  "protected_paths": [],
+  "protected_operations": [
+    "Read or modify external oracle/reference/other runs",
+    "Modify evaluator or selected skill snapshot",
+    "Rewrite starting Git history"
+  ],
+  "environment_contract": {
+    "EVAL_DATA_DIR": "Writable directory for actual persistent local app data. Reuse unchanged path across fresh processes."
+  },
+  "dependencies": {
+    "network": "none",
+    "cached": [
+      "flutter SDK",
+      "flutter_test SDK"
+    ],
+    "external_provider_required": false
+  },
+  "ui_contract": {
+    "buttons": [
+      "새 메모",
+      "저장",
+      "취소",
+      "열기: {저장된 제목}",
+      "편집",
+      "삭제",
+      "삭제 확인",
+      "목록으로"
+    ],
+    "editable_accessible_names": [
+      "제목",
+      "내용"
+    ],
+    "text": [
+      "메모가 없습니다",
+      "제목을 입력하세요",
+      "메모 삭제"
+    ],
+    "detail": "Full stored title/body readable via accessibility",
+    "post_mutation_navigation": "App may stay in detail or return to list. Outside-list screens expose 목록으로.",
+    "edit_initial_values": "제목 and 내용 editable fields start with exact currently stored title/body, including empty text and whitespace/newlines."
+  },
+  "product_requirements": [
+    "create with trimmed nonempty title and exact multiline body",
+    "list and detail read",
+    "edit without duplicate",
+    "delete with confirmation/cancel",
+    "real local file save",
+    "restore in a new process",
+    "persist deletion across a new process"
+  ],
+  "oracle_path": "oracle/gui_acceptance.py",
+  "solution_path": "reference",
+  "runtime_helper": "scripts/software_runtime.py",
+  "grader_helper": "tools/software_fixtures.py:grade_repo(repo, output, image=IMAGE)",
+  "commands": [
+    "flutter pub get --offline",
+    "flutter analyze --no-pub",
+    "flutter build linux --release --no-pub",
+    "external AT-SPI release executable GUI oracle"
+  ],
+  "proposed_limits": {
+    "trajectory_minutes": 60,
+    "user_turns": 8,
+    "delegation": false
+  },
+  "initial_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "requirements_disclosed": true,
+  "negative_controls": [
+    "omit_restore",
+    "duplicate_edit",
+    "ignore_delete"
+  ],
+  "version": "2-review-repair",
+  "grading_limits": [
+    "Opening label sets observe distinct titles. Same-title duplicate records are not independently identified, so universal record cardinality is not claimed."
+  ]
+}

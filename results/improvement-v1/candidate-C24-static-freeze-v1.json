@@ -1,0 +1,51 @@
+{
+  "behavior_qualified": false,
+  "candidate": "C24",
+  "effort": "medium",
+  "entrypoint_sha256": "0095d569d11a643ffc7e82b89851c156c920db5c1736557b366a42cf929761b0",
+  "files": {
+    ".DS_Store": {
+      "bytes": 6148,
+      "mode": 420,
+      "sha256": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d"
+    },
+    "SKILL.md": {
+      "bytes": 8035,
+      "mode": 420,
+      "sha256": "0095d569d11a643ffc7e82b89851c156c920db5c1736557b366a42cf929761b0"
+    },
+    "agents/openai.yaml": {
+      "bytes": 545,
+      "mode": 420,
+      "sha256": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20"
+    },
+    "references/delivery.md": {
+      "bytes": 8294,
+      "mode": 420,
+      "sha256": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398"
+    },
+    "references/intent-interview.md": {
+      "bytes": 10292,
+      "mode": 420,
+      "sha256": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec"
+    },
+    "references/orchestration.md": {
+      "bytes": 8201,
+      "mode": 420,
+      "sha256": "0d73ea0a31bb94648f9b8be1a6d591889b993acedd10143a81adc4b97ebe58e7"
+    },
+    "references/specification.md": {
+      "bytes": 19883,
+      "mode": 420,
+      "sha256": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6"
+    }
+  },
+  "independent_review_path": "/Users/junhyounglee/workspace/codify-eval/results/improvement-v1/candidate-C24-independent-semantic-review-v2.json",
+  "independent_review_sha256": "b551eb02167dee48ac7e0c8344cb3475e9088293a875a8c876c71ceef8f0b9d5",
+  "installed_or_promoted": false,
+  "model": "gpt-6.1-sol",
+  "original_C23_and_v5_preserved": true,
+  "requires_new_frozen_runtime_before_execution": true,
+  "schema_version": 1,
+  "static_qualified": true
+}

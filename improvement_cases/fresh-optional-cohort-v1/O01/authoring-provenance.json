@@ -1,0 +1,15 @@
+{
+  "author_context": "source_blind_independent_optional_orchestration_fixture_author",
+  "read_sources": {
+    "AGENTS.md": "0bc20608e6ffda9d3b8dc3f5e26d56eac793cceca7c56474ec33abae36f6f8ea",
+    "docs/improvement-spec-v1.md": "229caa70e643dd97247ea28143398d9551d1a386bd1326d080f30aa1d65ad691",
+    "results/improvement-v1/fresh-optional-orchestration-design-v1.json": "94cf017a4e8462eb38c4d18fd9eef6ea438941c0d01b6f91a4dae0e576652673"
+  },
+  "read_other_fixture_or_reference_or_model_answers": false,
+  "business_rules_source": "O-design-1",
+  "generated_owned_files_only": true,
+  "private_test_policies": "Every assertion maps to public/request.md, including supplied API details; no unpublished business judgment.",
+  "controls": "Each whole three-file negative equals reference except one independent category fault documented in fault.json.",
+  "preservation": "Initial failures and all preliminary logs are immutable evidence. Both proposals retained; runtime implementation owned by root.",
+  "runtime_limits": "No Docker, models, network, installation or runtime implementation."
+}

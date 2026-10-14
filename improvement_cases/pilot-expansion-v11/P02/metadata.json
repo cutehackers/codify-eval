@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "id": "P02",
+  "case_id": "P02",
+  "title": "Tenant inventory event ingestion and authenticated checkpoints",
+  "status": "complete_failure_map_revision_unqualified",
+  "qualified": false,
+  "repo_path": "repo",
+  "task_path": "task.md",
+  "oracle_path": "oracle/test",
+  "solution_path": "reference",
+  "allowed_paths": [
+    "lib/event_processor.dart",
+    "lib/checkpoint_codec.dart"
+  ],
+  "protected_paths": [
+    "README.md",
+    "lib/contracts.dart",
+    "lib/trusted_integrity.dart",
+    "pubspec.lock",
+    "pubspec.yaml",
+    "test/public_test.dart",
+    "test/test_support.dart"
+  ],
+  "acceptance_groups": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10"
+  ],
+  "critical_groups": [
+    "A01",
+    "A03",
+    "A05",
+    "A06",
+    "A08",
+    "A09"
+  ],
+  "gates": [
+    "G01"
+  ],
+  "dependency": {
+    "crypto": "3.0.7",
+    "lock_provenance": "Actual pinned-image offline resolution preserved in runtime/protocol-probes/p02-v5-fixed-image-dependencies-v1/receipt.json"
+  },
+  "runtime_image": "codify-flutter-eval:v1",
+  "runtime_image_digest": "sha256:9751b1bbd374a218e0fe7dcd362e478f2b8bb5453dbed90658da8dd0b2be3638",
+  "wall_limit_seconds": 1200,
+  "qualification_required": [
+    "pinned image offline lock resolution",
+    "starting stubs compile and fail meaningful groups",
+    "independent public-contract-only reference passes all groups",
+    "each critical removal variant fails its mapped group",
+    "independent coverage review",
+    "freeze fixture grader protected API task dependencies and runtime hashes",
+    "predeclare pilot allocation and ordering",
+    "C20 premature-publication removal fails A05",
+    "C21 payload-first early-rejection removal fails A08",
+    "C22 character-length-only removal fails A02",
+    "v10 actual pinned-image gold all24 tests and gates pass",
+    "v10 actual full critical variant discrimination rerun against unchanged identities",
+    "v10 starter assertion-only failures have full lifecycle",
+    "v10 exact source/runtime/grader hashes refrozen",
+    "v11 fresh full reference/starter/eight exact complete failure maps pass before qualification"
+  ],
+  "primary_confirmation_eligible_after_pilot": false,
+  "superiority_claim": false,
+  "reference_authored": true,
+  "negative_variants_authored": true,
+  "hash_freeze_complete": false,
+  "fixture_version": "pilot-expansion-v11",
+  "authoring_revision": 3,
+  "previous_case": "improvement_cases/pilot-expansion-v10/P02",
+  "acceptance_case_count": 22,
+  "public_test_count": 2,
+  "coverage_path": "coverage.json",
+  "coverage_revision_findings": [
+    "P02-COV-01",
+    "P02-COV-02",
+    "P02-COV-03"
+  ],
+  "independent_reference_present_not_read": true,
+  "inherited_authoring_evidence": "authoring-local-stub-tests.jsonl is unchanged v4 authoring evidence; v5 local authoring evidence is summarized in results/improvement-v1/pilot-P02-authoring-v2.json",
+  "source_contract_change": false,
+  "test_assertion_precision": true,
+  "authoring_receipt": "results/improvement-v1/pilot-P02-authoring-v3.json",
+  "assertion_precision_intent": "results/improvement-v1/pilot-P02-assertion-authoring-intent-v4.json",
+  "complete_failure_map_review": "results/improvement-v1/P02-negative-failure-mapping-review-v1.json"
+}

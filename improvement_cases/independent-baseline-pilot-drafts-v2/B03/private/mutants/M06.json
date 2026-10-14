@@ -1,0 +1,12 @@
+{
+  "id": "M06",
+  "file": "lib/codec.dart",
+  "replace_once": {
+    "from": "o.containsKey('dirty') && dirty is! bool",
+    "to": "dirty!=null && dirty is! bool"
+  },
+  "must_fail": [
+    "r1 legacy migration strict types and contents"
+  ],
+  "violation": "Explicit null accepted as absent boolean"
+}

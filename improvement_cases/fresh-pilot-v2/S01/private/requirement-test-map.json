@@ -1,0 +1,81 @@
+{
+  "case_id": "S01",
+  "oracle": "oracle/test/acceptance_test.dart",
+  "requirements": [
+    {
+      "id": "D1",
+      "tests": [
+        "D1 cross tenant denial precedes malformed validation and reads",
+        "D1 missing document grant denies without effects"
+      ]
+    },
+    {
+      "id": "D2",
+      "tests": [
+        "D2 invalid titles and revision never touch store",
+        "D2 empty authorized IDs are invalid"
+      ]
+    },
+    {
+      "id": "D3",
+      "tests": [
+        "D3 scoped lookup and missing result",
+        "D3 mis-scoped store record never saved"
+      ]
+    },
+    {
+      "id": "D4",
+      "tests": [
+        "D4 stale and archived commands cannot write",
+        "D4 rename is trimmed revisioned and preserves input",
+        "D4 archive ignores title and retains existing title"
+      ]
+    },
+    {
+      "id": "D5",
+      "tests": [
+        "D5 failed compare and exceptions expose no details",
+        "D4 rename is trimmed revisioned and preserves input"
+      ]
+    }
+  ],
+  "negatives": [
+    {
+      "id": "N01",
+      "defect": "Document grant bypasses tenant isolation.",
+      "implementation": "negative/N01/lib/implementation.dart",
+      "must_fail_tests": [
+        "D1 cross tenant denial precedes malformed validation and reads"
+      ],
+      "label": "cross-tenant-grant"
+    },
+    {
+      "id": "N02",
+      "defect": "Stale commands overwrite newer records.",
+      "implementation": "negative/N02/lib/implementation.dart",
+      "must_fail_tests": [
+        "D4 stale and archived commands cannot write"
+      ],
+      "label": "ignore-stale-revision"
+    },
+    {
+      "id": "N03",
+      "defect": "Store record scope is trusted without checking.",
+      "implementation": "negative/N03/lib/implementation.dart",
+      "must_fail_tests": [
+        "D3 mis-scoped store record never saved"
+      ],
+      "label": "untrusted-store-scope"
+    },
+    {
+      "id": "N04",
+      "defect": "Persisted rename retains forbidden surrounding whitespace.",
+      "implementation": "negative/N04/lib/implementation.dart",
+      "must_fail_tests": [
+        "D4 rename is trimmed revisioned and preserves input"
+      ],
+      "label": "untrimmed-title"
+    }
+  ],
+  "qualification_status": "not_run"
+}

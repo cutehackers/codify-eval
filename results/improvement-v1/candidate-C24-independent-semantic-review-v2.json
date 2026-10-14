@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "review_id": "candidate-C24-independent-semantic-review-v2",
+  "verdict": "pass",
+  "review_kind": "bounded_read_only_semantic_recheck",
+  "baseline": "C23",
+  "candidate": "C24",
+  "inspected_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "0bc20608e6ffda9d3b8dc3f5e26d56eac793cceca7c56474ec33abae36f6f8ea"
+    },
+    {
+      "path": "snapshots/C23/SKILL.md",
+      "sha256": "3b27f66eecc2add06dbe33019627f3f2fea13810a9c21574d05000fc95fa1c73"
+    },
+    {
+      "path": "snapshots/C23/references/delivery.md",
+      "sha256": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398"
+    },
+    {
+      "path": "snapshots/C23/references/intent-interview.md",
+      "sha256": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec"
+    },
+    {
+      "path": "snapshots/C23/references/orchestration.md",
+      "sha256": "0d73ea0a31bb94648f9b8be1a6d591889b993acedd10143a81adc4b97ebe58e7"
+    },
+    {
+      "path": "snapshots/C23/references/specification.md",
+      "sha256": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6"
+    },
+    {
+      "path": "snapshots/C23/agents/openai.yaml",
+      "sha256": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20"
+    },
+    {
+      "path": "snapshots/C24/SKILL.md",
+      "sha256": "0095d569d11a643ffc7e82b89851c156c920db5c1736557b366a42cf929761b0"
+    },
+    {
+      "path": "snapshots/C24/references/delivery.md",
+      "sha256": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398"
+    },
+    {
+      "path": "snapshots/C24/references/intent-interview.md",
+      "sha256": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec"
+    },
+    {
+      "path": "snapshots/C24/references/orchestration.md",
+      "sha256": "0d73ea0a31bb94648f9b8be1a6d591889b993acedd10143a81adc4b97ebe58e7"
+    },
+    {
+      "path": "snapshots/C24/references/specification.md",
+      "sha256": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6"
+    },
+    {
+      "path": "snapshots/C24/agents/openai.yaml",
+      "sha256": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20"
+    }
+  ],
+  "summary": "Pass after bounded recheck. C24 now explicitly restores successful-output format, authorization and reporting validation at line 22 and preservation of required results and failed diagnostic evidence before cleanup at line 40. Both v1 nonblocking recommendations are resolved. Other inspected source entities retain their v1 hashes. No new blocking issue was found. This static verdict does not establish runtime success, cost, performance or superiority.",
+  "invariant_assessment": [
+    {
+      "invariant": "acceptance_and_scope",
+      "result": "preserved",
+      "evidence": [
+        "snapshots/C24/SKILL.md:8",
+        "snapshots/C24/SKILL.md:20-28",
+        "snapshots/C24/SKILL.md:34",
+        "snapshots/C24/SKILL.md:54"
+      ],
+      "reason": "Every criterion needs current evidence; original scope/contracts constrain edits; required unexecuted checks leave completion open."
+    },
+    {
+      "invariant": "security_and_successful_output_validation",
+      "result": "preserved",
+      "evidence": [
+        "snapshots/C24/SKILL.md:8",
+        "snapshots/C24/SKILL.md:22",
+        "snapshots/C24/SKILL.md:26-28",
+        "snapshots/C23/SKILL.md:23"
+      ],
+      "reason": "Line 22 explicitly validates successful external/injectable outputs against public format, authorization and reporting guarantees before writes or success reports; hostile input, denial, containment, safe errors, state metadata and failure order remain."
+    },
+    {
+      "invariant": "persistence",
+      "result": "preserved",
+      "evidence": [
+        "snapshots/C24/SKILL.md:23",
+        "snapshots/C24/SKILL.md:26-28",
+        "snapshots/C24/references/delivery.md:68-70"
+      ],
+      "reason": "Pre-write validation, partial-failure preservation/recovery and compatibility remain; applicable references require public-interface recovery checks and reject in-memory durability inference."
+    },
+    {
+      "invariant": "async",
+      "result": "preserved",
+      "evidence": [
+        "snapshots/C24/SKILL.md:24",
+        "snapshots/C24/SKILL.md:26-28",
+        "snapshots/C24/SKILL.md:38-40"
+      ],
+      "reason": "Distinct interleavings, full-lifecycle bounds, immediate effects, cancellation/settlement after assertion failure, original command handle and no timeout restart remain."
+    },
+    {
+      "invariant": "question_and_existing_authorization",
+      "result": "preserved",
+      "evidence": [
+        "snapshots/C24/SKILL.md:8",
+        "snapshots/C24/SKILL.md:14-16",
+        "snapshots/C24/references/intent-interview.md:23-27"
+      ],
+      "reason": "Material decisions trigger a bundled question, prior answers/approval are reused, ordinary implementation adds no default approval/documents, and specification reference permits dependency-sensitive question groups."
+    },
+    {
+      "invariant": "approval_and_amendment",
+      "result": "preserved",
+      "evidence": [
+        "snapshots/C24/SKILL.md:16",
+        "snapshots/C24/references/specification.md:124-139",
+        "snapshots/C24/references/specification.md:265-273"
+      ],
+      "reason": "Proposed or review-pending slices are ineligible despite parent approval; independent slice review and explicit approval plus amendment resets remain in unchanged references."
+    },
+    {
+      "invariant": "review_and_worker_ownership",
+      "result": "preserved",
+      "evidence": [
+        "snapshots/C24/SKILL.md:44-52",
+        "snapshots/C24/references/orchestration.md:47-62"
+      ],
+      "reason": "Independent challenge, accessible actual guarantees, source revision, bounded scope, owner check map, concrete counterexamples, incomplete review gaps, single integration owner and final integrated verification remain."
+    },
+    {
+      "invariant": "failed_evidence_and_dispatch",
+      "result": "preserved",
+      "evidence": [
+        "snapshots/C24/SKILL.md:28",
+        "snapshots/C24/SKILL.md:34-40",
+        "snapshots/C24/SKILL.md:52"
+      ],
+      "reason": "Infrastructure failure is not Red, statuses are retained, dependent steps stop, failed dispatch evidence/permissions survive retries, non-execution requires confirmed pre-dispatch rejection, failed worker cost is retained. Line 40 now explicitly retains required results and failed diagnostic evidence before cleanup."
+    },
+    {
+      "invariant": "efficiency_guards",
+      "result": "no_blocking_contradiction_found",
+      "evidence": [
+        "snapshots/C24/SKILL.md:12",
+        "snapshots/C24/SKILL.md:26",
+        "snapshots/C24/SKILL.md:32",
+        "snapshots/C24/SKILL.md:40",
+        "snapshots/C24/SKILL.md:44-50"
+      ],
+      "reason": "Batching is limited by enforced interfaces, adjustable budgets can expand for gaps, test repetition removal requires no distinct mechanism, evidence reuse is state-sensitive, and mandatory review/checks are preserved."
+    }
+  ],
+  "actionable_issues": [],
+  "nonblocking_recommendations": [],
+  "realistic_task_assessment": {
+    "static_result": "usable_as_guidance",
+    "reason": "Entrypoint covers discovery, decisions, risk-based behavior checks, edit/check sequencing, dispatch, retries, independent review and closure, with routed references for specification, sustained slices and ownership. It does not impose numeric case limits or make optional efficiency measures override concrete risks.",
+    "runtime_result": "unverified"
+  },
+  "limits": [
+    "No SDK, model, fixture or evaluation execution was performed.",
+    "No private oracle or final-draft semantics were read.",
+    "No source files were edited. Only this unique v2 review artifact was written; v1 remains unchanged.",
+    "Recheck read the current entrypoint and verified reference/configuration hashes. Unchanged reference assessments reuse the bounded v1 review.",
+    "No runtime usability, performance, token cost or superiority claim is supported by this static review."
+  ],
+  "commands_and_results": [
+    {
+      "command": "Read current numbered C24/SKILL.md and recompute all inspected entity hashes against v1.",
+      "result": "Complete. C24 entrypoint changed; every other inspected entity hash matches v1. No model or test execution."
+    }
+  ],
+  "prior_review": {
+    "path": "results/improvement-v1/candidate-C24-independent-semantic-review-v1.json",
+    "sha256": "7c707ab3ab3f1b4e2d91fdd54fddcd99a926f43f8daba3e1f890ac910b94da40",
+    "preserved": true
+  },
+  "resolved_recommendations": [
+    {
+      "id": "R1",
+      "evidence": "snapshots/C24/SKILL.md:22",
+      "result": "resolved"
+    },
+    {
+      "id": "R2",
+      "evidence": "snapshots/C24/SKILL.md:40",
+      "result": "resolved"
+    }
+  ],
+  "candidate_state": "working candidate, not frozen or installed; review describes only the recorded current source hashes"
+}

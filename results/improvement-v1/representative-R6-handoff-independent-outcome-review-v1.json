@@ -1,0 +1,220 @@
+{
+  "checks": {
+    "/root/rep_r6_handoff_c24_v1/parser_worker_actual_sol_medium": true,
+    "/root/rep_r6_handoff_c24_v1/parser_worker_terminal": true,
+    "/root/rep_r6_handoff_c24_v1_actual_sol_medium": true,
+    "/root/rep_r6_handoff_c24_v1_terminal": true,
+    "current_only_three_editable_sources_changed_no_extras": true,
+    "exactly_one_worker_no_redelegation": true,
+    "fourteen_actual_private_checks_normal_unskipped_success": true,
+    "freeze_allocation_preparation_hashes_match": true,
+    "grader_source_and_frozen_inputs_preservation_recorded": true,
+    "latest_cumulative_counter_once_per_unique_uuid_subsets_not_added": true,
+    "native_archives_exact_hash_size_original_prefix": true,
+    "no_private_or_other_run_reads_observed_in_product_tool_calls": true,
+    "original18_evidence_sources_graders_skills_unchanged": true,
+    "owner_integrated_smoke_and_final_scope_verification_observed": true,
+    "owner_writes_match_final_disjoint_sources": true,
+    "parent_dispatch_receipt_exact_original_records": true,
+    "root_dispatched_sol_medium_fork_none": true,
+    "root_read_actual_parser_and_explicit_reasoned_acceptance": true,
+    "worker_actual_parser_patch_matches_final": true,
+    "worker_dispatched_sol_medium_fork_none": true
+  },
+  "evidence_entities": {
+    "AGENTS.md": {
+      "bytes": 960,
+      "sha256": "0bc20608e6ffda9d3b8dc3f5e26d56eac793cceca7c56474ec33abae36f6f8ea"
+    },
+    "inputs/representative-R6-handoff-task-v1.txt": {
+      "bytes": 2037,
+      "sha256": "fbcaddebc71a7628c6636d1d9422e57fe96f7aa4d44d9935b36cb7052ca49cff"
+    },
+    "representative_cases/v1/R6/private/rubric.json": {
+      "bytes": 1860,
+      "sha256": "4f9e3b3a0d435fe7d5048d602f517d02a2ab7f9120290122a8f464c13b5cb0ed"
+    },
+    "results/improvement-v1/representative-R6-handoff-freeze-v1.json": {
+      "bytes": 1525,
+      "sha256": "25271fb243775e67a607eb33653c4a1b78fd7cd92c4ae53607bcaa117dca1e19"
+    },
+    "results/improvement-v1/representative-all18-independent-outcome-review-v1.json": {
+      "bytes": 122997,
+      "sha256": "9d1232468de642d9a9b358b4b6de3a727d491bb18fe868af6d53417d035463bb"
+    },
+    "results/improvement-v1/representative-eval-v1-manifest.json": {
+      "bytes": 39146,
+      "sha256": "69f361d701455891fbc1fc45e951ce7de628acdbb84afd910cfee1f32c0c9fd0"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/allocation.json": {
+      "bytes": 387,
+      "sha256": "ab9026b3c1eee556f2dc0277c55c64270bdf51da94b404faf5919c71a4c708df"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/grading.json": {
+      "bytes": 1455,
+      "sha256": "dbc18569f183b587aeffb3257657c5e664820da1a0d1a4e2218e1cb34262f2f6"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/native-archives.json": {
+      "bytes": 795,
+      "sha256": "1444c495068a1f2d52b8caf0d18fe9ee425924c5fb4ce7eb96cc564c8756175b"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/native-usage.json": {
+      "bytes": 2357,
+      "sha256": "78c9a5509a5795e3840f2ab2234283b235ed4e573d8856bc386e524dfd3153ac"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/native/01a13856-c0ae-76e3-85b2-f675bbea6b6a.jsonl": {
+      "bytes": 318245,
+      "sha256": "4d6c4aa87f544f37b11ff96313b9d522113786b028d90db5bf780fd6fef64510"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/native/01a13857-3ead-7070-b940-852241b3c899.jsonl": {
+      "bytes": 213530,
+      "sha256": "94f0a1bf4fb0384d3e6c70cd222031b908cce4022dddff1313e4fdda1317f63d"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/preparation.json": {
+      "bytes": 2709,
+      "sha256": "bded45ae6546334664e123bf4730c5a374a791262757a454cbc15ce6ea80ee23"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/private-tests.stderr": {
+      "bytes": 1669,
+      "sha256": "336abae83ae62639ee06edc3e0543106c18dad73844d520a75fbb57e6ebde189"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/private-tests.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/.agents/skills/codify/.DS_Store": {
+      "bytes": 6148,
+      "sha256": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/.agents/skills/codify/SKILL.md": {
+      "bytes": 8035,
+      "sha256": "0095d569d11a643ffc7e82b89851c156c920db5c1736557b366a42cf929761b0"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/.agents/skills/codify/agents/openai.yaml": {
+      "bytes": 545,
+      "sha256": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/.agents/skills/codify/references/delivery.md": {
+      "bytes": 8294,
+      "sha256": "9e6a91af8b09715b5a4c10bd72fe2939a0d4850a134bb191aa1db8a114d75398"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/.agents/skills/codify/references/intent-interview.md": {
+      "bytes": 10292,
+      "sha256": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/.agents/skills/codify/references/orchestration.md": {
+      "bytes": 8201,
+      "sha256": "0d73ea0a31bb94648f9b8be1a6d591889b993acedd10143a81adc4b97ebe58e7"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/.agents/skills/codify/references/specification.md": {
+      "bytes": 19883,
+      "sha256": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/README.md": {
+      "bytes": 2779,
+      "sha256": "34e72408c6615c3aa39dc49f065dd8ab0e09b5483c1bcbc09babd025faa2841d"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/batch_processor.py": {
+      "bytes": 1654,
+      "sha256": "d4d0aa53504a1c4f26b3476a7e7401e0a9c7e196b03d0ac90f69cd814e4ec483"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/manifest.py": {
+      "bytes": 558,
+      "sha256": "f6ae70449f9a5ba3a1d16a5ec6d3094096b0b9b3f266941ac3df9fa31ea5cac1"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/manifest_parser.py": {
+      "bytes": 2057,
+      "sha256": "ccfe836b12aabcaafdeec2de15321478a7571c5755e77f8c649f08157b9ff540"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/models.py": {
+      "bytes": 579,
+      "sha256": "808b24882d6de52526af3c3ac001d6c1dd9b7c56752bdfab48691211f03a4a12"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/repo/test_smoke.py": {
+      "bytes": 486,
+      "sha256": "0d7151f7e6edbbcd63a036750dba8d515f98b6f8aaeb7daba34a530dcdf14b72"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/root-dispatch-native-receipt.json": {
+      "bytes": 4159,
+      "sha256": "56ecd5521be5a3470893e066d289c6e952ef20f19da189050dadae7a77a82ef3"
+    },
+    "runtime/representative-R6-handoff-v1/R6-C24-1/unittest-completion.json": {
+      "bytes": 208,
+      "sha256": "6ac48587c24c370ee8d7797cea6b7721e6f50fb8342b311d6cecfb37e186edac"
+    },
+    "tools/representative_eval_v1.py": {
+      "bytes": 8616,
+      "sha256": "b54a77785e2a267737fdb325cf916192ef1808bce09c47ab32518241b672fb0b"
+    },
+    "tools/representative_r6_handoff_v1.py": {
+      "bytes": 1242,
+      "sha256": "efcee56bd2f244015d3d7a404c67bc24cc73186e288e67eb50d322ca4cf710bd"
+    },
+    "tools/representative_unittest_runner_v1.py": {
+      "bytes": 1280,
+      "sha256": "ca3b936b8a8f7ec08547dae3be176b95960cc2c1a38c7fa2705c58611d1da4f4"
+    }
+  },
+  "issues": [],
+  "limits": [
+    "One C24 observation only, no A/C0 supplementary comparison or population superiority.",
+    "Does not establish voluntary delegation judgement, multiworker coordination, cost or speed superiority.",
+    "Encrypted root and worker assignment message plaintext was not independently decrypted. Dispatch parameters, accessible input reads, actual source mutations and subsequent integration are directly observable.",
+    "Native descendant discovery and absence of forbidden reads in observed calls are descriptive evidence, not hostile-host isolation or authentication proof.",
+    "Token counters are reference usage, cached input and reasoning output are subsets, billable currency unknown. Research preparation/reviewer work excluded from product totals.",
+    "Initial failed diagnostic and generated cache cleanup retained. Final source scope preservation does not mean no transient generated files.",
+    "preparation.actual_model_dispatched and grading.native_usage_observed are helper-local false placeholders. Native dispatch/context/counter evidence separately verifies actual root and worker execution.",
+    "No model, tests, grader, fixture, code or original run evidence executed or changed during this independent review. Only this review JSON was written."
+  ],
+  "native_evidence_locations": {
+    "owner_final_scope_verification": "root native lines 88-91",
+    "owner_integrated_verification": "root native lines 80-84",
+    "parent_root_dispatch": "root-dispatch-native-receipt.json parent lines 78216 and 78219 verified by offsets/hash/exact JSON",
+    "root_implementation": "root native lines 38-41",
+    "root_reasoned_acceptance": "root native line 79",
+    "root_source_review": "root native lines 67-70",
+    "root_worker_dispatch": "root native line 25, result 28",
+    "worker_implementation": "worker native lines 22-26",
+    "worker_return": "worker native line 45 and terminal 48"
+  },
+  "observations": {
+    "changed_paths": [
+      "batch_processor.py",
+      "manifest.py",
+      "manifest_parser.py"
+    ],
+    "extra_repo_files": [],
+    "implementation_workers": 1,
+    "original_evidence_and_source_entities_compared": 505,
+    "original_mismatches": [],
+    "original_whole_seconds": 212.53475093841553,
+    "owner_ownership": [
+      "batch_processor.py",
+      "manifest.py"
+    ],
+    "private_checks_passed": 14,
+    "product_roots": 1,
+    "reference_tokens": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 752768,
+      "input_tokens": 786974,
+      "output_tokens": 7509,
+      "reasoning_output_tokens": 635,
+      "total_tokens": 794483
+    },
+    "retained_initial_diagnostic": "Root initial smoke exit 1 with NotImplementedError preserved in native lines 33-36; final integrated checks subsequently passed.",
+    "root_native_uuid": "01a13856-c0ae-76e3-85b2-f675bbea6b6a",
+    "temporary_cache_cleanup": "Generated __pycache__ observed and removed by root, native lines 88-91.",
+    "worker_contribution_accepted": true,
+    "worker_contribution_repaired": false,
+    "worker_native_uuid": "01a13857-3ead-7070-b940-852241b3c899",
+    "worker_ownership": [
+      "manifest_parser.py"
+    ]
+  },
+  "recorded_at": "2026-10-14T03:04:39.707689+00:00",
+  "scenario_id": "R6-required-worker-v1",
+  "schema_version": 1,
+  "supported_claim": "Observed explicitly requested single-worker implementation handoff, actual contribution review and owner integration/verification for C24 on frozen R6 software contract.",
+  "verdict": "pass"
+}

@@ -1,0 +1,155 @@
+EEEEEEEEEEEEEEE
+======================================================================
+ERROR: test_batch_failure_rolls_back (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_canonical_duplicate (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_conflict_preserves_original (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_fifo_limit (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_claim_preserves (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_payload_and_identity (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_invalid_retry_preserves_lease (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_lease_boundary_and_attempts (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_other_connection_cannot_steal_lease (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_pending_survives_restart (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_restart_and_done_idempotency (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_retry_schedule (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_simultaneous_claims_are_disjoint (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_state_transitions (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_tenant_separation (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 11, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.path=Path(self.tmp.name)/'queue.sqlite';self.box=Outbox(self.path)
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/public/outbox.py", line 6, in __init__
+    raise NotImplementedError
+NotImplementedError
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.005s
+
+FAILED (errors=15)

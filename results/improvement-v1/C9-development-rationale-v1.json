@@ -1,0 +1,22 @@
+{
+  "candidate": "C9",
+  "status": "development_proposal_unexecuted",
+  "installed": false,
+  "superiority_proven": false,
+  "parent": "C8",
+  "basis": "C8-D01-execution-profile-v1.json",
+  "changes": [
+    "Smallest decisive Red check, required regressions after coherent edit when no prior dependency.",
+    "Failure-safe bounded complete test lifecycle, including teardown.",
+    "Appropriate initial command wait and meaningful same-handle polling; no restart after observation timeout."
+  ],
+  "limits": [
+    "No C9 model run yet; no efficiency or outcome superiority claim.",
+    "Current C8 D02 actor receives unchanged frozen C8; candidate proposals cannot alter running input.",
+    "No Q reference/oracle implementation inspection; all supporting C8 resources unchanged."
+  ],
+  "source_hashes": {
+    "snapshots/C9/SKILL.md": "c16d015a7a8ad103a64e68d86e492fb7a7a4f1bb43e0368f5bd9156027e885f5",
+    "results/improvement-v1/C8-D01-execution-profile-v1.json": "94c332954197d6e59a33f9c904e4b84fd5c2fbb6468cbb337a22802b10af2235"
+  }
+}

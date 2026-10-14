@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-14T04:04:13.025730+00:00",
+  "authority": "Direct human answer: 대표 6개 결과로 마무리 (권장)",
+  "supersedes_pending_scope_choice": true,
+  "completion_scope": "Six representative items, independent reviews, verified C24 installation and owned Docker cleanup; close with observed findings",
+  "unproven_superiority_accepted_as_reported_limitation": true,
+  "no_further_evaluations_requested": true,
+  "no_universal_superiority_claim": true,
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium"
+}

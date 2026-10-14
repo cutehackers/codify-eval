@@ -1,0 +1,12 @@
+{
+  "id": "M07",
+  "file": "lib/codec.dart",
+  "replace_once": {
+    "from": "r.title.trim().length<=120",
+    "to": "r.title.length<=120"
+  },
+  "must_fail": [
+    "r1 legacy migration strict types and contents"
+  ],
+  "violation": "Raw padding wrongly counted against trimmed title bound"
+}

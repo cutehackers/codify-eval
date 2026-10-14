@@ -1,0 +1,12 @@
+{
+  "id": "M03",
+  "file": "lib/gate_service.dart",
+  "replace_once": {
+    "from": "if(code!='entered') return GateDecision(code);",
+    "to": ""
+  },
+  "must_fail": [
+    "r4 authoritative atomic response and typed failure"
+  ],
+  "violation": "Revoked atomic result treated as entry"
+}

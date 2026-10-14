@@ -1,0 +1,1 @@
+Complete the two checkout domain modules according to the approved public contract in README.md. Public docs already resolve the business choices. Preserve APIs, protected files and dependency constraints. Change only lib/pricing.dart and lib/reservations.dart. Verify both modules and their boundary cases.

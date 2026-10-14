@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "B01",
+  "title": "\uc57c\uc678 \uc815\ube44 \uc804\uc1a1\ud568",
+  "status": "draft_unqualified",
+  "purpose": "representative_baseline_difficulty_pilot",
+  "task_kind": "fully_specified_coding",
+  "product_context": "field maintenance offline outbox",
+  "language": "Dart",
+  "product_surface": "Flutter application domain layer",
+  "public_root": "public",
+  "private_root": "private",
+  "editable_paths": [
+    "lib/job_rules.dart",
+    "lib/outbox.dart",
+    "lib/labels.dart"
+  ],
+  "immutable_paths": [
+    "lib/models.dart",
+    "pubspec.yaml",
+    "analysis_options.yaml",
+    "test/**",
+    "README.md"
+  ],
+  "module_relationships": {
+    "dependent": [
+      "job_rules.dart",
+      "outbox.dart"
+    ],
+    "independent": [
+      "labels.dart"
+    ]
+  },
+  "optional_orchestration": {
+    "allowed": true,
+    "useful_partition": "Independent labels and formatting module can be assigned separately from dependent domain behavior. Root integrates both. No delegation requirement or bonus for a spawn alone.",
+    "max_total_agents": 3,
+    "all_participant_costs_required": true
+  },
+  "qualification": {
+    "not_executed": true,
+    "required": [
+      "starter public tests and analyzer",
+      "starter acceptance expected failure",
+      "reference public and private acceptance pass for every admitted reply branch",
+      "each important mutant must fail its mapped behavioral test",
+      "public-to-private mapping independent review",
+      "fully specified task no-question adapter admission"
+    ]
+  },
+  "private_material_handling": "Never mount private/ into evaluated model workspace. Copy public/ to a fresh repo. Owner adapter reads only structured branch file. Oracle runs out of band."
+}

@@ -1,0 +1,91 @@
+{
+  "id": "P01",
+  "version": "pilot-expansion-v2",
+  "framework": "flutter",
+  "language": "dart",
+  "purpose": "Offline multi-module atomic transfer batching with authorization, idempotent recovery and concurrent service instances",
+  "scope": "domain/service only",
+  "allowed_paths": [
+    "lib/batch_service.dart",
+    "lib/batch_validator.dart"
+  ],
+  "protected_paths": [
+    "README.md",
+    "pubspec.yaml",
+    "lib/contracts.dart",
+    "test/support.dart",
+    "test/smoke_test.dart"
+  ],
+  "public_repo": "repo",
+  "task": "task.md",
+  "reference_overlay": "reference",
+  "oracle_tests": "oracle/test",
+  "negative_variants": [
+    "N01",
+    "N02",
+    "N03"
+  ],
+  "negative_overlay_paths": {
+    "N01": "negative/N01",
+    "N02": "negative/N02",
+    "N03": "negative/N03"
+  },
+  "oracle_test_count": 27,
+  "qualification": {
+    "status": "constructed_not_run",
+    "compile": "not_run",
+    "public_smoke": "not_run",
+    "reference": "not_run",
+    "negative_discrimination": "not_run",
+    "reason": "worker authorized for source construction only"
+  },
+  "construction_inputs": [
+    "Repository AGENTS.md",
+    "confirmatory/Q02/repo/pubspec.yaml (package template only)",
+    "Parent task specification",
+    "P01 v1 source construction and bounded static review corrections",
+    "results/improvement-v1/pilot-P01-static-review-v1.json (P01-I01, P01-I02, P01-I03)"
+  ],
+  "construction_exclusions": [
+    "Q01 and Q02 tasks, implementations and outcomes",
+    "Candidate skills",
+    "Historical failures",
+    "Existing oracle/reference/negative sources",
+    "Actor outcomes",
+    "Runtime/container inspection",
+    "Model or helper invocation",
+    "Tool or runner modifications"
+  ],
+  "confirmation_policy": {
+    "pilot_used": true,
+    "exclude_from_primary_confirmation": true
+  },
+  "guarantees_excluded": [
+    "GUI",
+    "device",
+    "network provider",
+    "production"
+  ],
+  "coverage_map": "metadata/coverage.json",
+  "source_hash_manifest": "metadata/source_hashes.json",
+  "revision": {
+    "prior_version": "pilot-expansion-v1",
+    "changes": [
+      "Assertion-first receipt and validated-batch access",
+      "Bounded microtask observation of asynchronous dependency entry",
+      "Release and drain pending controlled calls in finally",
+      "Correct negative discriminating coverage labels"
+    ],
+    "runtime_qualification": "not_run",
+    "static_review_input": {
+      "path": "results/improvement-v1/pilot-P01-static-review-v1.json",
+      "sha256": "77db886d89a54fe9b9e26591ba7a3b90f016f5fe26da23f52d48fbac11b76784",
+      "addressed_issue_ids": [
+        "P01-I01",
+        "P01-I02",
+        "P01-I03"
+      ],
+      "additional_public_contract_mismatches": []
+    }
+  }
+}

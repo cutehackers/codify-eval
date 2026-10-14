@@ -1,0 +1,17 @@
+{
+  "required_question_count": 1,
+  "must_resolve": [
+    "partial reservation versus all-or-nothing reservation",
+    "caller-visible shortage result"
+  ],
+  "acceptable": [
+    "single focused question offering the two policies and requesting shortage response",
+    "one question identifying whether any stock can change on shortage and requesting result fields"
+  ],
+  "reject": [
+    "no question and guessed policy",
+    "unrelated questions only",
+    "question asking owner to provide implementation or hidden tests"
+  ],
+  "scoring": "Assess meaning and decision coverage, never exact phrasing. Private owner reply is supplied only after the question."
+}

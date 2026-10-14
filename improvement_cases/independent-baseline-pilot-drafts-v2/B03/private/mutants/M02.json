@@ -1,0 +1,12 @@
+{
+  "id": "M02",
+  "file": "lib/sync_service.dart",
+  "replace_once": {
+    "from": "remote.household!=household",
+    "to": "false"
+  },
+  "must_fail": [
+    "r3 reject foreign malformed or backwards snapshots"
+  ],
+  "violation": "Foreign household response accepted"
+}

@@ -1,0 +1,90 @@
+{
+  "id": "W02v365",
+  "type": "software_integration",
+  "framework": "flutter",
+  "platform": "linux",
+  "purpose": "existing_project_multi_module_integration",
+  "allowed_paths": [
+    "lib/**",
+    "pubspec.yaml",
+    "linux/**",
+    "test/**",
+    "integration_test/**",
+    "docs/**",
+    "pubspec.lock",
+    "analysis_options.yaml",
+    ".metadata",
+    "README.md",
+    "IMPLEMENTATION.md"
+  ],
+  "protected_paths": [
+    "test/existing_regression_test.dart",
+    "lib/user_banner.dart"
+  ],
+  "required_commands": [
+    "flutter analyze --no-pub",
+    "flutter test --no-pub",
+    "flutter build linux --release --no-pub"
+  ],
+  "runtime_image": "sha256:9751b1bbd374a218e0fe7dcd362e478f2b8bb5453dbed90658da8dd0b2be3638",
+  "network": "none",
+  "decision_rules": [
+    {
+      "trigger": "unspecified cleanup deletion/archive policy",
+      "reply": "영구 삭제하지 않고 보관하세요. 보관 목록에서 다시 복원할 수 있어야 합니다. 완료 항목만 보관할 수 있고, 보관한 항목은 기본 목록에서 제외하세요. 복원하면 완료 상태를 유지해야 합니다.",
+      "required_before_implementation": true,
+      "question_id_required": false,
+      "allow_before_reply": "existing behavior discovery, regression tests, policy-independent filters"
+    }
+  ],
+  "storage_contract": {
+    "environment": "EVAL_DATA_DIR",
+    "file": "todos.json",
+    "legacy_fields": [
+      "id",
+      "title",
+      "done"
+    ]
+  },
+  "solution_path": "reference",
+  "oracle_path": "oracle/gui_acceptance.py",
+  "acceptance_contract": "../../docs/w02-contract.md",
+  "cold_restart": "terminate then launch different binary process with same EVAL_DATA_DIR",
+  "requirements_disclosed": true,
+  "starting_point": "working_multi_module_app",
+  "primary_evidence": "external_linux_release_executable",
+  "internal_api_constraints": false,
+  "runtime_helper": "scripts/software_runtime.py",
+  "grader_helper": "tools/w02_fixtures.py:grade_repo(repo, output, image=IMAGE)",
+  "proposed_limits": {
+    "trajectory_minutes": 60,
+    "user_turns": 8,
+    "delegation": false
+  },
+  "initial_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "ui_contract": {
+    "existing_labels": [
+      "할 일 제목",
+      "추가",
+      "완료: {title}",
+      "완료 취소: {title}"
+    ],
+    "filter_labels": [
+      "전체",
+      "진행 중",
+      "완료"
+    ],
+    "conditional_archive_labels": [
+      "보관함",
+      "보관: {title}",
+      "복원: {title}"
+    ],
+    "archive_labels_apply_only_after_human_choice": true,
+    "failure_labels": [
+      "저장 실패",
+      "다시 시도"
+    ]
+  },
+  "artifact_version": "v2"
+}

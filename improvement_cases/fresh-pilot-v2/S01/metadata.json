@@ -1,0 +1,26 @@
+{
+  "id": "S01",
+  "cohort": "fresh-pilot-v2",
+  "title": "Tenant document commands",
+  "language": "dart",
+  "framework": "flutter",
+  "category": "software-security",
+  "starting_repository": "repo",
+  "task_file": "task.md",
+  "owned_files": [
+    "lib/implementation.dart"
+  ],
+  "offline": true,
+  "dependencies": [
+    "flutter",
+    "flutter_test"
+  ],
+  "public_smoke": "test/public_smoke_test.dart",
+  "scope": {
+    "allowed_files": [
+      "lib/implementation.dart"
+    ]
+  },
+  "expected_private_test_count": 10,
+  "expected_total_test_count": 11
+}

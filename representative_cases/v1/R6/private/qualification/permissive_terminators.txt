@@ -1,0 +1,11 @@
+test_disallowed_repeated_or_bare_cr_terminators (unittest.loader._FailedTest.test_disallowed_repeated_or_bare_cr_terminators) ... ERROR
+
+======================================================================
+ERROR: test_disallowed_repeated_or_bare_cr_terminators (unittest.loader._FailedTest.test_disallowed_repeated_or_bare_cr_terminators)
+----------------------------------------------------------------------
+AttributeError: type object 'BatchChecks' has no attribute 'test_disallowed_repeated_or_bare_cr_terminators'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

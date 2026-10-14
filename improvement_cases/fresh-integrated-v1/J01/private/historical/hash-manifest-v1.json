@@ -1,0 +1,29 @@
+{
+  "status": "authored_unqualified",
+  "hash_algorithm": "sha256",
+  "purpose": "Authored artifact snapshot, not a confirmation freeze",
+  "files": {
+    "README.md": "2f80dec5b4f5ab4cb2d444bede020ecac626d3e2ea4ec6e1a963120b6bcbd30d",
+    "metadata.json": "d8f7ce1004c217a21817dde4da08dbe260dcf13b5adeb1ca9b1f97c91bc8be02",
+    "private/acceptance_test.dart": "3a899607f70f769dd6989c3c1248e42bfa505b8458ee4dbd975949db7e762ed1",
+    "private/author_checks/N01.log": "1fc613800d121967c3b5f5ef2e9dc776c457366495e1393728b2912449bab6ea",
+    "private/author_checks/N02.log": "fe5e6b2bf388f7ee36a0e25631a32f1acf53fc8dffacdaa3f32e1d28585b8e91",
+    "private/author_checks/N03.log": "b98966eacafdadb3d1c8e3f1c4ffaf8308585b722ddbad1527be10c2b93d44ee",
+    "private/author_checks/N04.log": "38f1bf25519be29a842680160ace0f5bf6f4aae3e86803ad8869901574a2bfab",
+    "private/author_checks/reference.log": "d835eaebeb334aa994a14d31c1db206fae10011cb0b4e31a2575b43fa8724309",
+    "private/author_checks/stub.log": "4386cebb2d1d3b193c5cfe4fe2721548ccfbca0bc713738969a51176c5769034",
+    "private/author_checks/summary.json": "f20c3b4ac9553401165200567b62f33207da47cd069788cf00c65e530080dcd9",
+    "private/negative/N01.dart": "1c2da2f791042d4d0f8a9bfe54cca247f152d2f58c08087270be0d645dea92c9",
+    "private/negative/N02.dart": "0c7d7d1dafdadff288396a0e235f106629de7d4c184d2b093b639fd32d2618b1",
+    "private/negative/N03.dart": "4b3ba3584d6aab5fdcc97ea3cb609920dafce7f120ed6270303328d38d6bccb6",
+    "private/negative/N04.dart": "a40cd1c9aad573e7a5534d8c215919c72ce2efc0023f0ec5c73265281919712b",
+    "private/reference_implementation.dart": "d8d85312fa57de9347ed5fba57f58a1f55d867b71531c0834be3644fa5f29a95",
+    "private/requirement-test-map.json": "cf44a1aec5d1d468ba593a7816cabdc130ab9ee650d7c0d50e2a1b340d6ad9fc",
+    "repo/README.md": "eae0f1f05175210e4904a5602b274a4ad69dce9d9c1ed65ab330f997de79cc8b",
+    "repo/lib/implementation.dart": "6ada108d054051743fbcf8ab8af2ecd20181e77fe3b38bcb6e50dfbf509c4f27",
+    "repo/pubspec.lock": "1fca3c6690c0c04eb15788a4c16f46a982fd6256fdafc0a1bd5d80caa7377b4a",
+    "repo/pubspec.yaml": "3a0b1c95a0f184912411cbb4fe9e921d0c38d9618fea69af2bf74f689d4f4268",
+    "repo/test/public_smoke_test.dart": "364cecf83036b321ba7442a4eaeb470ee071f54752471b41af3d4f698735d693",
+    "task.md": "8922e00e3d97e25aeb5f7abb5cb9c7cef3ef3cefe0e10b09cb229fd729ce57f3"
+  }
+}

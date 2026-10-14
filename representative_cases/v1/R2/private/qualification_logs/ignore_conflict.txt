@@ -1,0 +1,13 @@
+..F............
+======================================================================
+FAIL: test_conflict_preserves_original (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 20, in test_conflict_preserves_original
+    with self.assertRaises(ConflictError):self.box.enqueue('a','x',{'v':2})
+AssertionError: ConflictError not raised
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.034s
+
+FAILED (failures=1)

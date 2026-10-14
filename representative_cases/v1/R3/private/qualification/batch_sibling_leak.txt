@@ -1,0 +1,32 @@
+test_batch_failure_releases_siblings (test_behavior.Behavior.test_batch_failure_releases_siblings) ... FAIL
+
+======================================================================
+FAIL: test_batch_failure_releases_siblings (test_behavior.Behavior.test_batch_failure_releases_siblings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 128, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests/test_behavior.py", line 128, in run
+    await asyncio.wait_for(method(self), timeout=2)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests/test_behavior.py", line 121, in test_batch_failure_releases_siblings
+    self.assertEqual(callers,[]); self.assertEqual(service.pending_count,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: Lists differ: [<Task pending name='Task-5' coro=<RecordS[779 chars]395>] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+<Task pending name='Task-5' coro=<RecordService.get() running at /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/faulty/batch_sibling_leak/record_service.py:30> wait_for=<Future pending cb=[shield.<locals>._outer_done_callback() at /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/tasks.py:993, Task.task_wakeup()] created at /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:459> cb=[gather.<locals>._done_callback() at /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/tasks.py:812] created at /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/tasks.py:395>
+
+Diff is 834 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (failures=1)

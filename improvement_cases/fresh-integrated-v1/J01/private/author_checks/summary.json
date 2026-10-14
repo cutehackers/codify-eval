@@ -1,0 +1,49 @@
+{
+  "status": "authored_unqualified",
+  "kind": "preliminary_host_checks_not_independent_qualification",
+  "runs": [
+    {
+      "variant": "reference",
+      "exit_code": 0,
+      "log": "reference.log"
+    },
+    {
+      "variant": "stub",
+      "exit_code": 1,
+      "log": "stub.log"
+    },
+    {
+      "variant": "N01",
+      "exit_code": 1,
+      "log": "N01.log"
+    },
+    {
+      "variant": "N02",
+      "exit_code": 1,
+      "log": "N02.log"
+    },
+    {
+      "variant": "N03",
+      "exit_code": 1,
+      "log": "N03.log"
+    },
+    {
+      "variant": "N04",
+      "exit_code": 1,
+      "log": "N04.log"
+    }
+  ],
+  "expected_public_test_count": 2,
+  "expected_private_test_count": 31,
+  "reference_pass_count": 33,
+  "negative_assertion_failure_counts": {
+    "N01": 2,
+    "N02": 2,
+    "N03": 9,
+    "N04": 2
+  },
+  "negative_compile_or_infrastructure_failures": false,
+  "independent_qualification": "pending",
+  "actual_model_runs": 0,
+  "docker_runs": 0
+}

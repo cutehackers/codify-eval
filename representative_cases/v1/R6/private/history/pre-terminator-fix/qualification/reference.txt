@@ -1,0 +1,17 @@
+test_calls_are_independent (test_behavior.BatchChecks.test_calls_are_independent) ... ok
+test_empty_and_all_invalid (test_behavior.BatchChecks.test_empty_and_all_invalid) ... ok
+test_errors_duplicates_and_rejected_rows_do_not_reserve (test_behavior.BatchChecks.test_errors_duplicates_and_rejected_rows_do_not_reserve) ... ok
+test_injected_parser_single_call_physical_positions (test_behavior.BatchChecks.test_injected_parser_single_call_physical_positions) ... ok
+test_summary_integration_sorted_exact_and_json (test_behavior.BatchChecks.test_summary_integration_sorted_exact_and_json) ... ok
+test_unexpected_parser_exception_propagates (test_behavior.BatchChecks.test_unexpected_parser_exception_propagates) ... ok
+test_csv_quotes_trim_line_number_and_decimal (test_behavior.ParserChecks.test_csv_quotes_trim_line_number_and_decimal) ... ok
+test_field_count_and_csv_syntax (test_behavior.ParserChecks.test_field_count_and_csv_syntax) ... ok
+test_ids_ascii_and_length (test_behavior.ParserChecks.test_ids_ascii_and_length) ... ok
+test_price_format_and_limits (test_behavior.ParserChecks.test_price_format_and_limits) ... ok
+test_quantity_limits_and_ascii (test_behavior.ParserChecks.test_quantity_limits_and_ascii) ... ok
+test_validation_precedence (test_behavior.ParserChecks.test_validation_precedence) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+OK

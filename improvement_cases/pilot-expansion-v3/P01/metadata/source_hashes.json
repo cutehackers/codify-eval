@@ -1,0 +1,25 @@
+{
+  "algorithm": "sha256",
+  "status": "source_only_not_execution",
+  "files": {
+    "metadata/coverage.json": "591d23f332120b7fce022a54e63aab3698a5bd09e75cc99ecc2e3bd7d79b6903",
+    "metadata.json": "ea57a1b08bc011971dbacb4e11425da82fc4236806c3ab52409257fbd7dfb31a",
+    "negative/N01/lib/batch_service.dart": "123a05bfc726919a8a8139b222dda0e8a50ffea5fee9df1c1603dfb282d2c1a2",
+    "negative/N01/lib/batch_validator.dart": "575d156b1ee3991786abdd196809db488009c4370321bef93bcc7b4073d39e94",
+    "negative/N02/lib/batch_service.dart": "e1da585a43b8738f24d0a4ccd62ee919d282979138c4069188c7c716b805531f",
+    "negative/N02/lib/batch_validator.dart": "575d156b1ee3991786abdd196809db488009c4370321bef93bcc7b4073d39e94",
+    "negative/N03/lib/batch_service.dart": "4b43857e0026a9ffb5e00f06baa2ae27843332a22a4e783475a69190de8aba97",
+    "negative/N03/lib/batch_validator.dart": "575d156b1ee3991786abdd196809db488009c4370321bef93bcc7b4073d39e94",
+    "oracle/test/acceptance_test.dart": "a578b21ac920ffde9e4284f6c4e81e7d62bd1e79051369e92feedf91f448d2ef",
+    "reference/lib/batch_service.dart": "0db517a3e1d57cbb45ce262ee7b628b88f985074c045143e3ec04c521fe03fa8",
+    "reference/lib/batch_validator.dart": "575d156b1ee3991786abdd196809db488009c4370321bef93bcc7b4073d39e94",
+    "repo/README.md": "a73d5f1b8cccdfe7674cfa9249b385fab9ff9d39a3f94fcb87af827f31ac887c",
+    "repo/lib/batch_service.dart": "2a27f4e31fc84214e4adf9b3ab0c7313e15696e6f95f67a523d7a03b1ca6203f",
+    "repo/lib/batch_validator.dart": "0f1d68c0e690b32662a56cf1e6bd81384e1a8f3d64b505dcd87e4a39b2eccd61",
+    "repo/lib/contracts.dart": "870617ac3c570f35a8e450fe07d963720d472a19cb48a4acb03dc7e7da3a7ffb",
+    "repo/pubspec.yaml": "b44379b05059a29712b5e420d8d17e9d47194284d64d52735f2b983eb2a87c06",
+    "repo/test/smoke_test.dart": "a4aed51ad42e44140a376af8074ff0dd44cf42539a988582d62e77b27de7595a",
+    "repo/test/support.dart": "a6f4c50daf7db8610eb5bccb743490d8a294165a12fa2486145149babf0758d5",
+    "task.md": "090cefcfc1f2132ffde286f76bca45b36b750a16bd6ae8e891eb271c92d3b209"
+  }
+}

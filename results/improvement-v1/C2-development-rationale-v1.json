@@ -1,0 +1,29 @@
+{
+  "status": "development_draft_not_frozen_not_installed",
+  "candidate": "C2",
+  "base": "C1",
+  "superiority_proven": false,
+  "evidence_basis": "D01/D02 exploratory original actor receipts, not Q solutions or outcomes",
+  "changes": [
+    "Batch independent discovery and require a specific unresolved question for further reads.",
+    "Make delivery reference conditional on a real verification gap or sustained slices, while keeping essential authorization/persistence/recovery checks in the entrypoint."
+  ],
+  "risk": "Reference loading may still be necessary; caller must load when entrypoint/repository evidence cannot establish required verification. No acceptance, contract gates, question choices or required behavioral checks removed.",
+  "immutable_refs_from_C1": {
+    "references/specification.md": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+    "references/orchestration.md": "76780f8502d795929317d7cfd7333a7d67cc3eb117144f1f35b858d23066dd26",
+    "references/delivery.md": "4cfe4036ce3e89e06747dcb157ac8cb7a2d7709a3e4b33ade991887fd641b406",
+    "references/intent-interview.md": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec"
+  },
+  "files": {
+    ".DS_Store": "cdd5953dcde6f8fee740b7ea84c6cb4d576745892be9d45a021887055351936d",
+    "SKILL.md": "0aadc4a6df7e2bb35504a5ffeacb11bde79e31a28edd363a1288ca5fa6986277",
+    "references/specification.md": "04a0b32e538e111be1b0afb49a5097e99a4c6c908858b69fc4627c6b088dd2d6",
+    "references/orchestration.md": "76780f8502d795929317d7cfd7333a7d67cc3eb117144f1f35b858d23066dd26",
+    "references/delivery.md": "4cfe4036ce3e89e06747dcb157ac8cb7a2d7709a3e4b33ade991887fd641b406",
+    "references/intent-interview.md": "4487ed380be5134e6a7dafbd3e25d873f73794a21fb3defbcf69a3effe189cec",
+    "agents/openai.yaml": "6857085f350695b69ae94634f37d34d81ea917e0dba028cdb23e311075d5de20"
+  },
+  "model": "gpt-6.1-sol",
+  "effort": "medium"
+}

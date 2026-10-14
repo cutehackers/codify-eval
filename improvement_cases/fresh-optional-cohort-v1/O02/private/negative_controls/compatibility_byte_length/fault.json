@@ -1,0 +1,6 @@
+{
+  "fault_category": "compatibility",
+  "changed_file": "lib/export_encoding.dart",
+  "independent_fault": "compatibility_byte_length",
+  "expected": "assertion_failure_not_compile_error"
+}

@@ -1,0 +1,188 @@
+{
+  "id": "Q06",
+  "status": "authored_unqualified",
+  "language": "Dart service usable from Flutter",
+  "editable_files": [
+    "repo/lib/implementation.dart"
+  ],
+  "protected_files": [
+    "repo/pubspec.yaml",
+    "repo/lib/models.dart",
+    "repo/test/contract_test.dart"
+  ],
+  "agent_mounts": [
+    "public/request.md",
+    "repo/"
+  ],
+  "private_never_mounted": true,
+  "public_test_count": 10,
+  "private_test_count": 3,
+  "full_test_count": 13,
+  "test_provenance": {
+    "P01": [
+      "C04",
+      "C05",
+      "C06"
+    ],
+    "P02": [
+      "C01"
+    ],
+    "P03": [
+      "C01"
+    ],
+    "P04": [
+      "C02"
+    ],
+    "P05": [
+      "C02"
+    ],
+    "P06": [
+      "C03"
+    ],
+    "P07": [
+      "C04"
+    ],
+    "P08": [
+      "C05",
+      "C07"
+    ],
+    "P09": [
+      "C07"
+    ],
+    "P10": [
+      "C04",
+      "C07"
+    ],
+    "A01": [
+      "C05",
+      "C06",
+      "user_reply"
+    ],
+    "A02": [
+      "C06",
+      "C07",
+      "user_reply"
+    ],
+    "A03": [
+      "user_reply"
+    ]
+  },
+  "negative_controls": {
+    "N01": {
+      "defect": "Edit authorization reduced to workspace existence",
+      "expected_failing_tests": [
+        "P02"
+      ],
+      "observed_host_failed_test_ids": [
+        "P02"
+      ]
+    },
+    "N02": {
+      "defect": "Notes mutated before atomic apply",
+      "expected_failing_tests": [
+        "P09"
+      ],
+      "observed_host_failed_test_ids": [
+        "P09"
+      ]
+    },
+    "N03": {
+      "defect": "Duplicate-ID set and validation omitted",
+      "expected_failing_tests": [
+        "P06"
+      ],
+      "observed_host_failed_test_ids": [
+        "P06"
+      ],
+      "revision": "v2"
+    },
+    "N04": {
+      "defect": "Conflicting existing notes overwritten",
+      "expected_failing_tests": [
+        "A01",
+        "A02",
+        "A03"
+      ],
+      "observed_host_failed_test_ids": [
+        "A01",
+        "A02",
+        "A03"
+      ]
+    }
+  },
+  "reference_install": "Copy private/reference.dart to repo/lib/implementation.dart for qualification only. Copy private/acceptance_test.dart to repo/test/acceptance_test.dart for full checks. Negative controls use the same replacement. Restore the starting stub and remove acceptance tests afterward. Private files must never enter the agent mount.",
+  "question_evaluation": "Track semantic policy resolution, unnecessary/repeated questions and edit chronology separately. Public-contract implementation before the reply is allowed. No exact question wording is required. A matching unsupported guess is not a resolved policy choice.",
+  "fixed_reply_source": "Own proposal-v2.json, evaluator_only.fixed_reply, verbatim",
+  "cohort_retention": "Both tasks retained regardless of baseline outcomes",
+  "sha256_inventory": {
+    "authoring-provenance.json": "f52514a9db65d54c856f66af9654546e1bde3ec64fc0fa082da3f88fe6270156",
+    "private/acceptance_test.dart": "826d7c77a8690a2f81c7534c1cc4f331718d5a334c77dd24fb388ed93d7ebdf7",
+    "private/fixed-reply.txt": "ca6a5e1660cf7f6f44b8f748204065fde3b0aa5a2b8a9ac5194b40cf4f280060",
+    "private/historical/v1/N03.dart": "4933ee28b12baff8f1efaf8eabbb8b5c2c9be7e01a3cd6c1e2b61fa78fe0bf26",
+    "private/historical/v1/authoring-provenance.json": "0fc5e9473a5d1c81402de2f626662e3fda8e8767727be666b059593b382b546f",
+    "private/historical/v1/metadata.json": "1b51bb169c53377dc23d8d12ce7ad761dc2ec283c79e98d50686b8ac0bc069f4",
+    "private/historical/v1/preliminary-logs/N01-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/historical/v1/preliminary-logs/N01-full.log": "5c9670b03497e1cd7302085d71f6609b2d302e692fe7fa261719f34fa9374a0f",
+    "private/historical/v1/preliminary-logs/N02-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/historical/v1/preliminary-logs/N02-full.log": "eb00f892c35f84b1c8f4f1eaf94e11706aa9f3ecaa0fbf5c5362a814195358c9",
+    "private/historical/v1/preliminary-logs/N03-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/historical/v1/preliminary-logs/N03-full.log": "e34608a6f230e27d850567190ab02bb1d07c59bcfdfed11e323865e45abbc2d5",
+    "private/historical/v1/preliminary-logs/N04-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/historical/v1/preliminary-logs/N04-full.log": "7c8aafe0d34270cd599ebd8766f407ff89699be50c29e500298b629abc9413a7",
+    "private/historical/v1/preliminary-logs/offline-resolve.log": "b926bac492429b5df3df4c7c7d2164e10babba9524d97e6ec53cd947426ee3f2",
+    "private/historical/v1/preliminary-logs/reference-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/historical/v1/preliminary-logs/reference-full.log": "a834f23acffa47d8c5b6efb26a7c29149eec8c54c8cd43360e2f2c890cc7d825",
+    "private/historical/v1/preliminary-logs/starting-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/historical/v1/preliminary-logs/starting-public.log": "44cae39c495e0f0d95aba49a94766e4c263402a7a30c000e920441cdc5e611db",
+    "private/historical/v1/preliminary-logs/summary.json": "8e40a747ad955a24535d4dd2bedaf0da767a43801e8fcc4ad742bb588b7713ee",
+    "private/historical/v1/sha256-manifest.json": "b60e1721fa30e804ee5551c24a57e61d5a2e2750640900bd399395276e20baef",
+    "private/negative-controls/N01.dart": "917f18d9d89fd7a0f544b2005663c71cd19ab3626dd049a1d9cc144c13503c4e",
+    "private/negative-controls/N02.dart": "38f31e14656b407189497047ddbd8998f33f818411a04fea4e6e305d2078d8f3",
+    "private/negative-controls/N03.dart": "b5dddc3fd221075fd24b46e85e16ef9cb6672b346ac133d769aa1041a4a701ad",
+    "private/negative-controls/N04.dart": "b10907da9f4bfc5ea17a78f4345f04439f51c3cc769029ddfda13acc49192598",
+    "private/preliminary-host-artifacts-revision-v2.tar.gz": "775dd5176fb0842fd2bacee5f6c8f6e613c551d1bdb80373036279e914aafa34",
+    "private/preliminary-host-artifacts.tar.gz": "321cda4e32eb5d0467d2d4eb5d3d3b8ac3844a1dafc4e9b1a405d73e3480db24",
+    "private/preliminary-logs/N01-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/N01-full.log": "5c9670b03497e1cd7302085d71f6609b2d302e692fe7fa261719f34fa9374a0f",
+    "private/preliminary-logs/N02-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/N02-full.log": "eb00f892c35f84b1c8f4f1eaf94e11706aa9f3ecaa0fbf5c5362a814195358c9",
+    "private/preliminary-logs/N03-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/N03-full.log": "e34608a6f230e27d850567190ab02bb1d07c59bcfdfed11e323865e45abbc2d5",
+    "private/preliminary-logs/N04-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/N04-full.log": "7c8aafe0d34270cd599ebd8766f407ff89699be50c29e500298b629abc9413a7",
+    "private/preliminary-logs/offline-resolve.log": "b926bac492429b5df3df4c7c7d2164e10babba9524d97e6ec53cd947426ee3f2",
+    "private/preliminary-logs/reference-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/reference-full.log": "a834f23acffa47d8c5b6efb26a7c29149eec8c54c8cd43360e2f2c890cc7d825",
+    "private/preliminary-logs/revision-v2/N03-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/revision-v2/N03-full.log": "e34608a6f230e27d850567190ab02bb1d07c59bcfdfed11e323865e45abbc2d5",
+    "private/preliminary-logs/revision-v2/offline-resolve.log": "b926bac492429b5df3df4c7c7d2164e10babba9524d97e6ec53cd947426ee3f2",
+    "private/preliminary-logs/revision-v2/summary.json": "f12a9d7feeff69fcc13b3a9684ea0c588b9e3aa853e618e3f7d19154969c1178",
+    "private/preliminary-logs/starting-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/starting-public.log": "44cae39c495e0f0d95aba49a94766e4c263402a7a30c000e920441cdc5e611db",
+    "private/preliminary-logs/summary.json": "8e40a747ad955a24535d4dd2bedaf0da767a43801e8fcc4ad742bb588b7713ee",
+    "private/reference.dart": "6839582160790df0aa4ca13b200e8dbbad68a13d983442b675dcef88ce0370cf",
+    "public/request.md": "042e9ad9d92a1803fb330d1a9bc12c6ab6ba86686bc729c092827a3b9ce65217",
+    "repo/lib/implementation.dart": "0b74bd361be4d346cd36e9438d9f850e86aab2111ae7c73281982ee96bd2c195",
+    "repo/lib/models.dart": "9b7ee6d93b926f3487954ac4023c1c8e335814923d467dd2812d6974dc22be15",
+    "repo/pubspec.yaml": "a88b19e2b57c23bed803608bcb499d012d128fd74b7394eaba4dcaafbb3c29d7",
+    "repo/test/contract_test.dart": "ec4d967b028243098e647444cfbfd1eb5532ef04220eac7ef60b2d24d6af9753"
+  },
+  "host_preliminary": {
+    "qualification": false,
+    "starting_stub_public_failures": 10,
+    "reference_full_pass_count": 13,
+    "all_reference_and_negative_analyzer_exit_codes": 0,
+    "negative_controls_fail_behaviorally": 4,
+    "summary": "private/preliminary-logs/summary.json",
+    "retained_failures": "Starting stub and all negative controls are expected failures. No unexpected compiler/analyzer/reference test failure observed."
+  },
+  "inventory_rule": "SHA-256 of every fixture file other than the top-level metadata.json itself, including historical metadata and all revision evidence. Compressed host artifacts are evidence only and never mounted. Authoring inventory, not frozen qualification.",
+  "historical_notes": {
+    "v1": "private/historical/v1 preserves original N03, all preliminary logs, metadata including prior inventory, provenance and a snapshot hash manifest. Copied and made read-only before replacement. Original preliminary logs remain unchanged.",
+    "v2": "Only N03 changed in each fixture. New analyzer/full-test evidence and host artifacts have distinct revision-v2 paths. No reference/other-control checks rerun.",
+    "new_evidence": "private/preliminary-logs/revision-v2/summary.json",
+    "current_N03_sha256": "b5dddc3fd221075fd24b46e85e16ef9cb6672b346ac133d769aa1041a4a701ad",
+    "historical_N03_sha256": "4933ee28b12baff8f1efaf8eabbb8b5c2c9be7e01a3cd6c1e2b61fa78fe0bf26",
+    "exact_failure_ids_preserved": true
+  }
+}

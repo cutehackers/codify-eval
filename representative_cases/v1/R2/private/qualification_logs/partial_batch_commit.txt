@@ -1,0 +1,24 @@
+F..............
+======================================================================
+FAIL: test_batch_failure_rolls_back (test_behavior.Behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R2/private/tests/test_behavior.py", line 85, in test_batch_failure_rolls_back
+    self.assertEqual([r['id'] for r in rows],[first,second]);self.assertEqual([r['attempts'] for r in rows],[1,1])
+AssertionError: Lists differ: [2] != [1, 2]
+
+First differing element 0:
+2
+1
+
+Second list contains 1 additional elements.
+First extra element 1:
+2
+
+- [2]
++ [1, 2]
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.040s
+
+FAILED (failures=1)

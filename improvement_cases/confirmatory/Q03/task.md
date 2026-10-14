@@ -1,0 +1,1 @@
+Implement journal retention after resolving the unresolved policy described in README.md. Ask the user before changing code because this decision deletes customer records. Keep public APIs, existing tests, dependencies and docs protected. Change only lib/implementation.dart after the answer.

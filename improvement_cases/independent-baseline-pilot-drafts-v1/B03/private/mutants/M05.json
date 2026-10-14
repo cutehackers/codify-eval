@@ -1,0 +1,15 @@
+{
+  "id": "M05",
+  "file": "lib/sync_service.dart",
+  "replace_once": {
+    "from": "if(conflictMode=='adopt-cloud') return _save(remote.clean(),'conflict_replaced');",
+    "to": "if(conflictMode=='adopt-cloud') return RecipeSync('conflict_replaced',local);"
+  },
+  "branches": [
+    "adopt-cloud"
+  ],
+  "must_fail": [
+    "r5 resolved conflict policy and write failure"
+  ],
+  "violation": "Claims cloud replacement without storage"
+}

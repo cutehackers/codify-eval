@@ -1,0 +1,22 @@
+{
+  "revision": "v1 historical immutable evidence",
+  "files": {
+    "N03.dart": "4933ee28b12baff8f1efaf8eabbb8b5c2c9be7e01a3cd6c1e2b61fa78fe0bf26",
+    "authoring-provenance.json": "0fc5e9473a5d1c81402de2f626662e3fda8e8767727be666b059593b382b546f",
+    "metadata.json": "1b51bb169c53377dc23d8d12ce7ad761dc2ec283c79e98d50686b8ac0bc069f4",
+    "preliminary-logs/N01-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "preliminary-logs/N01-full.log": "5c9670b03497e1cd7302085d71f6609b2d302e692fe7fa261719f34fa9374a0f",
+    "preliminary-logs/N02-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "preliminary-logs/N02-full.log": "eb00f892c35f84b1c8f4f1eaf94e11706aa9f3ecaa0fbf5c5362a814195358c9",
+    "preliminary-logs/N03-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "preliminary-logs/N03-full.log": "e34608a6f230e27d850567190ab02bb1d07c59bcfdfed11e323865e45abbc2d5",
+    "preliminary-logs/N04-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "preliminary-logs/N04-full.log": "7c8aafe0d34270cd599ebd8766f407ff89699be50c29e500298b629abc9413a7",
+    "preliminary-logs/offline-resolve.log": "b926bac492429b5df3df4c7c7d2164e10babba9524d97e6ec53cd947426ee3f2",
+    "preliminary-logs/reference-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "preliminary-logs/reference-full.log": "a834f23acffa47d8c5b6efb26a7c29149eec8c54c8cd43360e2f2c890cc7d825",
+    "preliminary-logs/starting-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "preliminary-logs/starting-public.log": "44cae39c495e0f0d95aba49a94766e4c263402a7a30c000e920441cdc5e611db",
+    "preliminary-logs/summary.json": "8e40a747ad955a24535d4dd2bedaf0da767a43801e8fcc4ad742bb588b7713ee"
+  }
+}

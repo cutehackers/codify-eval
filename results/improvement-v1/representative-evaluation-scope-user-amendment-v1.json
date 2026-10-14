@@ -1,0 +1,59 @@
+{
+  "authority": "Direct human choice: 대표 평가로 축소 (권장)",
+  "claims_limited_to_observed_representative_cases": true,
+  "conditions": [
+    "A no skill",
+    "C0 preserved initial baseline",
+    "C24 frozen candidate"
+  ],
+  "excluded_from_current_completion": [
+    "Original remaining18-condition matrix",
+    "Population superiority/large-sample statistical final proof",
+    "General-purpose session authentication, question-resumption and worker-tracking framework expansion"
+  ],
+  "model": "gpt-6.1-sol",
+  "no_completion_claim_from_static_checks": true,
+  "preserved_requirements": [
+    "Actual code execution and behavior tests",
+    "Applicable software security/recovery checks",
+    "Independent inspection of meaningful outcomes",
+    "Original failed attempts and current evidence",
+    "Actual scoped time and token measurement, tokens reference only",
+    "Install only verified candidate and remove owned Docker resources after use"
+  ],
+  "reasoning": "medium",
+  "recorded_at": "2026-10-14T01:48:41.766961+00:00",
+  "schema_version": 1,
+  "scope": [
+    {
+      "focus": "External input parsing, validation, permission boundaries and safe error reporting",
+      "id": "R1",
+      "kind": "coding"
+    },
+    {
+      "focus": "Persistence, idempotent retries and preservation after failed writes",
+      "id": "R2",
+      "kind": "coding"
+    },
+    {
+      "focus": "Async ordering, concurrent ownership, cancellation and failure recovery",
+      "id": "R3",
+      "kind": "coding"
+    },
+    {
+      "focus": "Ask a necessary unresolved behavior choice, then apply the supplied owner reply",
+      "id": "R4",
+      "kind": "question"
+    },
+    {
+      "focus": "Complete an explicit contract without redundant question or approval",
+      "id": "R5",
+      "kind": "question"
+    },
+    {
+      "focus": "One suitable disjoint task, useful worker contribution, integration and final verification",
+      "id": "R6",
+      "kind": "orchestration"
+    }
+  ]
+}

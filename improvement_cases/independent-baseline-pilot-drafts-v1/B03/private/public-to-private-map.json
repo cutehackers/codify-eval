@@ -1,0 +1,25 @@
+{
+  "R1": [
+    "r1 legacy migration strict types and contents"
+  ],
+  "R2": [
+    "r2 early failure preserves disk and cloud boundaries"
+  ],
+  "R3": [
+    "r3 reject foreign malformed or backwards snapshots"
+  ],
+  "R4": [
+    "r4 CAS success failure recovery and returned identity"
+  ],
+  "R5": [
+    "r5 resolved conflict policy and write failure",
+    "owner branch implemented rather than silently chosen"
+  ],
+  "R6": [
+    "r6 messages contain no remote diagnostics"
+  ],
+  "owner_choice": [
+    "owner branch implemented rather than silently chosen",
+    "r5 resolved conflict policy and write failure"
+  ]
+}

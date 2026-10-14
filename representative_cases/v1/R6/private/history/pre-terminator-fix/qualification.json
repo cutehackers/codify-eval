@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "case_id": "R6",
+  "qualified": true,
+  "editable_paths": [
+    "manifest_parser.py",
+    "batch_processor.py",
+    "manifest.py"
+  ],
+  "expected_private_tests": 12,
+  "expected_public_tests": 2,
+  "private_test_command": "PYTHONPATH=<target> python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests -p 'test_*.py'",
+  "coverage": [
+    "strict quoted CSV and trimming",
+    "CSV syntax field count newline",
+    "ASCII ID limits",
+    "quantity ASCII range",
+    "price format exact Decimal bounds",
+    "error precedence",
+    "injected interface physical line numbers",
+    "duplicates error continuation rejected key behavior",
+    "unexpected failures propagate",
+    "invocation isolation",
+    "empty invalid batch",
+    "summary ordering fixed cents JSON integration"
+  ],
+  "runs": [
+    {
+      "name": "stub",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/public python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/public -p test_smoke.py -v",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/stub.txt",
+      "executed_tests": 2
+    },
+    {
+      "name": "reference",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/reference python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests -p test_*.py -v",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 0,
+      "status": "pass",
+      "output": "private/qualification/reference.txt",
+      "executed_tests": 12
+    },
+    {
+      "name": "reference_smoke",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/reference python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/reference -p test_smoke.py -v",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 0,
+      "status": "pass",
+      "output": "private/qualification/reference_smoke.txt",
+      "executed_tests": 2
+    },
+    {
+      "name": "duplicate_sku_only",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/faulty/duplicate_sku_only:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests python3 -B -m unittest -v test_behavior.BatchChecks.test_errors_duplicates_and_rejected_rows_do_not_reserve",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/duplicate_sku_only.txt",
+      "discriminating_test": "test_errors_duplicates_and_rejected_rows_do_not_reserve",
+      "executed_tests": 1
+    },
+    {
+      "name": "compact_line_numbers",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/faulty/compact_line_numbers:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests python3 -B -m unittest -v test_behavior.BatchChecks.test_injected_parser_single_call_physical_positions",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/compact_line_numbers.txt",
+      "discriminating_test": "test_injected_parser_single_call_physical_positions",
+      "executed_tests": 1
+    },
+    {
+      "name": "swallow_parser_bug",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/faulty/swallow_parser_bug:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests python3 -B -m unittest -v test_behavior.BatchChecks.test_unexpected_parser_exception_propagates",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/swallow_parser_bug.txt",
+      "discriminating_test": "test_unexpected_parser_exception_propagates",
+      "executed_tests": 1
+    },
+    {
+      "name": "unbounded_quantity",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/faulty/unbounded_quantity:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests python3 -B -m unittest -v test_behavior.ParserChecks.test_quantity_limits_and_ascii",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/unbounded_quantity.txt",
+      "discriminating_test": "test_quantity_limits_and_ascii",
+      "executed_tests": 1
+    },
+    {
+      "name": "summary_unsorted",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/faulty/summary_unsorted:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests python3 -B -m unittest -v test_behavior.BatchChecks.test_summary_integration_sorted_exact_and_json",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/summary_unsorted.txt",
+      "discriminating_test": "test_summary_integration_sorted_exact_and_json",
+      "executed_tests": 1
+    },
+    {
+      "name": "wrong_error_precedence",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/faulty/wrong_error_precedence:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6/private/tests python3 -B -m unittest -v test_behavior.ParserChecks.test_validation_precedence",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R6",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/wrong_error_precedence.txt",
+      "discriminating_test": "test_validation_precedence",
+      "executed_tests": 1
+    }
+  ],
+  "limitations": [
+    "Qualification uses local CPython standard library only. No evaluated model or actual worker agents were run.",
+    "Saved mutations demonstrate selected checks, not exhaustive fault coverage."
+  ],
+  "private_paths": [
+    "private/tests",
+    "private/reference",
+    "private/faulty",
+    "private/qualification"
+  ],
+  "runtime": "CPython 3.14.6 on local macOS; fixtures require Python 3.11+",
+  "stub_scope": "Public smoke suite demonstrates the starting stub fails. Reference runs the complete private suite and public smoke suite. Faulty variants run named discriminating private tests."
+}

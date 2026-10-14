@@ -1,0 +1,12 @@
+{
+  "id": "M03",
+  "file": "lib/outbox.dart",
+  "replace_once": {
+    "from": "final result = _tail.then((_) => _flush(tenant));",
+    "to": "final result = _flush(tenant);"
+  },
+  "must_fail": [
+    "r3 serialized concurrent flush and stable scoped key"
+  ],
+  "violation": "Concurrent duplicate send"
+}

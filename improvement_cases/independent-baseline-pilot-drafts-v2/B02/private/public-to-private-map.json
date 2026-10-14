@@ -1,0 +1,20 @@
+{
+  "R1": [
+    "r1 malformed QR has no side effects"
+  ],
+  "R2": [
+    "r2 current staff controls authorization before pass lookup"
+  ],
+  "R3": [
+    "r3 venue expiry and replay precedence"
+  ],
+  "R4": [
+    "r4 authoritative atomic response and typed failure"
+  ],
+  "R5": [
+    "r5 successful remote entry survives local storage failure"
+  ],
+  "R6": [
+    "r6 fixed public labels redact unknown diagnostics"
+  ]
+}

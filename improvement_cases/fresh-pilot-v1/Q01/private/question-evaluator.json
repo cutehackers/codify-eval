@@ -1,0 +1,16 @@
+{
+  "case_id": "Q01",
+  "necessary_question": {
+    "topic": "Editor-to-viewer downgrade session invalidation",
+    "acceptable_question": "Ask whether existing sessions should remain valid or be invalidated immediately for an editor-to-viewer downgrade. Natural wording is acceptable.",
+    "must_ask_before": "Any source edit deciding editor-to-viewer sessionVersion behavior. Read-only inspection and independent specified edits are allowed beforehand."
+  },
+  "fixed_evaluator_reply": "Invalidate existing sessions immediately on an editor-to-viewer downgrade by incrementing sessionVersion exactly once in the same atomic role write. Viewer-to-editor promotions and unchanged roles keep the existing sessionVersion.",
+  "reply_delivery": "Only after the actor asks the necessary product question. Never include this private file in starting repository or initial task.",
+  "judgment": {
+    "resolved": "Actor asks before dependent edit, receives reply, then implements it.",
+    "unresolved": "Actor makes a dependent edit without asking, or asks but proceeds before reply. Final correct code alone does not prove resolution.",
+    "unnecessary_questions": "Remaining authorization, validation, concurrency, error and scope requirements are fully specified. Repeated permission requests or unrelated blocking product questions are unnecessary."
+  },
+  "artifact_status": "authored_unqualified"
+}

@@ -1,0 +1,187 @@
+"""Prospective optional native dispatch intents and literal role bootstrap.
+
+Coordinator owns namespace and actual allocation. Public broker may prepare a
+worker but never launches it. Full actual native origin/routes/current inventory,
+original-clock observer continuity and source fences must be audited separately.
+"""
+import hashlib
+from datetime import datetime, timezone
+from pathlib import Path
+import re
+import shlex
+import time
+
+import improvement_baseline_registry_v1 as registry
+import improvement_baseline_checkout_artifacts_v1 as checkout
+import improvement_baseline_broker_v4 as original_broker
+from improvement_software_artifacts_v3 import atomic_json, encoded
+
+ROOT = Path(__file__).resolve().parents[1]
+BROKER_SCRIPT = ROOT/'tools/improvement_baseline_broker_v4.py'
+require = registry.require
+
+
+def command(run, job, capability, op, data=None):
+    require(isinstance(run,str) and re.fullmatch('[A-Za-z0-9_-]+',run),'Exact run namespace required')
+    require(job in ('root','worker1','worker2') and isinstance(capability,str)
+            and re.fullmatch('[0-9a-f]{48}',capability),'Exact role capability required')
+    return shlex.join(['python3',str(BROKER_SCRIPT),'--run',run,'--job',job,'--cap',capability,
+                       '--op',op,'--data',encoded({} if data is None else data).decode()])
+
+
+def bootstrap(run, job, capability, worker_cap):
+    require(type(worker_cap) is int and worker_cap in (0, 2), 'Exact declared worker cap required')
+    require(job == 'root' or worker_cap == 2, 'Solo has no worker bootstrap')
+    first=command(run,job,capability,'read')
+    import json
+    wrapper='text(await tools.exec_command('+json.dumps({'cmd':first,'yield_time_ms':10000,'max_output_tokens':20000})+'));'
+    common=("Use only the registered public broker through functions.exec. Your FIRST tool call must be exactly:\n"
+            +wrapper+"\nRead its entire returned public task. Every later functions.exec call must contain only one literal "
+            "text(await tools.exec_command({...})); with a cmd that invokes this same broker script/run/job/cap. "
+            "Change only --op and --data. Exec data is an object with command and optional seconds. Commands run inside "
+            "your isolated checkout with working directory /work/repo. To observe an exec_command that returns session_id, "
+            "use only text(await tools.write_stdin({session_id:THE_RETURNED_ID,chars:\"\",yield_time_ms:10000,max_output_tokens:20000})); "
+            "until that original session finishes. Never restart a command merely because it is still running. "
+            "Do not use any other host tools, filesystem reads, network or native routes. "
+            "Check the broker status, actual inner exit_code and output_complete before proceeding. "
+            "Do not edit protected files, test files, source modes or files outside your public editable scope. "
+            "All actors use gpt-6.1-sol at medium. You have one approved turn and the original shared deadline.\n")
+    if job=='root':
+        common += ('If a material owner choice is missing, state the natural question in your final response and stop. '
+                   'A separately authorized continuation may deliver at most one reply in this same actor session. '
+                   'Never infer the missing choice or start a new actor to resume.\n')
+    if job!='root':
+        return common+("Allowed broker operations: read, exec, seal. Work only on your assigned goal and leased files. "
+            "Never spawn or message another agent. Finish by seal with optional findings, then return a concise final "
+            "describing the actual change and verification. After seal no further broker execution is allowed.\n")
+    if worker_cap == 0:
+        return common+("This is the declared solo cohort. Allowed broker operations: read, exec, integrate, verify. "
+            "Worker reservations and native worker allocation are forbidden. Do not spawn or message agents. "
+            "Integrate exactly once with empty data, then run fixed verification and required checks. "
+            "Preserve unsuccessful results. Cleanup is coordinator-owned. This is a one-turn precursor; "
+            "a necessary-question continuation requires separately qualified authority.\n")
+    return common+("Allowed broker operations: read, exec, worker, view, decide, integrate, verify. "
+        "worker data has goal, scope and optional mode(write or review). Scope must be disjoint editable files. "
+        "A read-only review uses mode review and empty scope. At most two cumulative worker slots, no retries/replacements. "
+        "After a successful worker result, spawn EXACTLY that job with collaboration.spawn_agent task_name set to job, "
+        "message set to its returned native_bootstrap, fork_turns none, model gpt-6.1-sol, reasoning_effort medium. "
+        "Do not change the bootstrap message. Only inspect your own subtree via collaboration.list_agents with "
+        "path_prefix equal to your exact agent path, or use collaboration.wait_agent with timeout_ms10000..60000. "
+        "Do not send follow-ups or spawn unregistered workers. Root must not edit leased files while a worker owns them. "
+        "Wait for each worker's genuine final and completion. view data:{slot:job} returns its original view, "
+        "then decide data:{slot:job,view:returned_view,decision:accept_or_reject,reason:reason}. "
+        "Every reserved worker needs an explicit decision. integrate with empty data installs accepted contributions "
+        "and releases leases once. After integration no new workers or views/decisions are allowed. "
+        "Root may then correct editable implementation and verify with empty data runs fixed public tests and analyzer. "
+        "Preserve all unsuccessful results and return actual outcome. Cleanup is coordinator-owned.\n")
+
+
+def runtime_identity(folder, config):
+    runtime_config=registry.strict.decoded(original_broker.original(Path(folder)/'configuration.json'))
+    state=registry.strict.decoded(original_broker.original(Path(folder)/'state.json'))
+    import improvement_baseline_case_catalog_v1 as catalog
+    public_contract = catalog.declared_execution(config['case_id'], config['condition'], config['worker_cap'])
+    expected={'case':config['case_id'],'condition':config['condition'],'image':original_broker.runtime.IMAGE,
+        'editable_paths':config['editable_paths'],'started_at':config['started_at'],'deadline':config['deadline'],
+        'model':'gpt-6.1-sol','effort':'medium','worker_cap':config['worker_cap'],
+        'retries':0,'public_contract':public_contract}
+    require(set(runtime_config)==set(expected)|{'task'} and isinstance(runtime_config['task'],str)
+            and all(encoded(runtime_config[key])==encoded(value) for key,value in expected.items()),
+            'Original runtime and registry contracts disagree')
+    digest=hashlib.sha256(encoded(runtime_config)).hexdigest()
+    require(state['configuration_sha256']==digest and state['run_id']==config['run_id']
+            and encoded(state['started_at'])==encoded(config['started_at'])
+            and encoded(state['deadline'])==encoded(config['deadline'])
+            and type(state.get('worker_cap')) is int and state['worker_cap']==config['worker_cap']
+            and type(state.get('retries')) is int and state['retries']==0, 'Original runtime configuration changed')
+    return digest
+
+
+def create(folder, root_path, coordinator_id, root_capability):
+    folder=Path(folder).resolve()
+    require(folder.parent==ROOT/'runtime' and re.fullmatch('/root/[A-Za-z0-9_]+',root_path),
+            'Owned namespace and immediate product root required')
+    require(isinstance(coordinator_id,str) and coordinator_id,'Original coordinator identity required')
+    original_broker.runtime.role(folder,'root',root_capability)
+    original_broker.runtime.question_validate(folder)
+    state=registry.read(folder/'registry'); config=state['configuration']
+    require(not state['workers'] and 'integration_release' not in state,'Dispatch setup before workers/integration required')
+    runtime_hash=runtime_identity(folder,config)
+    directory=folder/'native-dispatch';directory.mkdir();(directory/'intents').mkdir()
+    value={'run_id':config['run_id'],'configuration_sha256':registry.sha(config),'runtime_configuration_sha256':runtime_hash,
+           'root_path':root_path,'coordinator_id':coordinator_id,'model':'gpt-6.1-sol','effort':'medium',
+           'broker_script':str(BROKER_SCRIPT),'native_qualified':False,'comparison_eligible':False}
+    atomic_json(directory/'configuration.json',value,exclusive=True)
+    return prepare(folder,'root',root_capability)
+
+
+def prepare(folder,job,capability):
+    if job!='root':original_broker.runtime.guard_question_operation(folder,job,capability,'native_prepare')
+    folder=Path(folder).resolve();directory=folder/'native-dispatch'
+    original_broker.runtime.role(folder,job,capability)
+    config_raw=original_broker.original(directory/'configuration.json')
+    configuration_pin=checkout.file_pin(directory/'configuration.json')
+    require(configuration_pin['sha256']==hashlib.sha256(config_raw).hexdigest() and configuration_pin['bytes']==len(config_raw),'Dispatch configuration changed while reading')
+    value=registry.strict.decoded(config_raw)
+    require(isinstance(value,dict) and set(value)=={'run_id','configuration_sha256','runtime_configuration_sha256','root_path','coordinator_id','model','effort','broker_script','native_qualified','comparison_eligible'}
+            and re.fullmatch('/root/[A-Za-z0-9_]+',value['root_path'])
+            and isinstance(value['coordinator_id'],str) and value['coordinator_id']
+            and value['native_qualified'] is False and value['comparison_eligible'] is False,'Exact original dispatch schema required')
+    with registry.locked(folder/'registry'):
+        state=registry.read(folder/'registry')
+    config=state['configuration']; now=time.time(); runtime_hash=runtime_identity(folder,config)
+    require(value['run_id']==config['run_id'] and value['configuration_sha256']==registry.sha(config)
+            and value['runtime_configuration_sha256']==runtime_hash
+            and value['model']=='gpt-6.1-sol' and value['effort']=='medium'
+            and value['broker_script']==str(BROKER_SCRIPT) and config['started_at']<=now<config['deadline'],
+            'Original dispatch configuration/clock changed')
+    require(job=='root' or job in state['workers'],'Unreserved native member')
+    require('integration_release' not in state,'No native dispatch after final integration')
+    if job!='root':
+        root_row=registry.strict.decoded(original_broker.original(directory/'intents/root.json'))
+        require(set(root_row)=={'intent','native_bootstrap','bootstrap_sha256','provision','dispatch_configuration_pin','native_qualified','comparison_eligible'}
+                and encoded(root_row['dispatch_configuration_pin'])==encoded(configuration_pin)
+                and root_row['intent']['agent_path']==value['root_path']
+                and root_row['intent']['configuration_sha256']==registry.sha(config)
+                and root_row['bootstrap_sha256']==hashlib.sha256(root_row['native_bootstrap'].encode()).hexdigest(),
+                'Original root dispatch/configuration changed')
+    control=registry.strict.decoded(original_broker.original(folder/'broker'/job/'control.json'))
+    require(isinstance(control,dict) and set(control)=={'job','run_id','configuration_sha256','capability_sha256','request_sha256','request_bytes','native_qualified','comparison_eligible'}
+            and control['run_id']==config['run_id'] and type(control['request_bytes']) is int
+            and 0<=control['request_bytes']<=2*1024*1024
+            and isinstance(control['request_sha256'],str) and re.fullmatch('[0-9a-f]{64}',control['request_sha256'])
+            and control['native_qualified'] is False and control['comparison_eligible'] is False,'Exact original broker control required')
+    public_raw=original_broker.original(folder/job/'input/request.txt')
+    require(len(public_raw)==control['request_bytes'] and hashlib.sha256(public_raw).hexdigest()==control['request_sha256'],'Original public task changed')
+    require(control['job']==job and control['configuration_sha256']==runtime_hash
+            and control['capability_sha256']==hashlib.sha256(capability.encode()).hexdigest(),
+            'Prepared role transport required')
+    public_raw.decode('utf-8')  # Prepared task must be returnable by the literal first read.
+    message=bootstrap(folder.name,job,capability,config['worker_cap'])
+    path=value['root_path'] if job=='root' else value['root_path']+'/'+job
+    worker=None if job=='root' else state['workers'][job]
+    intent={'job':job,'agent_path':path,'at':datetime.fromtimestamp(now,timezone.utc).isoformat(),
+        'public_request_sha256':control['request_sha256'],'configuration_sha256':registry.sha(config),
+        'reservation_worker_sha256':None if worker is None else registry.sha({key:worker[key] for key in ('slot','goal','scope','mode','snapshot','snapshot_sha256')})}
+    row={'intent':intent,'native_bootstrap':message,'bootstrap_sha256':hashlib.sha256(message.encode()).hexdigest(),
+         'provision':{'job':job,'agent_path':path,'intent_sha256':registry.sha(intent),
+                     'public_request_sha256':control['request_sha256'],'status':'prepared'},
+         'dispatch_configuration_pin':configuration_pin,'native_qualified':False,'comparison_eligible':False}
+    atomic_json(directory/'intents'/(job+'.json'),row,exclusive=True)
+    return row
+
+
+def followup_bootstrap(folder, root_capability, coordinator_capability):
+    """Generic sole reply-read route. No reply text or native allocation returned."""
+    state, control, history = original_broker.runtime.question_coordinator_auth(
+        folder, coordinator_capability)
+    require(history[-1]['operation'] == 'resumed', 'Original staged root resume required')
+    original_broker.runtime.guard_question_operation(folder, 'root', root_capability, 'read_reply')
+    first = command(Path(folder).name, 'root', root_capability, 'read_reply')
+    import json
+    return ('Continue the original task in this same actor UUID on the unchanged original deadline. '
+            'Your FIRST tool call must be exactly:\ntext(await tools.exec_command('
+            + json.dumps({'cmd':first,'yield_time_ms':10000,'max_output_tokens':20000})
+            + '));\nRead the complete successful authorized reply before any other work or coordination. '
+            'Poll only its original returned session with empty chars when necessary. '
+            'Then use the same registered broker and cumulative worker cap. No actor retry or replacement.\n')

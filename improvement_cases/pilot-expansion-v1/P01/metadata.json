@@ -1,0 +1,69 @@
+{
+  "id": "P01",
+  "version": "pilot-expansion-v1",
+  "framework": "flutter",
+  "language": "dart",
+  "purpose": "Offline multi-module atomic transfer batching with authorization, idempotent recovery and concurrent service instances",
+  "scope": "domain/service only",
+  "allowed_paths": [
+    "lib/batch_service.dart",
+    "lib/batch_validator.dart"
+  ],
+  "protected_paths": [
+    "README.md",
+    "pubspec.yaml",
+    "lib/contracts.dart",
+    "test/support.dart",
+    "test/smoke_test.dart"
+  ],
+  "public_repo": "repo",
+  "task": "task.md",
+  "reference_overlay": "reference",
+  "oracle_tests": "oracle/test",
+  "negative_variants": [
+    "N01",
+    "N02",
+    "N03"
+  ],
+  "negative_overlay_paths": {
+    "N01": "negative/N01",
+    "N02": "negative/N02",
+    "N03": "negative/N03"
+  },
+  "oracle_test_count": 27,
+  "qualification": {
+    "status": "constructed_not_run",
+    "compile": "not_run",
+    "public_smoke": "not_run",
+    "reference": "not_run",
+    "negative_discrimination": "not_run",
+    "reason": "worker authorized for source construction only"
+  },
+  "construction_inputs": [
+    "Repository AGENTS.md",
+    "confirmatory/Q02/repo/pubspec.yaml (package template only)",
+    "Parent task specification"
+  ],
+  "construction_exclusions": [
+    "Q01 and Q02 tasks, implementations and outcomes",
+    "Candidate skills",
+    "Historical failures",
+    "Existing oracle/reference/negative sources",
+    "Actor outcomes",
+    "Runtime/container inspection",
+    "Model or helper invocation",
+    "Tool or runner modifications"
+  ],
+  "confirmation_policy": {
+    "pilot_used": true,
+    "exclude_from_primary_confirmation": true
+  },
+  "guarantees_excluded": [
+    "GUI",
+    "device",
+    "network provider",
+    "production"
+  ],
+  "coverage_map": "metadata/coverage.json",
+  "source_hash_manifest": "metadata/source_hashes.json"
+}

@@ -1,0 +1,152 @@
+{
+  "id": "Q05",
+  "status": "authored_unqualified",
+  "language": "Dart service usable from Flutter",
+  "editable_files": [
+    "repo/lib/implementation.dart"
+  ],
+  "protected_files": [
+    "repo/pubspec.yaml",
+    "repo/lib/models.dart",
+    "repo/test/contract_test.dart"
+  ],
+  "agent_mounts": [
+    "public/request.md",
+    "repo/"
+  ],
+  "private_never_mounted": true,
+  "public_test_count": 8,
+  "private_test_count": 3,
+  "full_test_count": 11,
+  "test_provenance": {
+    "P01": [
+      "C05",
+      "C06"
+    ],
+    "P02": [
+      "C01"
+    ],
+    "P03": [
+      "C01"
+    ],
+    "P04": [
+      "C02"
+    ],
+    "P05": [
+      "C03"
+    ],
+    "P06": [
+      "C04"
+    ],
+    "P07": [
+      "C04"
+    ],
+    "P08": [
+      "C07"
+    ],
+    "A01": [
+      "C06",
+      "user_reply"
+    ],
+    "A02": [
+      "C04",
+      "user_reply"
+    ],
+    "A03": [
+      "C07",
+      "user_reply"
+    ]
+  },
+  "negative_controls": {
+    "N01": {
+      "defect": "Authorization reduced to warehouse existence",
+      "expected_failing_tests": [
+        "P02"
+      ],
+      "observed_host_failed_test_ids": [
+        "P02"
+      ]
+    },
+    "N02": {
+      "defect": "Stock mutated before atomic commit",
+      "expected_failing_tests": [
+        "P08"
+      ],
+      "observed_host_failed_test_ids": [
+        "P08"
+      ]
+    },
+    "N03": {
+      "defect": "Recorded order ignored and reservation executed again",
+      "expected_failing_tests": [
+        "P06",
+        "P07",
+        "A02"
+      ],
+      "observed_host_failed_test_ids": [
+        "A02",
+        "P06",
+        "P07"
+      ]
+    },
+    "N04": {
+      "defect": "Available rows allocated despite another row shortage",
+      "expected_failing_tests": [
+        "A01",
+        "A02"
+      ],
+      "observed_host_failed_test_ids": [
+        "A01",
+        "A02"
+      ]
+    }
+  },
+  "reference_install": "Copy private/reference.dart to repo/lib/implementation.dart for qualification only. Copy private/acceptance_test.dart to repo/test/acceptance_test.dart for full checks. Negative controls use the same replacement. Restore the starting stub and remove acceptance tests afterward. Private files must never enter the agent mount.",
+  "question_evaluation": "Track semantic policy resolution, unnecessary/repeated questions and edit chronology separately. Public-contract implementation before the reply is allowed. No exact question wording is required. A matching unsupported guess is not a resolved policy choice.",
+  "fixed_reply_source": "Own proposal-v2.json, evaluator_only.fixed_reply, verbatim",
+  "cohort_retention": "Both tasks retained regardless of baseline outcomes",
+  "sha256_inventory": {
+    "authoring-provenance.json": "0fc5e9473a5d1c81402de2f626662e3fda8e8767727be666b059593b382b546f",
+    "private/acceptance_test.dart": "60d220838b391fd09e1b5ee80f1cb1686ce92794a6ce01ae9e5f38e0ac89db53",
+    "private/author_fixture.py": "807874c6acf432a5d71e7c5e2be6b963bbaa9acd896b2f5902e4601306706433",
+    "private/finalize_metadata.py": "6c52510f2771245da42bf2f0eba2a9d550667f28605a2ff85adf0bd9550c8a36",
+    "private/finish_authoring.py": "1c492f37cbce8b49c5fd80158bd2cbae70cac958c29bc90d17e92d3ca828fa77",
+    "private/fixed-reply.txt": "d28314d71e50d996296f4faab619d2729d5e11fbb34b6cfaaa9c9ca3dcdca9aa",
+    "private/negative-controls/N01.dart": "8eb6ad943c8444a460c0a5626fc0b44df37d7c7b50d7ef65bab1405f8b9e2743",
+    "private/negative-controls/N02.dart": "32fcbb58f514c36b8e224e20aa17d3b16582536a06006292556572cc8ce87088",
+    "private/negative-controls/N03.dart": "bbbac4d0b04ce6cfe8d41df029a1e28b39f8729b8623edfa0ce3cbac16b7054e",
+    "private/negative-controls/N04.dart": "7cd414d37e7270802faad33e4c84869819dc06c59521cb45f7ad12b8b5e8a762",
+    "private/preliminary-host-artifacts.tar.gz": "f40540647dfc7d048f40fb72c02a1569bece3bed7086027c301af083790257a8",
+    "private/preliminary-logs/N01-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/N01-full.log": "5718a0179b8e44ea50549abb567038285680e29abe4d509c5ff9e974f0fe3432",
+    "private/preliminary-logs/N02-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/N02-full.log": "f4f5dbec0ee47c358b0268208f73a25e9273bee2821c76ceba0e28400e0264bc",
+    "private/preliminary-logs/N03-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/N03-full.log": "c34eb8d3ffd2159a7ef76fb3a1b4aeb7661ba1218d313060295be2be585f45de",
+    "private/preliminary-logs/N04-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/N04-full.log": "b69ca0520aa296fddf509ddfae7acf3055ecb679fbf3a3b2cd9ab03e37d34421",
+    "private/preliminary-logs/offline-resolve.log": "b926bac492429b5df3df4c7c7d2164e10babba9524d97e6ec53cd947426ee3f2",
+    "private/preliminary-logs/reference-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/reference-full.log": "5b3242da423fe36034dd7799556853b4271edb034a467c727610b74d7cbbf48d",
+    "private/preliminary-logs/starting-analyze.log": "95a28819c918db92d8f3f7dfadfc18f1248f79ab8313759391ad318fe94cf093",
+    "private/preliminary-logs/starting-public.log": "74f6e2eb56b5c87691aad73bdbc44612b2d24759f29a93f593196a60042d25e3",
+    "private/preliminary-logs/summary.json": "159e40fc4d4c63225bba540ed121fdbcbb58e5f9dece2a54927e2739eb7a7ac3",
+    "private/preliminary_checks.py": "24802703c2de234c787a0b8e9cf37e5cd4fc40f8c1dca228f0a8c48259c2a68b",
+    "private/reference.dart": "952c53b59bed27cbaa3d4189bf3848448cbe2a93a54c77cffdf044f983275eea",
+    "public/request.md": "4cbed994598915f18f07e01996c058d8dfccfb223375c021eaec836203342815",
+    "repo/lib/implementation.dart": "677c38765666314ce3fce47077984b01dc4b2534e3250f3df1f3a1f972b02bb3",
+    "repo/lib/models.dart": "6a10016629ce58117b7cd5a8ec5113c27e6a680eb17f37ffa4f2b025b4e6fe4c",
+    "repo/pubspec.yaml": "a88b19e2b57c23bed803608bcb499d012d128fd74b7394eaba4dcaafbb3c29d7",
+    "repo/test/contract_test.dart": "8778d8129c1326ce4b5aac438d1c734dec60c977480126089f78c44e8b0d6ac6"
+  },
+  "host_preliminary": {
+    "qualification": false,
+    "starting_stub_public_failures": 8,
+    "reference_full_pass_count": 11,
+    "all_reference_and_negative_analyzer_exit_codes": 0,
+    "negative_controls_fail_behaviorally": 4,
+    "summary": "private/preliminary-logs/summary.json",
+    "retained_failures": "Starting stub and all negative controls are expected failures. No unexpected compiler/analyzer/reference test failure observed."
+  },
+  "inventory_rule": "SHA-256 of every fixture file other than metadata.json itself. Private compressed host artifacts are included by archive hash; they are evidence only and never mounted. This is authoring inventory, not a frozen qualification claim."
+}

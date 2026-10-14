@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "case_id": "R3",
+  "qualified": true,
+  "editable_paths": [
+    "record_service.py"
+  ],
+  "expected_private_tests": 12,
+  "expected_public_tests": 1,
+  "private_test_command": "PYTHONPATH=<target> python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests -p 'test_*.py'",
+  "coverage": [
+    "same-key ownership",
+    "different-key concurrency and input order",
+    "caller cancellation isolation",
+    "single caller cancellation retains ownership",
+    "failure fanout and retry",
+    "success is not cached and pending count",
+    "close cancels and waits",
+    "concurrent close cleanup barrier",
+    "closed rejection including empty batches",
+    "empty batch",
+    "batch cancellation caller cleanup",
+    "batch failure sibling cleanup"
+  ],
+  "runs": [
+    {
+      "name": "stub",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/public python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/public -p test_smoke.py -v",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/stub.txt",
+      "executed_tests": 1
+    },
+    {
+      "name": "reference",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/reference python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests -p test_*.py -v",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3",
+      "exit_code": 0,
+      "status": "pass",
+      "output": "private/qualification/reference.txt",
+      "executed_tests": 12
+    },
+    {
+      "name": "reference_smoke",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/reference python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/reference -p test_smoke.py -v",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3",
+      "exit_code": 0,
+      "status": "pass",
+      "output": "private/qualification/reference_smoke.txt",
+      "executed_tests": 1
+    },
+    {
+      "name": "unshielded_wait",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/faulty/unshielded_wait:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests python3 -B -m unittest -v test_behavior.Behavior.test_cancel_one_preserves_other",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/unshielded_wait.txt",
+      "discriminating_test": "test_cancel_one_preserves_other",
+      "executed_tests": 1
+    },
+    {
+      "name": "cache_completed_failure",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/faulty/cache_completed_failure:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests python3 -B -m unittest -v test_behavior.Behavior.test_failure_fanout_and_immediate_retry",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/cache_completed_failure.txt",
+      "discriminating_test": "test_failure_fanout_and_immediate_retry",
+      "executed_tests": 1
+    },
+    {
+      "name": "empty_closed_allowed",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/faulty/empty_closed_allowed:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests python3 -B -m unittest -v test_behavior.Behavior.test_closed_rejects_all_new_calls",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/empty_closed_allowed.txt",
+      "discriminating_test": "test_closed_rejects_all_new_calls",
+      "executed_tests": 1
+    },
+    {
+      "name": "batch_sibling_leak",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/faulty/batch_sibling_leak:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests python3 -B -m unittest -v test_behavior.Behavior.test_batch_failure_releases_siblings",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/batch_sibling_leak.txt",
+      "discriminating_test": "test_batch_failure_releases_siblings",
+      "executed_tests": 1
+    },
+    {
+      "name": "concurrent_close_returns_early",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/faulty/concurrent_close_returns_early:/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3/private/tests python3 -B -m unittest -v test_behavior.Behavior.test_concurrent_close_waits_for_cleanup",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R3",
+      "exit_code": 1,
+      "status": "fail",
+      "output": "private/qualification/concurrent_close_returns_early.txt",
+      "discriminating_test": "test_concurrent_close_waits_for_cleanup",
+      "executed_tests": 1
+    }
+  ],
+  "limitations": [
+    "Qualification uses local CPython standard library only. No evaluated model or actual worker agents were run.",
+    "Saved mutations demonstrate selected checks, not exhaustive fault coverage."
+  ],
+  "private_paths": [
+    "private/tests",
+    "private/reference",
+    "private/faulty",
+    "private/qualification"
+  ],
+  "runtime": "CPython 3.14.6 on local macOS; fixtures require Python 3.11+",
+  "stub_scope": "Public smoke suite demonstrates the starting stub fails. Reference runs the complete private suite and public smoke suite. Faulty variants run named discriminating private tests."
+}

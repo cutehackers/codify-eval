@@ -1,0 +1,25 @@
+{
+  "R1": [
+    "r1 invalid requests do not touch IO"
+  ],
+  "R2": [
+    "r2 isolated directional accessible keys and API precedence"
+  ],
+  "R3": [
+    "r3 unauthorized or unsafe live routes never fallback"
+  ],
+  "R4": [
+    "r4 storage failure preserves usable live result"
+  ],
+  "R5": [
+    "r5 legacy codec types cache isolation and failures",
+    "r5 owner policy obeys inclusive age boundaries and hard ceiling"
+  ],
+  "R6": [
+    "r6 presentation redacts diagnostics and sums legs"
+  ],
+  "owner_choice": [
+    "owner branch implemented rather than implicitly guessed",
+    "r5 owner policy obeys inclusive age boundaries and hard ceiling"
+  ]
+}

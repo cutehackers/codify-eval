@@ -1,0 +1,89 @@
+{
+  "checks": {
+    "all_six_recorded_variants_unique_and_cleaned": true,
+    "diagnostic_script_hash_matches_record": true,
+    "original_frozen_grader_and_results_preserved": true,
+    "original_product_hashes_match_previous_independent_review": true,
+    "public_contract_explicitly_requires_waiting_gets_cancelled_error": true
+  },
+  "contract_assessment": {
+    "observed_A_and_C24": "Both variants deliver CancelledError to the waiting get, finish cleanup and clear pending ownership.",
+    "observed_C0": "One variant delivers the late value; the other delivers ValueError after cleanup. Both violate the waiting-get cancellation requirement.",
+    "reason": "The loader has begun, the get is waiting, close cancels the owned load, and the loader completes cooperative cleanup before returning or raising. The public contract does not require the loader to re-raise cancellation; it explicitly requires waiting gets to observe CancelledError. Both variants therefore reach the intended close contract, rather than an unrelated failure.",
+    "source_explanation": "A/C24 test closed state after shielded success and caught failure. C0 get returns the shielded outcome directly.",
+    "valid_counterexample": true
+  },
+  "evidence_entities": {
+    "results/improvement-v1/representative-R3-close-diagnostic-v1.json": {
+      "bytes": 2649,
+      "kind": "file",
+      "mode": 420,
+      "sha256": "367e60ebc1498f4b6647caa3cce0615cff142f14afdec230dc2812336aea66f9"
+    },
+    "results/improvement-v1/representative-all18-independent-outcome-review-v1.json": {
+      "bytes": 122997,
+      "kind": "file",
+      "mode": 420,
+      "sha256": "9d1232468de642d9a9b358b4b6de3a727d491bb18fe868af6d53417d035463bb"
+    },
+    "results/improvement-v1/representative-eval-v1-manifest.json": {
+      "bytes": 39146,
+      "kind": "file",
+      "mode": 420,
+      "sha256": "69f361d701455891fbc1fc45e951ce7de628acdbb84afd910cfee1f32c0c9fd0"
+    }
+  },
+  "issues": [],
+  "limitations": [
+    "Post-hoc selected diagnostic, outside frozen checks; one shutdown defect with two manifestations.",
+    "Review checked recorded evidence and source logic without rerunning the diagnostic.",
+    "The diagnostic records source immutability and no new model runs; it is not a new randomized or independent cohort."
+  ],
+  "new_model_runs": 0,
+  "original_outcome_review_unchanged": true,
+  "population_superiority_proven": false,
+  "reviewer_new_execution": false,
+  "schema_version": 1,
+  "scope": "Read-only review of the supplementary R3 diagnostic; no rerun or new evaluation.",
+  "source_entities": {
+    "representative_cases/v1/R3/public/README.md": {
+      "bytes": 2061,
+      "kind": "file",
+      "mode": 420,
+      "sha256": "fa4d125366917b417be323615d18a9233921bcbf473c5c2438a87ca8737321e6"
+    },
+    "runtime/representative-v1/R3-A-1/repo/record_service.py": {
+      "bytes": 2547,
+      "kind": "file",
+      "mode": 420,
+      "sha256": "b933d465409efcf824362f276148ac7bd819f5aca7535c7c6124334eb4b3d6be"
+    },
+    "runtime/representative-v1/R3-C0-1/repo/record_service.py": {
+      "bytes": 2441,
+      "kind": "file",
+      "mode": 420,
+      "sha256": "3e0c98b651b63e0c232293e957500bf6b05edb31741d79a0c41fef6ce17ec14b"
+    },
+    "runtime/representative-v1/R3-C24-1/repo/record_service.py": {
+      "bytes": 2818,
+      "kind": "file",
+      "mode": 420,
+      "sha256": "097581aa30e11b1e868a6171c842d0d110600826dd4c30eb9b4a91814fe44bfe"
+    },
+    "tools/representative_r3_close_diagnostic_v1.py": {
+      "bytes": 3412,
+      "kind": "file",
+      "mode": 420,
+      "sha256": "696245ebc481d3630912b3ed908b24113581d439b5db5aebe2d0be6b730bd65f"
+    }
+  },
+  "supported_claim": "These preserved R3 outputs show that C24 and A avoid the specific shutdown defect observed in C0 under two valid cooperative-cleanup variants.",
+  "unsupported_claims": [
+    "C24 is superior to A.",
+    "C24 universally improves code quality or security.",
+    "The skill change caused the difference.",
+    "Two variants prove two independent defect families.",
+    "Original frozen72check grading was failing or should be rewritten."
+  ],
+  "verdict": "pass"
+}

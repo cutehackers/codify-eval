@@ -1,0 +1,183 @@
+[
+  {
+    "label": "offline_pub_get",
+    "argv": [
+      "flutter",
+      "pub",
+      "get",
+      "--offline"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 0.444,
+    "completed_test_events": 0,
+    "successful_test_events": 0,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "export_selection.dart": "a8264819279d12a4f2ae63ab5acb797377bf428ee39b99bd7e994e54e58abfaf",
+      "export_encoding.dart": "0cdaf4d49b5fbec50f4e46c42ae8a22d02543b4d05127d5dfe7f86257e5e4de7",
+      "export_service.dart": "5e970696c90fe36b978e0d9897142b1655453e8afba1e454030d49f7384d6ead"
+    }
+  },
+  {
+    "label": "starting_public",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 4.18,
+    "completed_test_events": 12,
+    "successful_test_events": 0,
+    "failed_test_events": 12,
+    "source_sha256": {
+      "export_selection.dart": "a8264819279d12a4f2ae63ab5acb797377bf428ee39b99bd7e994e54e58abfaf",
+      "export_encoding.dart": "0cdaf4d49b5fbec50f4e46c42ae8a22d02543b4d05127d5dfe7f86257e5e4de7",
+      "export_service.dart": "5e970696c90fe36b978e0d9897142b1655453e8afba1e454030d49f7384d6ead"
+    }
+  },
+  {
+    "label": "reference_analyze",
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 2.363,
+    "completed_test_events": 0,
+    "successful_test_events": 0,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+      "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+    }
+  },
+  {
+    "label": "reference_public",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 1.294,
+    "completed_test_events": 12,
+    "successful_test_events": 12,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+      "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+    }
+  },
+  {
+    "label": "reference_private",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/author_acceptance_test.dart"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 1.296,
+    "completed_test_events": 12,
+    "successful_test_events": 12,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+      "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+    }
+  },
+  {
+    "label": "negative_atomicity_stale_noop",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart",
+      "test/author_acceptance_test.dart"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 1.694,
+    "completed_test_events": 24,
+    "successful_test_events": 22,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+      "export_service.dart": "19e30d7d6d51850c0afa9512bb2cad455495fcad8f710608edc69296540a4eb7"
+    }
+  },
+  {
+    "label": "negative_compatibility_byte_length",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart",
+      "test/author_acceptance_test.dart"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 1.483,
+    "completed_test_events": 24,
+    "successful_test_events": 20,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "export_encoding.dart": "3ca476691b91f916ca99e81e8e8f5f20bdd49e918f10073f0cf0fb64ea95618f",
+      "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+    }
+  },
+  {
+    "label": "negative_reporting_reverse_order",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart",
+      "test/author_acceptance_test.dart"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 1.526,
+    "completed_test_events": 24,
+    "successful_test_events": 21,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "export_encoding.dart": "87359fc625d709668919d18bd8f9217d96a7ccf6850e3ac02d4a5ef06e246c43",
+      "export_service.dart": "d3a28088e38a3314b83721c58d21cb0754d56beaab21647a20b8745fd9878b82"
+    }
+  },
+  {
+    "label": "negative_security_permission_bypass",
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "--machine",
+      "test/contract_test.dart",
+      "test/author_acceptance_test.dart"
+    ],
+    "exit_status": 1,
+    "elapsed_seconds": 1.56,
+    "completed_test_events": 24,
+    "successful_test_events": 22,
+    "failed_test_events": 0,
+    "source_sha256": {
+      "export_selection.dart": "5b4b9b7c552bb71875df9f0e90bebbc00adb0289b4de73973e12b6f95f53d3cc",
+      "export_encoding.dart": "ebb4ca503f8e899f1a447bdd74070efd4e5917b032702b1b281de9de92d13865",
+      "export_service.dart": "94e1269beb29945397343e7d1fb00f655b65e24538e303a8c8b785c99687437e"
+    }
+  }
+]

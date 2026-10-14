@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "decision_domain": "offline recipe conflict ownership",
+  "owner_only": true,
+  "branch_assignment": "Qualification owner selects and records a branch before model allocation. No branch or answer mounted into model workspace.",
+  "semantic_question_admission": {
+    "must_address": [
+      "the consequential choice for divergent dirty local recipe and newer household recipe",
+      "who decides whether local edits survive or are replaced"
+    ],
+    "not_required": "Any exact question wording. Do not match a scripted string.",
+    "reject": [
+      "question only about implementation syntax",
+      "request to reveal oracle tests",
+      "assumption presented as a confirmed owner choice"
+    ]
+  },
+  "allowed_replies": [
+    {
+      "id": "retain-draft",
+      "reply_facts": {
+        "conflict_mode": "retain-draft",
+        "preserve_local_content": true,
+        "write_on_divergence": false,
+        "remote_upload_on_divergence": false,
+        "result_code": "conflict_retained"
+      },
+      "owner_response": "\uacf5\uc720\ubcf8\uacfc \ucda9\ub3cc\ud558\uba74 \uae30\uae30\uc5d0\uc11c \ubc14\uafbc \ub0b4\uc6a9\uc744 \uadf8\ub300\ub85c \ubcf4\uad00\ud574 \uc8fc\uc138\uc694. \uc790\ub3d9\uc73c\ub85c \ub36e\uc5b4\uc4f0\uc9c0 \ub9d0\uace0 conflict_retained\ub85c \uc54c\ub824 \uc8fc\uc138\uc694. \ub098\uc911\uc5d0 \uac00\uc871\uc774 \ub0b4\uc6a9\uc744 \ube44\uad50\ud560 \uc218 \uc788\uc5b4\uc57c \ud569\ub2c8\ub2e4.",
+      "reference_overlay": "reference/branches/retain-draft/lib/decision.dart",
+      "oracle_define": "OWNER_BRANCH=retain-draft"
+    },
+    {
+      "id": "adopt-cloud",
+      "reply_facts": {
+        "conflict_mode": "adopt-cloud",
+        "preserve_local_content": false,
+        "write_on_divergence": true,
+        "remote_upload_on_divergence": false,
+        "result_code": "conflict_replaced"
+      },
+      "owner_response": "\ucda9\ub3cc\ud558\uba74 \uacf5\uc720\ubcf8\uc744 \uacf5\uc2dd \uae30\uc900\uc73c\ub85c \uc0ac\uc6a9\ud558\uace0 \uae30\uae30 \ubcc0\uacbd\uc740 \ubc84\ub9ac\uc138\uc694. \uacf5\uc720\ubcf8\uc758 clean copy\ub97c \uae30\uae30\uc5d0 \uc800\uc7a5\ud55c \ub4a4 conflict_replaced\ub85c \uc54c\ub824 \uc8fc\uc138\uc694. \uc11c\ubc84\uc5d0 \uae30\uae30 \ubcc0\uacbd\uc744 \uc62c\ub9ac\uba74 \uc548 \ub429\ub2c8\ub2e4.",
+      "reference_overlay": "reference/branches/adopt-cloud/lib/decision.dart",
+      "oracle_define": "OWNER_BRANCH=adopt-cloud"
+    }
+  ],
+  "adapter_not_implemented": true,
+  "scoring_requires": "Transcript evidence of owner question, delivered assigned reply and behavior corresponding to same branch. No model run admitted until adapter handles branches and unknown questions without leaking."
+}

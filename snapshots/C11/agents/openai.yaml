@@ -1,0 +1,7 @@
+interface:
+  display_name: "Codify"
+  short_description: "Deliver verified code with risk-adaptive workflow"
+  default_prompt: "Use Codify for coding work. Keep one root agent responsible for scope, delegation, integration, and verification. Route independent work internally to the least expensive capable model, then return one integrated result to the customer. Choose the smallest safe workflow, implement it with evidence, and use durable contracts or review only when the change warrants them."
+
+policy:
+  allow_implicit_invocation: false

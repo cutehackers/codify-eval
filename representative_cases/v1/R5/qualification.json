@@ -1,0 +1,123 @@
+{
+  "case_id": "R5",
+  "qualified": true,
+  "editable_paths": [
+    "snapshot.py"
+  ],
+  "expected_private_tests": 15,
+  "public_smoke_tests": 1,
+  "qualification_runs": [
+    {
+      "target": "stub",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/stub.txt",
+      "summary": "FAILED (errors=34)"
+    },
+    {
+      "target": "reference",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/reference python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5",
+      "exit_code": 0,
+      "passed": true,
+      "expected_passed": true,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/reference.txt",
+      "summary": "OK"
+    },
+    {
+      "target": "ignore_conflict",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/ignore_conflict python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/ignore_conflict.txt",
+      "summary": "FAILED (failures=1)"
+    },
+    {
+      "target": "leave_staging",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/leave_staging python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/leave_staging.txt",
+      "summary": "FAILED (failures=1)"
+    },
+    {
+      "target": "permit_traversal",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/permit_traversal python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/permit_traversal.txt",
+      "summary": "FAILED (failures=11)"
+    },
+    {
+      "target": "skip_integrity",
+      "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/faulty/skip_integrity python3 -B -m unittest discover -s /Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/tests -p 'test_*.py'",
+      "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5",
+      "exit_code": 1,
+      "passed": false,
+      "expected_passed": false,
+      "tests_run": 15,
+      "output_file": "private/qualification_logs/skip_integrity.txt",
+      "summary": "FAILED (failures=3, errors=7)"
+    }
+  ],
+  "requirement_coverage": {
+    "exact nested binary files and SHA256 manifest": [
+      "test_nested_binary_manifest",
+      "test_empty_snapshot"
+    ],
+    "idempotency without replacement": [
+      "test_idempotent_without_replacement"
+    ],
+    "explicit conflict without overwrite": [
+      "test_conflict_preserves"
+    ],
+    "invalid paths IDs contents and collisions before mutation": [
+      "test_invalid_paths_create_nothing",
+      "test_invalid_ids_create_nothing",
+      "test_invalid_content_and_collision"
+    ],
+    "corruption detection without repair": [
+      "test_corrupt_bytes_not_repaired",
+      "test_missing_and_extra_files",
+      "test_malformed_manifest"
+    ],
+    "integrity and input-validation precedence": [
+      "test_integrity_before_conflict",
+      "test_invalid_input_before_integrity"
+    ],
+    "symlink rejection without target writes": [
+      "test_symlinks_rejected",
+      "test_root_and_destination_symlinks"
+    ],
+    "complete staging atomic promotion exception cleanup unrelated preservation and retry": [
+      "test_promotion_failure_cleanup_and_retry"
+    ]
+  },
+  "limits": [
+    "Standard-library local fixture only. No model runs, network, production, or external service verification.",
+    "Fault variants establish targeted discrimination, not exhaustive correctness.",
+    "No concurrent writers or crash/power-loss fsync guarantee. Question rubric is semantic policy evidence, not source style matching."
+  ],
+  "public_smoke_qualification": {
+    "command": "PYTHONPATH=/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/private/reference python3 -B -c 'import runpy, unittest; ns=runpy.run_path('\"'\"'/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5/public/test_smoke.py'\"'\"'); suite=unittest.defaultTestLoader.loadTestsFromTestCase(ns['\"'\"'Smoke'\"'\"']); result=unittest.TextTestRunner().run(suite); raise SystemExit(not result.wasSuccessful())'",
+    "cwd": "/Users/junhyounglee/workspace/codify-eval/representative_cases/v1/R5",
+    "exit_code": 0,
+    "passed": true,
+    "tests_run": 1,
+    "output_file": "private/qualification_logs/reference_public_smoke.txt"
+  }
+}
